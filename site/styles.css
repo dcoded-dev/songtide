@@ -1,0 +1,366 @@
+/* songtide.dcoded.dev: same structure as tagpass.dcoded.dev, in Songtide's colours (the icon's
+   deep purple and warm glow). Light and dark follow the system unless the toggle picks one. */
+:root {
+  --ink: #16121f;
+  --muted: #5f5a6b;
+  --line: #e6e2ec;
+  --bg: #faf9fc;
+  --panel: #ffffff;
+  --accent: #3b2466;
+  --glow: #f2843c;
+  --on-ink: #ffffff;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink: #f3f0f8;
+    --muted: #a39db0;
+    --line: #2b2638;
+    --bg: #0f0c16;
+    --panel: #18141f;
+    --accent: #6c4bb0;
+    --on-ink: #0f0c16;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ink: #f3f0f8;
+  --muted: #a39db0;
+  --line: #2b2638;
+  --bg: #0f0c16;
+  --panel: #18141f;
+  --accent: #6c4bb0;
+  --on-ink: #0f0c16;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+a { color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* Header */
+.nav {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 18px;
+  text-decoration: none;
+}
+.brand img { width: 34px; height: 34px; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 15px;
+}
+.nav-links > a { text-decoration: none; color: var(--muted); }
+.nav-links > a:hover { color: var(--ink); }
+.nav-links > a.button, .nav-links > a.button:hover { color: var(--on-ink); }
+.theme-toggle {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 4px;
+  display: inline-grid;
+  place-items: center;
+}
+.theme-toggle:hover { color: var(--ink); }
+
+/* Buttons */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--on-ink);
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.button:hover { opacity: 0.88; }
+.button-small { padding: 9px 16px; font-size: 14px; }
+.link-button { font-weight: 600; text-decoration: none; }
+
+/* Hero */
+.hero {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 48px 24px 40px;
+  text-align: center;
+}
+.hero-icon {
+  width: 112px;
+  height: 112px;
+  margin: 0 auto 24px;
+  filter: drop-shadow(0 18px 40px rgba(242, 132, 60, 0.28));
+}
+.eyebrow {
+  margin: 0 0 14px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+h1 {
+  margin: 0 auto;
+  max-width: 14em;
+  font-size: clamp(38px, 6vw, 64px);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+  font-weight: 750;
+}
+h1 em {
+  font-style: normal;
+  background: linear-gradient(90deg, var(--accent), var(--glow));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.lead {
+  margin: 20px auto 32px;
+  font-size: 19px;
+  color: var(--muted);
+  max-width: 36em;
+}
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.fineprint { font-size: 13px; color: var(--muted); margin: 0; }
+
+.shot {
+  max-width: 1120px;
+  margin: 24px auto 0;
+  padding: 0 24px;
+}
+/* Screenshots carry the window's own rounded corners (transparent outside them), so their shadows
+   follow the picture's shape (drop-shadow) instead of a CSS radius that wouldn't quite match. */
+.shot img { filter: drop-shadow(0 24px 48px rgba(20, 10, 40, 0.35)); }
+
+/* Sections */
+.section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 88px 24px 0;
+}
+h2 {
+  margin: 0 0 32px;
+  font-size: clamp(28px, 3.6vw, 38px);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.feature {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+}
+.feature h3 { margin: 14px 0 6px; font-size: 17px; }
+.feature p { margin: 0; color: var(--muted); font-size: 15px; }
+.feature-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 11px;
+  display: inline-grid;
+  place-items: center;
+  background: linear-gradient(135deg, var(--accent), #24163f);
+  color: #ffd2b0;
+}
+
+/* A carousel of big screenshots: slide with the arrows, the captions under it, or by dragging
+   (site.js). The viewport's padding leaves room for the drop shadows inside its clipping. */
+.showcase-frame { position: relative; }
+.showcase-viewport {
+  overflow: hidden;
+  padding: 24px 24px 72px;
+  margin: -24px -24px -72px;
+  touch-action: pan-y;
+  cursor: grab;
+  user-select: none; -webkit-user-select: none;
+}
+.showcase-viewport.dragging { cursor: grabbing; }
+.showcase-track {
+  display: flex;
+  gap: 48px;
+  transition: transform .5s cubic-bezier(.22, .8, .24, 1);
+}
+.showcase-track.dragging { transition: none; }
+.showcase-track img {
+  flex: 0 0 100%;
+  width: 100%;
+  pointer-events: none;
+  filter: drop-shadow(0 24px 48px rgba(20, 10, 40, 0.35));
+}
+.showcase-arrow {
+  position: absolute; top: 50%; z-index: 1;
+  width: 44px; height: 44px; margin-top: -22px; padding: 0;
+  display: grid; place-items: center;
+  border: 1px solid rgba(255, 255, 255, .16); border-radius: 50%;
+  background: rgba(18, 14, 26, .72); color: #fff;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+  cursor: pointer; transition: background .2s ease, transform .2s ease;
+}
+.showcase-arrow:hover { background: rgba(18, 14, 26, .9); transform: scale(1.06); }
+.showcase-arrow:focus-visible { outline: 2px solid var(--glow); outline-offset: 3px; }
+.showcase-arrow.prev { left: -22px; }
+.showcase-arrow.next { right: -22px; }
+@media (max-width: 860px) {
+  .showcase-arrow { width: 36px; height: 36px; margin-top: -18px; }
+  .showcase-arrow.prev { left: 8px; }
+  .showcase-arrow.next { right: 8px; }
+}
+.showcase-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+.showcase-tabs button {
+  font: inherit; text-align: left; cursor: pointer;
+  padding: 14px 0 0; border: 0; border-top: 2px solid var(--line); background: none;
+  color: var(--muted); font-size: 15px; line-height: 1.45;
+  transition: color .2s ease, border-color .2s ease;
+}
+.showcase-tabs button strong { display: block; color: var(--ink); font-size: 16px; margin-bottom: 2px; opacity: .7; transition: opacity .2s ease; }
+.showcase-tabs button:hover strong, .showcase-tabs button[aria-selected="true"] strong { opacity: 1; }
+.showcase-tabs button[aria-selected="true"] { border-top-color: var(--glow); }
+.showcase-tabs button:focus-visible { outline: 2px solid var(--glow); outline-offset: 4px; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) { .showcase-track { transition: none; } }
+
+/* The gallery's visualizer runs live over the screenshot's visual area (measured from the image). */
+.live-viz { position: relative; }
+.live-viz { filter: drop-shadow(0 20px 40px rgba(20, 10, 40, 0.35)); }
+/* Picture first on wide screens, so the two feature rows alternate sides. */
+.spotlight-flip { grid-template-columns: 1.3fr 1fr; }
+.spotlight-flip > :last-child { order: -1; }
+.live-viz canvas {
+  z-index: 1;
+  position: absolute;
+  left: 14.653%; top: 5.778%; width: 85.347%; height: 87.111%;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.live-viz canvas.on { opacity: 1; }
+
+/* Spotlight: text beside a picture */
+.spotlight {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+.spotlight p { color: var(--muted); font-size: 18px; margin: 0; }
+.spotlight > img {
+  width: 100%;
+  max-width: 460px;
+  justify-self: center;
+  filter: drop-shadow(0 20px 40px rgba(20, 10, 40, 0.35));
+}
+
+/* FAQ */
+.faq-section {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 48px;
+  align-items: start;
+}
+.faq-section > div > p { color: var(--muted); }
+.faq details {
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0;
+}
+.faq summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 600;
+  font-size: 17px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: "+"; color: var(--muted); font-weight: 400; font-size: 22px; line-height: 1; }
+.faq details[open] summary::after { content: "−"; }
+.faq details p { margin: 10px 0 0; color: var(--muted); }
+
+.closing {
+  max-width: 1120px;
+  margin: 96px auto 0;
+  padding: 56px 24px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+}
+.closing h2 { margin-bottom: 24px; }
+
+/* Text pages (privacy, support) */
+.page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 24px 0;
+}
+.page h1 { font-size: clamp(32px, 5vw, 44px); max-width: none; margin: 0 0 8px; }
+.page .updated { color: var(--muted); margin: 0 0 32px; }
+.page h2 { font-size: 22px; margin: 40px 0 12px; }
+.page p, .page li { color: var(--muted); }
+.page p strong, .page li strong { color: var(--ink); }
+
+/* Footer */
+.footer {
+  max-width: 1120px;
+  margin: 80px auto 0;
+  padding: 28px 24px 40px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: var(--muted);
+}
+.footer-links { display: flex; gap: 20px; flex-wrap: wrap; }
+.footer-links a { text-decoration: none; }
+.footer-links a:hover { color: var(--ink); }
+.disclaimer { width: 100%; font-size: 12px; margin: 0; }
+
+@media (max-width: 860px) {
+  .grid { grid-template-columns: 1fr 1fr; }
+  .faq-section, .spotlight, .spotlight-flip { grid-template-columns: 1fr; gap: 24px; }
+  .spotlight-flip > :last-child { order: 0; }
+}
+@media (max-width: 560px) {
+  .grid, .showcase-tabs { grid-template-columns: 1fr; }
+  .nav-links > a:not(.button) { display: none; }
+  .lead { font-size: 17px; }
+}

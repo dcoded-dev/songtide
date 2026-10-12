@@ -1,0 +1,12 @@
+# The update feed must never be cached, or new versions show up late.
+/appcast.xml
+  Cache-Control: no-cache
+  Content-Type: application/rss+xml; charset=utf-8
+
+# A released DMG never changes (each version has its own name).
+/releases/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Release notes are for the in-app updater, not search results.
+/releases/*.html
+  X-Robots-Tag: noindex

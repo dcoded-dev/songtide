@@ -1,0 +1,4 @@
+#!/bin/zsh
+# Debug builds only: evaluate JavaScript in the running app's YouTube Music page.
+# Output appears on the app's stderr as "[eval] …". Usage: scripts/ytm-eval 'document.title'
+swift -e 'import Foundation; DistributedNotificationCenter.default().postNotificationName(.init("dev.dcoded.songtide.eval"), object: CommandLine.arguments[1], deliverImmediately: true)' "$1"

@@ -1,0 +1,66 @@
+name: Songtide
+options:
+  bundleIdPrefix: dev.dcoded
+  deploymentTarget:
+    macOS: "15.0"
+  createIntermediateGroups: true
+packages:
+  # Updates for the directly distributed app (signed appcast on songtide.dcoded.dev).
+  Sparkle:
+    url: https://github.com/sparkle-project/Sparkle
+    from: "2.6.0"
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    MARKETING_VERSION: "1.1.20"
+    CURRENT_PROJECT_VERSION: "32"
+    # Signed with the team even for local builds, so the embedded Sparkle framework is re-signed to
+    # match (an ad-hoc app can't load a framework signed by another team).
+    DEVELOPMENT_TEAM: YQ9V6SFRL4
+    CODE_SIGN_STYLE: Automatic
+    CODE_SIGN_IDENTITY: "Apple Development"
+    ENABLE_HARDENED_RUNTIME: YES
+targets:
+  Songtide:
+    type: application
+    platform: macOS
+    sources:
+      - path: Songtide
+      - path: Shared
+    dependencies:
+      - package: Sparkle
+      - target: SongtideWidget
+    configFiles:
+      Debug: Config/Songtide.xcconfig
+      Release: Config/Songtide.xcconfig
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dev.dcoded.songtide
+        PRODUCT_NAME: Songtide
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: Songtide
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.music
+        INFOPLIST_KEY_NSHumanReadableCopyright: "© 2026 DCODED"
+        # Only standard HTTPS/TLS is used, so no export-compliance paperwork is needed.
+        INFOPLIST_KEY_ITSAppUsesNonExemptEncryption: NO
+        INFOPLIST_FILE: Songtide/Resources/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Songtide/Resources/Songtide.entitlements
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ENABLE_USER_SCRIPT_SANDBOXING: YES
+  # Now Playing widget and Control Center control (embedded in the app).
+  SongtideWidget:
+    type: app-extension
+    platform: macOS
+    sources:
+      - path: SongtideWidget
+      - path: Shared
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dev.dcoded.songtide.widget
+        PRODUCT_NAME: SongtideWidget
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_FILE: SongtideWidget/Info.plist
+        INFOPLIST_KEY_CFBundleDisplayName: Songtide
+        INFOPLIST_KEY_NSHumanReadableCopyright: "© 2026 DCODED"
+        CODE_SIGN_ENTITLEMENTS: SongtideWidget/SongtideWidget.entitlements
+        SKIP_INSTALL: YES

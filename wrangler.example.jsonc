@@ -1,0 +1,19 @@
+// songtide.dcoded.dev: the static site in site/ (download, appcast, privacy, support), served by a
+// Cloudflare Worker with static assets, which also keeps anonymous daily download and update counts. Deploy with `npx wrangler deploy` (release-direct.sh says when).
+{
+  "name": "songtide",
+  "account_id": "<your Cloudflare account id>",
+  "compatibility_date": "2026-10-01",
+  // The Worker only sees the requests it counts (and /stats); everything else is served straight
+  // from the static assets.
+  "main": "worker/index.js",
+  "assets": {
+    "directory": "./site",
+    "binding": "ASSETS",
+    "html_handling": "auto-trailing-slash",
+    "run_worker_first": ["/appcast.xml", "/releases/*", "/stats", "/installed"]
+  },
+  // Anonymous daily totals (see worker/index.js).
+  "d1_databases": [{ "binding": "STATS", "database_name": "songtide-stats", "database_id": "<your D1 database id>" }],
+  "routes": [{ "pattern": "<your domain>", "custom_domain": true }]
+}

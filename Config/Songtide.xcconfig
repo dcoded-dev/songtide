@@ -1,0 +1,5 @@
+// Build settings that aren't in project.yml: keys for optional services, kept out of the repo.
+// Without Secrets.xcconfig the app builds and runs; Last.fm is just unavailable.
+LASTFM_API_KEY =
+LASTFM_SECRET =
+#include? "Secrets.xcconfig"

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>com.apple.security.app-sandbox</key>
+	<true/>
+	<!-- Shared with the Now Playing widget (team-prefixed: no provisioning profile needed). -->
+	<key>com.apple.security.application-groups</key>
+	<array>
+		<string>YQ9V6SFRL4.dev.dcoded.songtide</string>
+	</array>
+	<!-- Discord's local connection is a socket in the user's real temporary folder
+	     (/private/var/folders/…/T/discord-ipc-N), outside this app's sandbox. -->
+	<key>com.apple.security.temporary-exception.files.absolute-path.read-write</key>
+	<array>
+		<string>/private/var/folders/</string>
+	</array>
+	<!-- Connecting to that socket counts as network access: allow exactly Discord's, nothing else. -->
+	<key>com.apple.security.temporary-exception.sbpl</key>
+	<array>
+		<string>(allow network-outbound (regex #"^/private/var/folders/[^/]+/[^/]+/T/discord-ipc-[0-9]$"))</string>
+	</array>
+	<key>com.apple.security.network.client</key>
+	<true/>
+	<key>com.apple.security.device.audio-input</key>
+	<true/>
+	<!-- Sparkle installs updates through its installer services; a sandboxed app must be allowed
+	     to reach them. -->
+	<key>com.apple.security.temporary-exception.mach-lookup.global-name</key>
+	<array>
+		<string>$(PRODUCT_BUNDLE_IDENTIFIER)-spks</string>
+		<string>$(PRODUCT_BUNDLE_IDENTIFIER)-spki</string>
+	</array>
+</dict>
+</plist>

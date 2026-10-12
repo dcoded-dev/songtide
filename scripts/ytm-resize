@@ -1,0 +1,3 @@
+#!/bin/zsh
+# Debug builds only: resize the running app's main window, e.g. scripts/ytm-resize 820 (width) or 1440x900
+swift -e 'import Foundation; DistributedNotificationCenter.default().postNotificationName(.init("dev.dcoded.songtide.resize"), object: CommandLine.arguments[1], deliverImmediately: true)' "$1"

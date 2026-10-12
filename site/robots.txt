@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /stats
+
+Sitemap: https://songtide.dcoded.dev/sitemap.xml

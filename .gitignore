@@ -1,0 +1,23 @@
+build/
+DerivedData/
+# Generated from project.yml by XcodeGen
+*.xcodeproj/
+.DS_Store
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
+
+# Keys for optional services (see Config/Secrets.example.xcconfig)
+Config/Secrets.xcconfig
+
+# Cloudflare account details for the site (see wrangler.example.jsonc)
+wrangler.jsonc
+
+# Installers and update files are built by scripts/release-direct.sh and served from the site
+site/releases/*.dmg
+site/releases/*.delta
+site/releases/old_updates/

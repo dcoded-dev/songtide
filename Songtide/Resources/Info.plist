@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSAudioCaptureUsageDescription</key>
+	<string>Songtide captures only its own playback to power the equalizer and visualizer. Nothing is recorded or saved, and other apps aren't affected.</string>
+	<!-- Updates (Sparkle): a feed signed with DCODED's key, checked daily. -->
+	<key>SUFeedURL</key>
+	<string>https://songtide.dcoded.dev/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>PaWikUQH+h7Bu8QUNbo6xq6RGDiF+IXSj6CCL+SS8gA=</string>
+	<key>SUEnableAutomaticChecks</key>
+	<true/>
+	<key>SUScheduledCheckInterval</key>
+	<integer>86400</integer>
+	<!-- Updates download quietly and install when Songtide quits (no prompt). -->
+	<key>SUAutomaticallyUpdate</key>
+	<true/>
+	<!-- Sandboxed: install through Sparkle's installer service. -->
+	<key>SUEnableInstallerLauncherService</key>
+	<true/>
+	<!-- Last.fm API account, from Config/Secrets.xcconfig (empty in builds without it). -->
+	<key>LastFMAPIKey</key>
+	<string>$(LASTFM_API_KEY)</string>
+	<key>LastFMSecret</key>
+	<string>$(LASTFM_SECRET)</string>
+</dict>
+</plist>
