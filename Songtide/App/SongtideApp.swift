@@ -79,6 +79,10 @@ struct PlaybackCommands: Commands {
         CommandGroup(replacing: .help) {
             Button("Songtide Support") { NSWorkspace.shared.open(AppInfo.websiteURL.appending(path: "support/")) }
         }
+        CommandGroup(after: .newItem) {
+            Button("Open Copied Link") { music.openCopiedLink() }
+                .keyboardShortcut("o", modifiers: [.command, .shift])
+        }
         CommandGroup(after: .textEditing) {
             Button("Search") { focusSearch?() }
                 .keyboardShortcut("f")
@@ -110,6 +114,12 @@ struct PlaybackCommands: Commands {
             Button("Dislike") { music.dislike() }
                 .keyboardShortcut("l", modifiers: [.command, .option, .shift])
                 .disabled(!music.state.hasTrack)
+            Button("Copy Song Link") { music.copySongLink() }
+                .keyboardShortcut("c", modifiers: [.command, .shift])
+                .disabled(music.songLink == nil)
+            if let link = music.songLink {
+                ShareLink("Share Song…", item: link, message: Text(music.state.artist.isEmpty ? music.state.title : "\(music.state.title) by \(music.state.artist)"))
+            }
             Divider()
             Button("Shuffle") { music.shuffle() }
                 .keyboardShortcut("s", modifiers: [.command, .option])

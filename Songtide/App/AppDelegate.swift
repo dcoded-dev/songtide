@@ -9,6 +9,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     /// Only one Songtide at a time (say, one opened from the DMG and one from Applications): a
     /// second copy hands over to the one already running, which opens its window, and quits.
     func applicationWillFinishLaunching(_ notification: Notification) {
+        // songtide:// links (and web links other apps hand over) come in as Apple events.
+        NSAppleEventManager.shared().setEventHandler(self, andSelector: #selector(handleURL(_:reply:)),
+                                                     forEventClass: AEEventClass(kInternetEventClass), andEventID: AEEventID(kAEGetURL))
         guard !MusicController.isGuestSession, let id = Bundle.main.bundleIdentifier,
               let running = NSRunningApplication.runningApplications(withBundleIdentifier: id)
                 .first(where: { $0 != .current && !$0.isTerminated }),
@@ -26,6 +29,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     private var handingOff = false
+
+    @objc private func handleURL(_ event: NSAppleEventDescriptor, reply: NSAppleEventDescriptor) {
+        guard let text = event.paramDescriptor(forKeyword: keyDirectObject)?.stringValue, let url = URL(string: text),
+              music.open(link: url) else { return }
+        StatusBarController.shared.openMainWindow?()
+        NSApp.activate()
+    }
 
     func applicationDidFinishLaunching(_ notification: Notification) {
         guard !handingOff else { return } // quitting in favour of the copy already running

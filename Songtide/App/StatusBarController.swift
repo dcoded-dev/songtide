@@ -119,6 +119,7 @@ final class StatusBarController: NSObject {
         menu.addItem(item("Previous", symbol: "backward.end.fill", enabled: state.hasTrack) { music.previous() })
         menu.addItem(.separator())
         menu.addItem(item(state.like == .like ? "Liked" : "Like", symbol: state.like == .like ? "hand.thumbsup.fill" : "hand.thumbsup", enabled: state.hasTrack) { music.like() })
+        menu.addItem(item("Copy Song Link", symbol: "link", enabled: music.songLink != nil) { music.copySongLink() })
         menu.addItem(sleepTimerItem(hasTrack: state.hasTrack))
         menu.addItem(.separator())
         menu.addItem(item("Open Songtide", symbol: "macwindow") { [weak self] in self?.showApp() })

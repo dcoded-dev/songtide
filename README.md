@@ -16,7 +16,7 @@ Songtide is an independent app. It is not affiliated with, endorsed by or sponso
 - Synced lyrics in a floating window, from [LRCLIB](https://lrclib.net)
 - A menu bar mini player, a desktop widget and a Control Center control
 - Media keys and Now Playing, track notifications, an audio output picker and a sleep timer
-- Shortcuts and Siri actions
+- Shortcuts and Siri actions, AppleScript, and `songtide://` links
 - Last.fm scrobbling and Discord status (both optional and off by default)
 - Automatic updates
 
@@ -25,6 +25,34 @@ Requires macOS 15 or later. You sign in with your own Google account inside the 
 | Visualizer | Equalizer |
 | --- | --- |
 | ![The visualizer filling the window](site/screens/visualizer-still.webp) | ![Equalizer settings](site/screens/equalizer.webp) |
+
+## Links and scripting
+
+Songtide opens its own links, so launchers and scripts can start music:
+
+```
+songtide://play?v=VIDEO_ID
+songtide://playlist?list=PLAYLIST_ID
+songtide://search?q=daft+punk
+```
+
+File › Open Copied Link plays a YouTube or YouTube Music link from the clipboard, and Controls › Copy Song Link and Share Song… give you the link to what's playing.
+
+AppleScript (for Raycast, Alfred and the like):
+
+```applescript
+tell application "Songtide"
+    playpause
+    next track
+    open link "https://music.youtube.com/watch?v=VIDEO_ID"
+    search "daft punk"
+    get {track name, track artist, track link, playing}
+    set sound volume to 40
+    set player position to 60
+end tell
+```
+
+Commands: `playpause`, `play`, `pause`, `next track`, `previous track`, `like`, `open link`, `search`. Properties: `playing`, `track name`, `track artist`, `track album`, `track link`, `track duration`, `player position`, `sound volume`.
 
 ## How it works
 

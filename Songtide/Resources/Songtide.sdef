@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dictionary SYSTEM "file://localhost/System/Library/DTDs/sdef.dtd">
+<!-- AppleScript for Songtide: playback commands and what's playing, for scripts and launchers
+     such as Raycast and Alfred. Handled in Songtide/App/Scripting.swift.
+
+         tell application "Songtide" to playpause
+         tell application "Songtide" to get track name
+         tell application "Songtide" to set sound volume to 40
+-->
+<dictionary title="Songtide Terminology">
+	<suite name="Songtide Suite" code="Stde" description="Control playback and read what's playing.">
+		<command name="playpause" code="StdePlPs" description="Play if paused, pause if playing.">
+			<cocoa class="SongtideScriptCommand"/>
+		</command>
+		<command name="play" code="StdePlay" description="Resume playing.">
+			<cocoa class="SongtideScriptCommand"/>
+		</command>
+		<command name="pause" code="StdePaus" description="Pause.">
+			<cocoa class="SongtideScriptCommand"/>
+		</command>
+		<command name="next track" code="StdeNext" description="Skip to the next song.">
+			<cocoa class="SongtideScriptCommand"/>
+		</command>
+		<command name="previous track" code="StdePrev" description="Go back to the previous song.">
+			<cocoa class="SongtideScriptCommand"/>
+		</command>
+		<command name="like" code="StdeLike" description="Like the song that's playing.">
+			<cocoa class="SongtideScriptCommand"/>
+		</command>
+		<command name="open link" code="StdeOpen" description="Play a YouTube Music, YouTube or songtide:// link.">
+			<cocoa class="SongtideScriptCommand"/>
+			<direct-parameter type="text" description="The link."/>
+		</command>
+		<command name="search" code="StdeSrch" description="Search YouTube Music.">
+			<cocoa class="SongtideScriptCommand"/>
+			<direct-parameter type="text" description="What to search for."/>
+		</command>
+
+		<class name="application" code="capp" description="Songtide.">
+			<cocoa class="NSApplication"/>
+			<property name="playing" code="Plyg" type="boolean" access="r" description="Whether a song is playing.">
+				<cocoa key="scriptPlaying"/>
+			</property>
+			<property name="track name" code="TNam" type="text" access="r" description="The title of the song that's playing (empty if none).">
+				<cocoa key="scriptTrackName"/>
+			</property>
+			<property name="track artist" code="TArt" type="text" access="r" description="Its artist.">
+				<cocoa key="scriptTrackArtist"/>
+			</property>
+			<property name="track album" code="TAlb" type="text" access="r" description="Its album.">
+				<cocoa key="scriptTrackAlbum"/>
+			</property>
+			<property name="track link" code="TLnk" type="text" access="r" description="A YouTube Music link to the song.">
+				<cocoa key="scriptTrackLink"/>
+			</property>
+			<property name="track duration" code="TDur" type="real" access="r" description="The song's length, in seconds.">
+				<cocoa key="scriptTrackDuration"/>
+			</property>
+			<property name="player position" code="PPos" type="real" description="How far into the song playback is, in seconds.">
+				<cocoa key="scriptPlayerPosition"/>
+			</property>
+			<property name="sound volume" code="SVol" type="integer" description="The volume, from 0 to 100.">
+				<cocoa key="scriptSoundVolume"/>
+			</property>
+		</class>
+	</suite>
+</dictionary>
