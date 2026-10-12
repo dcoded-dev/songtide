@@ -1,6 +1,6 @@
-# Songtide
+# Songtide: a native YouTube Music app for Mac
 
-A native Mac app for YouTube Music. Free, signed and notarized by Apple.
+Songtide is a free, open-source YouTube Music desktop app for macOS, built with SwiftUI. It adds an equalizer, a visualizer, synced lyrics, a menu bar mini player and a widget to YouTube Music, and is signed and notarized by Apple.
 
 **Download:** [songtide.dcoded.dev](https://songtide.dcoded.dev) · or `brew install --cask dcoded-dev/tap/songtide`
 
