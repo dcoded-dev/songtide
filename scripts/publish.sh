@@ -48,6 +48,6 @@ PY
 gh release create "v$VERSION" "$DMG" --repo dcoded-dev/songtide --target main --title "Songtide $VERSION" \
   --notes "$BODY
 
-Download above, from [songtide.dcoded.dev]($SITE), or with \`brew install --cask dcoded-dev/tap/songtide\`. Songtide updates itself once installed."
+Download the .dmg below, from [songtide.dcoded.dev]($SITE), or with \`brew install --cask dcoded-dev/tap/songtide\`. Songtide updates itself once installed."
 
 echo "✓ Songtide $VERSION is published."
