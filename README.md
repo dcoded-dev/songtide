@@ -24,7 +24,7 @@ Requires macOS 15 or later. You sign in with your own Google account inside the 
 
 | Visualizer | Equalizer |
 | --- | --- |
-| ![The visualizer filling the window](site/screens/visualizer.webp) | ![Equalizer settings](site/screens/equalizer.webp) |
+| ![The visualizer filling the window](site/screens/visualizer-still.webp) | ![Equalizer settings](site/screens/equalizer.webp) |
 
 ## How it works
 
