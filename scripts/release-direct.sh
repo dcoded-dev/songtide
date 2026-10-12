@@ -88,14 +88,18 @@ echo "▸ Updating the appcast…"
 # The site's Download button always points at the newest DMG.
 print -r -- "/download /releases/$DMG_NAME 302" > "$SITE/_redirects"
 
+# The home page says which version the Download button gets.
+sed -i '' -E "s|(<span class=\"version\">)[^<]*(</span>)|\\1Version $VERSION · $(date '+%-d %B %Y')\\2|" "$SITE/index.html"
+
 # The Homebrew cask (github.com/dcoded-dev/homebrew-tap, cloned next to this repo) points at the
-# new DMG. Committed here; push it after deploying the site, or brew gets a 404 for the download.
+# new DMG. Committed here; scripts/publish.sh pushes it once the site is live (before that, brew
+# would get a 404 for the download).
 TAP=${SONGTIDE_TAP:-../homebrew-tap}
 if [[ -f $TAP/Casks/songtide.rb ]]; then
   SHA=$(shasum -a 256 "$RELEASES/$DMG_NAME" | cut -d' ' -f1)
   sed -i '' -e "s/^  version \".*\"/  version \"$VERSION\"/" -e "s/^  sha256 \".*\"/  sha256 \"$SHA\"/" "$TAP/Casks/songtide.rb"
-  git -C "$TAP" commit -qam "Songtide $VERSION" && echo "▸ Homebrew cask updated to $VERSION (push it after deploying: git -C $TAP push)"
+  git -C "$TAP" commit -qam "Songtide $VERSION" && echo "▸ Homebrew cask updated to $VERSION"
 fi
 
-echo "✓ $RELEASES/$DMG_NAME and $SITE/appcast.xml are ready. Deploy the site to publish:"
-echo "  npx wrangler deploy"
+echo "✓ $RELEASES/$DMG_NAME and $SITE/appcast.xml are ready. Commit, merge to main, then publish:"
+echo "  scripts/publish.sh"
