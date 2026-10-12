@@ -27,11 +27,11 @@ for attempt in {1..60}; do
   (( attempt == 60 )) && { echo "The live update feed still doesn't list $VERSION."; exit 1; }
   sleep 5
 done
-LIVE=$(mktemp -t songtide-live).dmg
+LIVE=$(mktemp -d -t songtide-live)/Songtide.dmg
 curl -fsL -A curl -o "$LIVE" "$SITE/releases/Songtide-$VERSION.dmg"
 cmp -s "$LIVE" "$DMG" || { echo "The live download differs from $DMG."; exit 1; }
 spctl --assess --type open --context context:primary-signature -vv "$LIVE" 2>&1 | head -2
-rm -f "$LIVE"
+rm -rf "$(dirname "$LIVE")"
 
 echo "▸ Pushing main, the Homebrew cask and the GitHub release…"
 git push -q origin main
