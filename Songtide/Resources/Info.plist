@@ -19,6 +19,23 @@
 	<!-- Sandboxed: install through Sparkle's installer service. -->
 	<key>SUEnableInstallerLauncherService</key>
 	<true/>
+	<!-- songtide://play?v=…, songtide://playlist?list=…, songtide://search?q=… -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>dev.dcoded.songtide.link</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>songtide</string>
+			</array>
+		</dict>
+	</array>
+	<!-- AppleScript: see Songtide.sdef -->
+	<key>NSAppleScriptEnabled</key>
+	<true/>
+	<key>OSAScriptingDefinition</key>
+	<string>Songtide.sdef</string>
 	<!-- Last.fm API account, from Config/Secrets.xcconfig (empty in builds without it). -->
 	<key>LastFMAPIKey</key>
 	<string>$(LASTFM_API_KEY)</string>

@@ -280,6 +280,35 @@ final class MusicController: NSObject {
         }
     }
 
+    /// Opens a songtide:// link or a YouTube / YouTube Music web link; false if it isn't one.
+    @discardableResult
+    func open(link: URL) -> Bool {
+        guard let destination = SongtideLink.destination(for: link) else { return false }
+        showPageBesideVisualizer()
+        switch destination {
+        case .page(let url): webView.load(URLRequest(url: url))
+        case .search(let query): search(query)
+        }
+        return true
+    }
+
+    /// The link to the song that's playing, for sharing.
+    var songLink: URL? { state.hasTrack ? SongtideLink.songURL(videoId: state.videoId) : nil }
+
+    /// Puts the song's link on the clipboard.
+    func copySongLink() {
+        guard let songLink else { return }
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(songLink.absoluteString, forType: .string)
+    }
+
+    /// Opens the link on the clipboard, if it's one Songtide plays (a beep otherwise).
+    func openCopiedLink() {
+        let text = NSPasteboard.general.string(forType: .string)?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        if let url = URL(string: text), open(link: url) { return }
+        NSSound.beep()
+    }
+
     /// Switches the active YouTube Music channel; the page reloads as that channel.
     func switchChannel(_ channel: ChannelAccount) {
         guard !channel.selected else { return }
