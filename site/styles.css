@@ -364,3 +364,12 @@ h2 {
   .nav-links > a:not(.button) { display: none; }
   .lead { font-size: 17px; }
 }
+
+.fineprint code {
+  font: 0.92em ui-monospace, SFMono-Regular, Menlo, monospace;
+  padding: 2px 6px;
+  border-radius: 5px;
+  background: color-mix(in srgb, currentColor 10%, transparent);
+  user-select: all;
+}
+.fineprint a { color: inherit; }
