@@ -181,11 +181,19 @@
       volume: p?.getVolume?.() ?? 100,
       muted: p?.isMuted?.() ?? false,
       like: $('ytmusic-like-button-renderer', b || document)?.getAttribute('like-status') || 'INDIFFERENT',
-      repeat: /one/i.test(repeatLabel) ? 'one' : /all/i.test(repeatLabel) ? 'all' : 'off',
+      // The player bar's repeat-mode (NONE / ALL / ONE) is the same in every language; the
+      // button's label is the fallback.
+      repeat: repeatMode(b, repeatLabel),
       shuffle: !!b?.hasAttribute('shuffle-on'),
       playerPageOpen: !!$('ytmusic-app-layout')?.hasAttribute('player-page-open'),
     };
   }
+
+  const repeatMode = (bar, label) => {
+    const mode = bar?.getAttribute('repeat-mode');
+    if (mode) return mode === 'ONE' ? 'one' : mode === 'ALL' ? 'all' : 'off';
+    return /one/i.test(label) ? 'one' : /all/i.test(label) ? 'all' : 'off';
+  };
 
   // The account menu (opened invisibly) holds the profile header and, one page in, the list of
   // channels the user can switch between. Nothing here is visible to the user.
@@ -357,9 +365,7 @@
 
   // The mini player shows only when asked for (its button), until it's closed or expanded again.
   document.addEventListener('click', (e) => {
-    const button = e.target.closest?.('button, tp-yt-paper-icon-button, yt-icon-button');
-    const name = button && (button.getAttribute('aria-label') || button.title || '');
-    if (/mini ?player/i.test(name || '')) {
+    if (e.target.closest?.('.player-minimize-button')) {
       document.documentElement.classList.add('ytm-miniplayer');
       miniPlayerAsked = Date.now();
     }
@@ -372,8 +378,7 @@
     resizedAt = Date.now();
     setTimeout(syncMiniPlayer, 400);
   });
-  const miniPlayerButton = () => [...document.querySelectorAll('ytmusic-player button, ytmusic-player tp-yt-paper-icon-button, ytmusic-player yt-icon-button')]
-    .find((b) => /mini ?player/i.test(b.getAttribute('aria-label') || b.title || ''));
+  const miniPlayerButton = () => $('ytmusic-player .player-minimize-button button') || $('ytmusic-player .player-minimize-button');
   // At 615px and narrower YouTube uses its phone layout, which has no mini player: keep the wish
   // until the page is wide enough again.
   const miniPlayerFits = () => innerWidth > 615;
@@ -447,9 +452,13 @@
       const icon = (d.isToggled ? d.toggledIcon : (d.icon || d.defaultIcon))?.iconType || '';
       const title = runsText(d.isToggled ? d.toggledText : (d.text || d.defaultText))
         || el.textContent.replace(/\s+/g, ' ').trim();
-      return { el, icon, title };
+      return { el, icon, title, checked: isStatsItem(icon) && statsOpen() };
     })
     .filter((item) => item.title);
+  // "Stats for nerds" turns a panel on and off: its menu item gets a checkmark while it's showing.
+  const isStatsItem = (icon) => /^INSERT_CHART/.test(icon);
+  const statsOpen = () => [...document.querySelectorAll('ytmusic-nerd-stats, #movie_player .html5-video-info-panel')]
+    .some((panel) => panel.offsetWidth > 0 && getComputedStyle(panel).display !== 'none');
 
   const checkMenus = () => {
     const dropdown = [...document.querySelectorAll('ytmusic-popup-container tp-yt-iron-dropdown')]
@@ -459,7 +468,7 @@
     const items = menuItems(dropdown.querySelector('ytmusic-menu-popup-renderer'));
     if (!items.length) return; // not populated yet; the next mutation will retry
     menu = shown = { dropdown, items, interaction };
-    post('menu', { x: pointer.x, y: pointer.y, viewportHeight: window.innerHeight, items: items.map(({ title, icon }) => ({ title, icon })) });
+    post('menu', { x: pointer.x, y: pointer.y, viewportHeight: window.innerHeight, items: items.map(({ title, icon, checked }) => ({ title, icon, checked })) });
   };
   // Debounced so the reused popup has swapped in the new menu's items before they're read. Only the
   // popup container is watched: the rest of the page mutates constantly (e.g. the progress bar).
@@ -619,7 +628,8 @@
     switchChannel: (index, name) => switchChannel(index, name),
     refreshChannels: () => { profileAttempt = 0; profile = null; },
     newPlaylist: () => {
-      const button = [...document.querySelectorAll('#guide yt-button-renderer')].find((b) => /new playlist/i.test(b.textContent));
+      const button = [...document.querySelectorAll('#guide yt-button-renderer')]
+        .find((b) => (b.data || b.__data?.data)?.icon?.iconType === 'ADD') || [...document.querySelectorAll('#guide yt-button-renderer')].find((b) => /new playlist/i.test(b.textContent));
       ($('button', button) || button)?.click();
     },
     openTrackMenu: () => click('ytmusic-player-bar ytmusic-menu-renderer yt-button-shape button') || click('ytmusic-player-bar ytmusic-menu-renderer button'),

@@ -21,10 +21,10 @@ final class SleepTimer {
     /// "15 Minutes", "1 Hour", "1½ Hours"
     static func title(minutes: Int) -> String {
         switch minutes {
-        case 60: "1 Hour"
-        case 90: "1½ Hours"
-        case let m where m % 60 == 0: "\(m / 60) Hours"
-        default: "\(minutes) Minutes"
+        case 60: String(localized: "1 Hour")
+        case 90: String(localized: "1½ Hours")
+        case let m where m % 60 == 0: String(localized: "\(m / 60) Hours")
+        default: String(localized: "\(minutes) Minutes")
         }
     }
     private let fadeSeconds: TimeInterval = 10
@@ -59,11 +59,11 @@ final class SleepTimer {
     /// "23 min left", "1:05 left", or "End of song".
     var label: String {
         switch mode {
-        case .off: return "Off"
-        case .endOfTrack: return "End of song"
+        case .off: return String(localized: "Off", comment: "Sleep timer is off")
+        case .endOfTrack: return String(localized: "End of song", comment: "Sleep timer stops at the end of the current song")
         case .at:
             let seconds = Int(remaining.rounded(.up))
-            return seconds >= 60 ? "\(Int((remaining / 60).rounded(.up))) min left" : "0:\(String(format: "%02d", seconds)) left"
+            return seconds >= 60 ? String(localized: "\(Int((remaining / 60).rounded(.up))) min left") : String(localized: "0:\(String(format: "%02d", seconds)) left")
         }
     }
 

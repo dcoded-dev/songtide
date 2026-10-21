@@ -7,6 +7,7 @@ struct WebMenuRequest: Decodable {
     struct Item: Decodable {
         var title: String
         var icon: String
+        var checked: Bool? = nil
     }
     var x: Double
     var y: Double
@@ -34,7 +35,7 @@ enum WebTheme {
         var accent = "#0a84ff", background = "#1e1e1e", raised = "#2d2d2d"
         // The app is always dark, so resolve dynamic colors against the dark appearance.
         NSAppearance(named: .darkAqua)?.performAsCurrentDrawingAppearance {
-            accent = hex(.controlAccentColor)
+            accent = hex(Accent.current.nsColor)
             background = hex(.windowBackgroundColor)
             raised = hex(.underPageBackgroundColor)
         }
@@ -67,6 +68,7 @@ enum NativeMenu {
             let menuItem = NSMenuItem(title: item.title, action: #selector(Handler.choose(_:)), keyEquivalent: "")
             menuItem.target = handler
             menuItem.tag = index
+            if item.checked == true { menuItem.state = .on }
             menuItem.image = symbol(for: item.icon).flatMap { NSImage(systemSymbolName: $0, accessibilityDescription: nil) }
             menu.addItem(menuItem)
         }
@@ -151,8 +153,12 @@ enum NativeMenu {
 @MainActor
 enum NativeShare {
     static func present(_ request: WebShareRequest, in view: NSView) {
-        guard let url = URL(string: request.url) else { return }
-        let point = NativeMenu.pagePoint(x: request.x, y: request.y, viewportHeight: request.viewportHeight, in: view)
+        present(request.url, at: NativeMenu.pagePoint(x: request.x, y: request.y, viewportHeight: request.viewportHeight, in: view), in: view)
+    }
+
+    /// The share menu at a point in `view` (it opens on whichever side has room).
+    static func present(_ link: String, at point: NSPoint, in view: NSView) {
+        guard let url = URL(string: link) else { return }
         let picker = NSSharingServicePicker(items: [url])
         picker.show(relativeTo: NSRect(origin: point, size: NSSize(width: 1, height: 1)), of: view, preferredEdge: .minY)
     }

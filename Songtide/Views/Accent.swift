@@ -1,0 +1,154 @@
+import AppKit
+import SwiftUI
+
+/// Songtide's accent color: the Mac's own (the default), or one picked for Songtide alone.
+/// It tints the app's controls and replaces YouTube red on the page.
+enum Accent: String, CaseIterable, Identifiable {
+    case system, blue, purple, pink, red, orange, yellow, green, graphite
+
+    static let key = "accentColor"
+
+    var id: String { rawValue }
+
+    var name: String {
+        switch self {
+        case .system: String(localized: "System", comment: "Accent color: the Mac's own")
+        case .blue: String(localized: "Blue")
+        case .purple: String(localized: "Purple")
+        case .pink: String(localized: "Pink")
+        case .red: String(localized: "Red")
+        case .orange: String(localized: "Orange")
+        case .yellow: String(localized: "Yellow")
+        case .green: String(localized: "Green")
+        case .graphite: String(localized: "Graphite")
+        }
+    }
+
+    /// The color: macOS's own accent colors (as System Settings › Appearance gives them, measured
+    /// for the always-dark app), which aren't quite its named system colors.
+    var nsColor: NSColor {
+        func rgb(_ hex: Int) -> NSColor {
+            NSColor(srgbRed: CGFloat(hex >> 16 & 0xff) / 255, green: CGFloat(hex >> 8 & 0xff) / 255, blue: CGFloat(hex & 0xff) / 255, alpha: 1)
+        }
+        return switch self {
+        case .system: .controlAccentColor
+        case .blue: rgb(0x007AFF)
+        case .purple: rgb(0xA550A7)
+        case .pink: rgb(0xF74F9E)
+        case .red: rgb(0xFF5257)
+        case .orange: rgb(0xF7821B)
+        case .yellow: rgb(0xFFC600)
+        case .green: rgb(0x62BA46)
+        case .graphite: rgb(0x989898)
+        }
+    }
+
+    var color: Color { Color(nsColor: nsColor) }
+
+    static var current: Accent {
+        UserDefaults.standard.string(forKey: key).flatMap(Accent.init) ?? .system
+    }
+}
+
+/// The chosen accent color, shared by every window, so all of them change the moment it's picked.
+@MainActor @Observable
+final class AccentStore {
+    static let shared = AccentStore()
+
+    var accent: Accent = .current {
+        didSet {
+            guard accent != oldValue else { return }
+            UserDefaults.standard.set(accent.rawValue, forKey: Accent.key)
+        }
+    }
+
+    private init() {
+        // Settings reset clears the key: back to System.
+        NotificationCenter.default.addObserver(forName: UserDefaults.didChangeNotification, object: nil, queue: .main) { _ in
+            MainActor.assumeIsolated {
+                let store = AccentStore.shared
+                if store.accent != .current { store.accent = .current }
+            }
+        }
+    }
+}
+
+extension Color {
+    /// Songtide's accent color, for controls that are on and the current selection. Views that
+    /// use it redraw when it changes.
+    @MainActor static var songtide: Color { AccentStore.shared.accent.color }
+}
+
+extension View {
+    /// Tints the view's controls (switches, pop-up menus) with the chosen accent color. Only for
+    /// Settings: anywhere with plain icon buttons it would color all of them, on or not.
+    func songtideAccent() -> some View { modifier(AccentTint()) }
+}
+
+private struct AccentTint: ViewModifier {
+    private var store = AccentStore.shared
+
+    func body(content: Content) -> some View {
+        content.tint(store.accent.color)
+    }
+}
+
+/// The color swatches in Settings, as in System Settings › Appearance: the name of the chosen
+/// one underneath it. The choice is saved, and everything follows it, as soon as it's clicked.
+struct AccentPicker: View {
+    private var store = AccentStore.shared
+
+    var body: some View {
+        LabeledContent("Accent color") {
+            HStack(alignment: .top, spacing: 10) {
+                ForEach(Accent.allCases) { choice in
+                    Swatch(choice: choice, selected: store.accent == choice) { store.accent = choice }
+                }
+            }
+            .padding(.vertical, 4)
+        }
+    }
+
+    private struct Swatch: View {
+        let choice: Accent
+        let selected: Bool
+        let pick: () -> Void
+        @State private var hovering = false
+
+        var body: some View {
+            Button(action: pick) {
+                VStack(spacing: 5) {
+                    Circle()
+                        .fill(fill)
+                        .frame(width: 22, height: 22)
+                        .overlay(Circle().strokeBorder(.white.opacity(0.12), lineWidth: 0.5))
+                        .padding(3)
+                        .overlay {
+                            if selected { Circle().strokeBorder(choice == .system ? Color.secondary : choice.color, lineWidth: 2) }
+                        }
+                        .scaleEffect(hovering && !selected ? 1.08 : 1)
+                    // Every swatch keeps the space, so the row doesn't jump.
+                    Text(choice.name)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .fixedSize()
+                        .opacity(selected ? 1 : 0)
+                        .frame(width: 28)
+                }
+                .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .onHover { hovering = $0 }
+            .animation(.easeOut(duration: 0.12), value: hovering)
+            .help(choice.name)
+            .accessibilityLabel(choice.name)
+            .accessibilityAddTraits(selected ? .isSelected : [])
+        }
+
+        /// System (the Mac's own color) shows as a multicolor swatch, as in System Settings.
+        private var fill: AnyShapeStyle {
+            guard choice == .system else { return AnyShapeStyle(choice.color) }
+            return AnyShapeStyle(AngularGradient(colors: [.red, .orange, .yellow, .green, .blue, .purple, .pink, .red], center: .center))
+        }
+    }
+}

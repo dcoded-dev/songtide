@@ -13,7 +13,7 @@ struct NowPlayingEntry: TimelineEntry {
 
 struct NowPlayingProvider: TimelineProvider {
     func placeholder(in context: Context) -> NowPlayingEntry {
-        NowPlayingEntry(date: .now, snapshot: NowPlayingSnapshot(title: "Song Title", artist: "Artist", isPlaying: true), artwork: nil)
+        NowPlayingEntry(date: .now, snapshot: NowPlayingSnapshot(title: String(localized: "Song Title"), artist: String(localized: "Artist"), isPlaying: true), artwork: nil)
     }
 
     func getSnapshot(in context: Context, completion: @escaping (NowPlayingEntry) -> Void) { completion(current()) }
@@ -76,7 +76,7 @@ struct NowPlayingWidgetView: View {
         .foregroundStyle(.white)
     }
 
-    /// Square artwork, cropped to fill (video thumbnails are 16:9). Kept in full colour when the
+    /// Square artwork, cropped to fill (video thumbnails are 16:9). Kept in full color when the
     /// desktop shows widgets tinted, which would otherwise paint it a solid block.
     private func artwork(size: CGFloat) -> some View {
         Group {

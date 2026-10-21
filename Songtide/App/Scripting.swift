@@ -20,13 +20,13 @@ final class SongtideScriptCommand: NSScriptCommand {
             case "previous track": music.previous()
             case "like": music.like()
             case "search":
-                guard let text, !text.isEmpty else { return "Say what to search for." }
+                guard let text, !text.isEmpty else { return String(localized: "Say what to search for.") }
                 music.search(text)
             case "open link":
                 guard let text, let url = URL(string: text), music.open(link: url) else {
-                    return "That isn't a YouTube Music, YouTube or songtide:// link."
+                    return String(localized: "That isn't a YouTube Music, YouTube or songtide:// link.")
                 }
-            default: return "Songtide doesn't know that command."
+            default: return String(localized: "Songtide doesn't know that command.")
             }
             return nil
         }

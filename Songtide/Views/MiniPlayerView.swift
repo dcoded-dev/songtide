@@ -10,7 +10,7 @@ struct MiniPlayerView: View {
         VStack(spacing: 12) {
             Artwork(url: state.artworkURL, size: 220)
             VStack(spacing: 2) {
-                Text(state.hasTrack ? state.title : "Not Playing").font(.headline)
+                Text(state.hasTrack ? state.title : String(localized: "Not Playing")).font(.headline)
                 Text(state.subtitle).font(.subheadline).foregroundStyle(.secondary)
             }
             .lineLimit(1)

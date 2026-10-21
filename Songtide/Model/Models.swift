@@ -134,16 +134,16 @@ enum SidebarItem: Hashable, Identifiable {
 
     var title: String {
         switch self {
-        case .home: "Home"
-        case .explore: "Explore"
-        case .library: "Library"
-        case .history: "History"
-        case .playlists: "Playlists"
-        case .songs: "Songs"
-        case .albums: "Albums"
-        case .artists: "Artists"
-        case .podcasts: "Podcasts"
-        case .profiles: "Profiles"
+        case .home: String(localized: "Home")
+        case .explore: String(localized: "Explore")
+        case .library: String(localized: "Library")
+        case .history: String(localized: "History")
+        case .playlists: String(localized: "Playlists")
+        case .songs: String(localized: "Songs")
+        case .albums: String(localized: "Albums")
+        case .artists: String(localized: "Artists")
+        case .podcasts: String(localized: "Podcasts")
+        case .profiles: String(localized: "Profiles")
         case .playlist(let p): p.title
         }
     }

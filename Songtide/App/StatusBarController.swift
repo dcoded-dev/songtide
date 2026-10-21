@@ -63,7 +63,7 @@ final class StatusBarController: NSObject {
             DispatchQueue.main.async { MainActor.assumeIsolated { StatusBarController.shared.trackPlaybackIcon() } }
         }
         button.image = NSImage(systemSymbolName: playing ? "pause.circle" : "play.circle",
-                               accessibilityDescription: playing ? "Songtide, playing" : "Songtide, paused")
+                               accessibilityDescription: playing ? String(localized: "Songtide, playing") : String(localized: "Songtide, paused"))
     }
 
     @objc private func clicked(_ sender: NSStatusBarButton) {
@@ -99,10 +99,10 @@ final class StatusBarController: NSObject {
         let menu = NSMenu()
         // A downloaded update waiting for a restart (also in the sidebar and the app menu).
         if Updater.shared.readyVersion != nil {
-            menu.addItem(item("Update Ready: Restart to Update", symbol: "arrow.down.circle.fill") { Updater.shared.installUpdate() })
+            menu.addItem(item(String(localized: "Update Ready: Restart to Update"), symbol: "arrow.down.circle.fill") { Updater.shared.installUpdate() })
             menu.addItem(.separator())
         } else if Updater.shared.availableVersion != nil {
-            menu.addItem(item("Update Available: Install…", symbol: "arrow.down.circle.fill") {
+            menu.addItem(item(String(localized: "Update Available: Install…"), symbol: "arrow.down.circle.fill") {
                 NSApp.activate()
                 Updater.shared.installUpdate()
             })
@@ -114,38 +114,38 @@ final class StatusBarController: NSObject {
             if !state.artist.isEmpty { menu.addItem(disabled(state.artist)) }
             menu.addItem(.separator())
         }
-        menu.addItem(item(state.isPlaying ? "Pause" : "Play", symbol: state.isPlaying ? "pause.fill" : "play.fill", enabled: state.hasTrack) { music.playPause() })
-        menu.addItem(item("Next", symbol: "forward.end.fill", enabled: state.hasTrack) { music.next() })
-        menu.addItem(item("Previous", symbol: "backward.end.fill", enabled: state.hasTrack) { music.previous() })
+        menu.addItem(item(state.isPlaying ? String(localized: "Pause") : String(localized: "Play"), symbol: state.isPlaying ? "pause.fill" : "play.fill", enabled: state.hasTrack) { music.playPause() })
+        menu.addItem(item(String(localized: "Next"), symbol: "forward.end.fill", enabled: state.hasTrack) { music.next() })
+        menu.addItem(item(String(localized: "Previous"), symbol: "backward.end.fill", enabled: state.hasTrack) { music.previous() })
         menu.addItem(.separator())
-        menu.addItem(item(state.like == .like ? "Liked" : "Like", symbol: state.like == .like ? "hand.thumbsup.fill" : "hand.thumbsup", enabled: state.hasTrack) { music.like() })
-        menu.addItem(item("Copy Song Link", symbol: "link", enabled: music.songLink != nil) { music.copySongLink() })
+        menu.addItem(item(state.like == .like ? String(localized: "Liked") : String(localized: "Like"), symbol: state.like == .like ? "hand.thumbsup.fill" : "hand.thumbsup", enabled: state.hasTrack) { music.like() })
+        menu.addItem(item(String(localized: "Copy Song Link"), symbol: "link", enabled: music.songLink != nil) { music.copySongLink() })
         menu.addItem(sleepTimerItem(hasTrack: state.hasTrack))
         menu.addItem(.separator())
-        menu.addItem(item("Open Songtide", symbol: "macwindow") { [weak self] in self?.showApp() })
+        menu.addItem(item(String(localized: "Open Songtide"), symbol: "macwindow") { [weak self] in self?.showApp() })
         // When a click opens the app, keep the mini player reachable from here.
         if UserDefaults.standard.string(forKey: Preferences.statusItemClickAction) == Preferences.StatusItemClick.openApp.rawValue,
            let button = barItem.button {
-            menu.addItem(item("Show Mini Player", symbol: "music.note") { [weak self] in
+            menu.addItem(item(String(localized: "Show Mini Player"), symbol: "music.note") { [weak self] in
                 DispatchQueue.main.async { self?.showMiniPlayer(from: button) }
             })
         }
-        menu.addItem(item("Settings…", symbol: "gearshape", key: ",") { [weak self] in
+        menu.addItem(item(String(localized: "Settings…"), symbol: "gearshape", key: ",") { [weak self] in
             NSApp.activate()
             self?.openSettings?()
         })
-        menu.addItem(item("Check for Updates…", symbol: "arrow.triangle.2.circlepath") {
+        menu.addItem(item(String(localized: "Check for Updates…"), symbol: "arrow.triangle.2.circlepath") {
             NSApp.activate()
             Updater.shared.checkForUpdates()
         })
-        let login = item("Open at Login") { try? LoginItem.setEnabled(!LoginItem.isEnabled) }
+        let login = item(String(localized: "Open at Login")) { try? LoginItem.setEnabled(!LoginItem.isEnabled) }
         login.state = LoginItem.isEnabled ? .on : .off
         menu.addItem(login)
-        menu.addItem(item("Hide Menu Bar Icon", symbol: "eye.slash") {
+        menu.addItem(item(String(localized: "Hide Menu Bar Icon"), symbol: "eye.slash") {
             UserDefaults.standard.set(Preferences.Presence.dockOnly.rawValue, forKey: Preferences.appPresence)
         })
         menu.addItem(.separator())
-        menu.addItem(item("Quit Songtide", key: "q") { NSApp.terminate(nil) })
+        menu.addItem(item(String(localized: "Quit Songtide"), key: "q") { NSApp.terminate(nil) })
 
         // Attach the menu just for this click so left-clicks keep opening the popover.
         barItem.menu = menu
@@ -176,17 +176,17 @@ final class StatusBarController: NSObject {
     /// Sleep Timer submenu, as in Controls › Sleep Timer.
     private func sleepTimerItem(hasTrack: Bool) -> NSMenuItem {
         let timer = SleepTimer.shared
-        let parent = NSMenuItem(title: timer.isActive ? "Sleep Timer (\(timer.label))" : "Sleep Timer", action: nil, keyEquivalent: "")
+        let parent = NSMenuItem(title: timer.isActive ? String(localized: "Sleep Timer (\(timer.label))") : String(localized: "Sleep Timer"), action: nil, keyEquivalent: "")
         parent.image = NSImage(systemSymbolName: "moon.zzz", accessibilityDescription: nil)
         let sub = NSMenu()
         if timer.isActive {
-            sub.addItem(item("Turn Off") { timer.cancel() })
+            sub.addItem(item(String(localized: "Turn Off")) { timer.cancel() })
             sub.addItem(.separator())
         }
         for minutes in SleepTimer.choices {
             sub.addItem(item(SleepTimer.title(minutes: minutes)) { timer.set(minutes: minutes) })
         }
-        sub.addItem(item("End of Current Song", enabled: hasTrack) { timer.setEndOfTrack() })
+        sub.addItem(item(String(localized: "End of Current Song"), enabled: hasTrack) { timer.setEndOfTrack() })
         parent.submenu = sub
         return parent
     }

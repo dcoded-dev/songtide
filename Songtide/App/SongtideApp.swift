@@ -21,7 +21,10 @@ struct SongtideApp: App {
         Settings {
             SettingsView()
                 .environment(music)
+                .songtideAccent()
         }
+        // The title centered on its own row, as over the native Settings tabs.
+        .windowToolbarStyle(.expanded)
 
         // Floating lyrics for the song that's playing (Controls › Show Lyrics).
         Window("Lyrics", id: LyricsWindowView.windowID) {
@@ -118,7 +121,7 @@ struct PlaybackCommands: Commands {
                 .keyboardShortcut("c", modifiers: [.command, .shift])
                 .disabled(music.songLink == nil)
             if let link = music.songLink {
-                ShareLink("Share Song…", item: link, message: Text(music.state.artist.isEmpty ? music.state.title : "\(music.state.title) by \(music.state.artist)"))
+                ShareLink("Share Song…", item: link, message: Text(music.state.artist.isEmpty ? music.state.title : String(localized: "\(music.state.title) by \(music.state.artist)", comment: "Shared song: title by artist")))
             }
             Divider()
             Button("Shuffle") { music.shuffle() }

@@ -25,7 +25,11 @@ final class MusicController: NSObject {
     }()
     /// Bridge traffic logging, enabled with YTM_DEBUG=1 (read once rather than per message).
     private static let debugLogging = ProcessInfo.processInfo.environment["YTM_DEBUG"] != nil
-    static let signInURL = URL(string: "https://accounts.google.com/ServiceLogin?ltmpl=music&service=youtube&uilel=3&passive=true&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Den%26next%3Dhttps%253A%252F%252Fmusic.youtube.com%252F&hl=en")!
+    /// Google's sign-in, in Songtide's language.
+    @MainActor static var signInURL: URL {
+        let hl = PageLanguage.youTubeCode
+        return URL(string: "https://accounts.google.com/ServiceLogin?ltmpl=music&service=youtube&uilel=3&passive=true&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3D\(hl)%26next%3Dhttps%253A%252F%252Fmusic.youtube.com%252F&hl=\(hl)")!
+    }
     /// Google refuses sign-in from embedded browsers it doesn't recognize; present as Safari.
     static let applicationNameForUserAgent = "Version/26.0 Safari/605.1.15"
 
@@ -114,6 +118,9 @@ final class MusicController: NSObject {
     @ObservationIgnored private var observations: [NSKeyValueObservation] = []
     /// Screen point of a native button that asked the page for a menu; that menu opens there.
     @ObservationIgnored private var pendingMenuAnchor: (point: NSPoint, date: Date)?
+    /// Where the last menu opened from a native button (like the player bar's ⋯) was, on screen:
+    /// Share from that menu opens there too, not where the pointer last was on the page.
+    @ObservationIgnored private var lastNativeMenuPoint: (point: NSPoint, date: Date)?
 
     override private init() {
         let config = WKWebViewConfiguration()
@@ -145,7 +152,11 @@ final class MusicController: NSObject {
             webView.observe(\.canGoForward) { [weak self] wv, _ in MainActor.assumeIsolated { self?.canGoForward = wv.canGoForward } },
             webView.observe(\.isLoading) { [weak self] wv, _ in MainActor.assumeIsolated { self?.isLoading = wv.isLoading } },
         ]
-        webView.load(URLRequest(url: URL(string: Self.launchPath, relativeTo: Self.homeURL) ?? Self.homeURL))
+        let launchURL = URL(string: Self.launchPath, relativeTo: Self.homeURL) ?? Self.homeURL
+        Task { @MainActor [webView] in
+            await PageLanguage.apply()
+            webView.load(URLRequest(url: launchURL))
+        }
 
         #if DEBUG
         // Development hook: evaluate JS in the page and print the result to stderr, e.g.
@@ -193,11 +204,26 @@ final class MusicController: NSObject {
         #endif
 
         NotificationCenter.default.addObserver(forName: NSColor.systemColorsDidChangeNotification, object: nil, queue: .main) { _ in
-            MainActor.assumeIsolated { MusicController.shared.call("setTheme(\(WebTheme.json))") }
+            MainActor.assumeIsolated { MusicController.shared.refreshTheme() }
+        }
+        // A different accent color picked in Settings (or the settings reset).
+        NotificationCenter.default.addObserver(forName: UserDefaults.didChangeNotification, object: nil, queue: .main) { _ in
+            MainActor.assumeIsolated {
+                let music = MusicController.shared
+                if Accent.current != music.themedAccent { music.refreshTheme() }
+            }
         }
     }
 
     // MARK: Commands
+
+    /// The accent color the page was last given.
+    private var themedAccent = Accent.current
+    /// Gives the page the current colors (the accent color, or the Mac's appearance, changed).
+    func refreshTheme() {
+        themedAccent = Accent.current
+        call("setTheme(\(WebTheme.json))")
+    }
 
     fileprivate func call(_ js: String) {
         if Self.debugLogging { FileHandle.standardError.write(Data("[call] \(js.prefix(120))\n".utf8)) }
@@ -361,11 +387,22 @@ final class MusicController: NSObject {
     }
     func reload() { webView.reload() }
 
+    /// The page again, in the language the setting now asks for (the same page, or Home).
+    func reloadForPageLanguage() {
+        Task {
+            await PageLanguage.apply()
+            webView.reload()
+        }
+    }
+
     // MARK: Account
 
     func signInCompleted() {
         isShowingSignIn = false
-        webView.load(URLRequest(url: Self.homeURL))
+        Task {
+            await PageLanguage.apply()
+            webView.load(URLRequest(url: Self.homeURL))
+        }
     }
 
     func signOut() async {
@@ -434,12 +471,19 @@ final class MusicController: NSObject {
             if let pending = pendingMenuAnchor, Date().timeIntervalSince(pending.date) < 2, let window = webView.window {
                 anchor = webView.convert(window.convertPoint(fromScreen: pending.point), from: nil)
             }
+            lastNativeMenuPoint = anchor != nil ? pendingMenuAnchor.map { ($0.point, Date()) } : nil
             pendingMenuAnchor = nil
             NativeMenu.present(request, in: webView, anchor: anchor) { [weak self] index in
                 if let index { self?.call("menuSelect(\(index))") } else { self?.call("menuCancel()") }
             }
         case "share":
-            if let request = try? decoder.decode(WebShareRequest.self, from: data) { NativeShare.present(request, in: webView) }
+            guard let request = try? decoder.decode(WebShareRequest.self, from: data) else { return }
+            if let menu = lastNativeMenuPoint, Date().timeIntervalSince(menu.date) < 30, let content = webView.window?.contentView, let window = webView.window {
+                NativeShare.present(request.url, at: content.convert(window.convertPoint(fromScreen: menu.point), from: nil), in: content)
+            } else {
+                NativeShare.present(request, in: webView)
+            }
+            lastNativeMenuPoint = nil
         case "channels":
             if let new = try? decoder.decode([ChannelAccount].self, from: data), new != channels {
                 channels = new

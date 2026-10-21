@@ -28,7 +28,7 @@ struct LyricsView: View {
         .onDisappear { lyrics.viewerDisappeared() }
     }
 
-    private func message(_ text: String) -> some View {
+    private func message(_ text: LocalizedStringKey) -> some View {
         Text(text)
             .font(.title3)
             .foregroundStyle(.secondary)
@@ -114,9 +114,9 @@ struct LyricsOverlay: View {
         // Once the lookup is done (nothing while it's still searching).
         .task(id: NoticeKey(videoId: music.state.videoId, content: lyrics.content)) {
             let text: String? = switch lyrics.content {
-            case .notFound: "No lyrics available"
-            case .plain(Lyrics.instrumental): "♪ Instrumental"
-            case .plain: "Lyrics aren't synced for this song"
+            case .notFound: String(localized: "No lyrics available")
+            case .plain(Lyrics.instrumental): Lyrics.instrumental
+            case .plain: String(localized: "Lyrics aren't synced for this song")
             default: nil
             }
             guard let text else { notice = nil; return }
@@ -143,7 +143,7 @@ struct LyricsWindowView: View {
         VStack(spacing: 0) {
             HStack(spacing: 8) {
                 VStack(alignment: .leading, spacing: 1) {
-                    Text(music.state.hasTrack ? music.state.title : "Lyrics").font(.headline).lineLimit(1)
+                    Text(music.state.hasTrack ? music.state.title : String(localized: "Lyrics")).font(.headline).lineLimit(1)
                     if !music.state.artist.isEmpty {
                         Text(music.state.artist).font(.caption).foregroundStyle(.secondary).lineLimit(1)
                     }

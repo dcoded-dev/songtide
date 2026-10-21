@@ -9,7 +9,7 @@ enum AppInfo {
         Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?"
     }
 
-    /// Credits for the standard About panel: "Developed by DCODED" plus a dcoded.dev link.
+    /// Credits for the standard About panel: the website, and "Developed by DCODED" linking to dcoded.dev.
     static var aboutCredits: NSAttributedString {
         let centered = NSMutableParagraphStyle()
         centered.alignment = .center
@@ -18,10 +18,12 @@ enum AppInfo {
             .foregroundColor: NSColor.secondaryLabelColor,
             .paragraphStyle: centered,
         ]
-        let credits = NSMutableAttributedString(string: "Developed by DCODED\n", attributes: base)
-        var link = base
-        link[.link] = developerURL
-        credits.append(NSAttributedString(string: "dcoded.dev", attributes: link))
+        var website = base, developer = base
+        website[.link] = websiteURL
+        developer[.link] = developerURL
+        let credits = NSMutableAttributedString(string: "songtide.dcoded.dev", attributes: website)
+        credits.append(NSAttributedString(string: "\n", attributes: base))
+        credits.append(NSAttributedString(string: String(localized: "Developed by DCODED"), attributes: developer))
         return credits
     }
 }
@@ -56,7 +58,7 @@ enum Preferences {
     /// Every setting's key (including the sidebar's), for Reset to Defaults. Account data isn't a
     /// setting and is left alone.
     private static let allKeys = [
-        appPresence, keepPlayingWhenClosed, preferSongOverVideo, statusItemClickAction, scrollLongTitles,
+        appPresence, keepPlayingWhenClosed, preferSongOverVideo, statusItemClickAction, scrollLongTitles, Accent.key, PageLanguage.key,
         legacyShowMenuBarPlayer, legacyHideDockWhenClosed,
         "sidebarVisible", "sidebarPlaylistsExpanded", "sidebarHiddenLibraryItems", MusicController.lastPathKey,
         Equalizer.enabledKey, Equalizer.gainsKey, VisualizerModel.autoChangeKey, "visualizerInWindow", "visualizerFills",
@@ -104,9 +106,12 @@ struct SettingsView: View {
     @AppStorage(Preferences.appPresence) private var presence = Preferences.presence.rawValue
     @AppStorage(Preferences.statusItemClickAction) private var statusItemClick = Preferences.StatusItemClick.miniPlayer.rawValue
     @AppStorage(Preferences.scrollLongTitles) private var scrollLongTitles = true
+    @AppStorage(PageLanguage.key) private var pageLanguage = ""
 
     var body: some View {
-        TabView(selection: $selectedTab) {
+        // Our own tab bar rather than the window toolbar's, so the chosen tab takes Songtide's accent
+        // color (the toolbar's always uses the Mac's).
+        VStack(spacing: 0) {
             Form {
                 Section {
                     Toggle("Open at login", isOn: Binding(get: { openAtLogin }, set: setOpenAtLogin))
@@ -146,6 +151,32 @@ struct SettingsView: View {
                     }
                 }
                 Section {
+                    AccentPicker()
+                }
+                Section {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Picker("YouTube Music language", selection: $pageLanguage) {
+                            Text("Same as Mac (\(PageLanguage.macLanguageName))").tag("")
+                            Text("My Google account's").tag("account")
+                        }
+                        // Where the language comes from, and where to change it.
+                        HStack(spacing: 4) {
+                            if pageLanguage == "account" {
+                                Text("The page uses the language set in your Google account.")
+                                Button("Change…") { NSWorkspace.shared.open(URL(string: "https://myaccount.google.com/language")!) }
+                                    .buttonStyle(.link)
+                            } else {
+                                Text("The page uses your Mac's language.")
+                                Button("Change…") { NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.Localization-Settings.extension")!) }
+                                    .buttonStyle(.link)
+                            }
+                        }
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    }
+                    .onChange(of: pageLanguage) { music.reloadForPageLanguage() }
+                }
+                Section {
                     HStack {
                         Toggle("Update automatically", isOn: $updatesAutomatically)
                             .onChange(of: updatesAutomatically) { Updater.shared.updatesAutomatically = updatesAutomatically }
@@ -167,9 +198,9 @@ struct SettingsView: View {
                         }
                     Spacer()
                     HStack(spacing: 4) {
-                        Text("Developed by DCODED")
+                        Link("songtide.dcoded.dev", destination: AppInfo.websiteURL)
                         Text("·")
-                        Link("dcoded.dev", destination: AppInfo.developerURL)
+                        Link("Developed by DCODED", destination: AppInfo.developerURL)
                     }
                     .foregroundStyle(.secondary)
                 }
@@ -178,8 +209,7 @@ struct SettingsView: View {
                 .listRowInsets(EdgeInsets())
             }
             .formStyle(.grouped)
-            .tabItem { Label("General", systemImage: "gearshape") }
-            .tag(SettingsTab.general.rawValue)
+            .settingsPage(.general, showing: selectedTab)
 
             Form {
                 Section {
@@ -205,8 +235,7 @@ struct SettingsView: View {
                     .id(equalizerResetID)
             }
             .formStyle(.grouped)
-            .tabItem { Label("Playback", systemImage: "play.circle") }
-            .tag(SettingsTab.playback.rawValue)
+            .settingsPage(.playback, showing: selectedTab)
 
             Form {
                 Section {
@@ -223,16 +252,16 @@ struct SettingsView: View {
                             .frame(width: 34, height: 34)
                             .clipShape(Circle())
                             VStack(alignment: .leading, spacing: 1) {
-                                Text(music.account.name.isEmpty ? "Google Account" : music.account.name)
+                                Text(music.account.name.isEmpty ? String(localized: "Google Account") : music.account.name)
                                     .font(.headline)
-                                Text(music.account.handle.isEmpty ? "Signed in" : music.account.handle)
+                                Text(music.account.handle.isEmpty ? String(localized: "Signed in") : music.account.handle)
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
                             .lineLimit(1)
                         }
                     } else {
-                        LabeledContent("Google account", value: "Not signed in")
+                        LabeledContent("Google account", value: String(localized: "Not signed in"))
                     }
                     HStack {
                         if music.account.signedIn {
@@ -250,21 +279,28 @@ struct SettingsView: View {
                 }
             }
             .formStyle(.grouped)
-            .tabItem { Label("Account", systemImage: "person.crop.circle") }
-            .tag(SettingsTab.account.rawValue)
+            .settingsPage(.account, showing: selectedTab)
 
             IntegrationsSettings()
-                .tabItem { Label("Integrations", systemImage: "puzzlepiece.extension") }
-                .tag(SettingsTab.integrations.rawValue)
+                .settingsPage(.integrations, showing: selectedTab)
         }
         .onAppear(perform: refreshLoginItem)
         // Pick up changes made in System Settings while this window was open.
         .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in refreshLoginItem() }
-        .frame(width: 460)
+        .frame(width: 540)
         .fixedSize()
+        .toolbar {
+            // Without the glass capsule macOS 26 puts behind toolbar items: plain, like native tabs.
+            if #available(macOS 26, *) {
+                ToolbarItem(placement: .principal) { SettingsTabBar(selection: $selectedTab) }
+                    .sharedBackgroundVisibility(.hidden)
+            } else {
+                ToolbarItem(placement: .principal) { SettingsTabBar(selection: $selectedTab) }
+            }
+        }
     }
 
-    private var presenceDescription: String {
+    private var presenceDescription: LocalizedStringKey {
         switch Preferences.Presence(rawValue: presence) ?? .menuBarAndDockWhenOpen {
         case .menuBarAndDockWhenOpen: "Closing the window hides the Dock icon; Songtide keeps running in the menu bar."
         case .dockAndMenuBar: "Always in the Dock, with the mini player in the menu bar."
@@ -288,7 +324,7 @@ struct SettingsView: View {
             try LoginItem.setEnabled(enabled)
             loginItemError = nil
         } catch {
-            loginItemError = "Couldn't change the login item: \(error.localizedDescription)"
+            loginItemError = String(localized: "Couldn't change the login item: \(error.localizedDescription)")
         }
         refreshLoginItem()
     }
@@ -300,7 +336,66 @@ struct SettingsView: View {
 }
 
 /// Settings' tabs; stored so other parts of the app can open Settings on a particular one.
-enum SettingsTab: String {
+enum SettingsTab: String, CaseIterable {
     case general, playback, account, integrations
     static let key = "settingsTab"
+
+    var title: String {
+        switch self {
+        case .general: String(localized: "General")
+        case .playback: String(localized: "Playback")
+        case .account: String(localized: "Account")
+        case .integrations: String(localized: "Integrations")
+        }
+    }
+
+    var symbol: String {
+        switch self {
+        case .general: "gearshape"
+        case .playback: "play.circle"
+        case .account: "person.crop.circle"
+        case .integrations: "puzzlepiece.extension"
+        }
+    }
+}
+
+/// The row of tabs at the top of Settings, drawn like the window toolbar's own.
+private struct SettingsTabBar: View {
+    @Binding var selection: String
+
+    var body: some View {
+        HStack(spacing: 2) {
+            ForEach(SettingsTab.allCases, id: \.self) { tab in
+                let chosen = selection == tab.rawValue
+                Button { selection = tab.rawValue } label: {
+                    VStack(spacing: 3) {
+                        Image(systemName: tab.symbol)
+                            .font(.system(size: 20, weight: .regular))
+                            .frame(height: 24)
+                        Text(tab.title)
+                            .font(.system(size: 11))
+                    }
+                    .foregroundStyle(chosen ? AnyShapeStyle(Color.songtide) : AnyShapeStyle(.secondary))
+                    .padding(.horizontal, 8)
+                    .frame(minWidth: 60)
+                    .padding(.vertical, 5)
+                    .background(RoundedRectangle(cornerRadius: 7, style: .continuous).fill(.primary.opacity(chosen ? 0.1 : 0)))
+                    .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .focusEffectDisabled()
+                .accessibilityLabel(tab.title)
+                .accessibilityAddTraits(chosen ? .isSelected : [])
+            }
+        }
+        .accessibilityElement(children: .contain)
+        .navigationTitle((SettingsTab(rawValue: selection) ?? .general).title)
+    }
+}
+
+private extension View {
+    /// One of Settings' pages, shown only while its tab is chosen.
+    @ViewBuilder func settingsPage(_ tab: SettingsTab, showing selected: String) -> some View {
+        if selected == tab.rawValue || (tab == .general && SettingsTab(rawValue: selected) == nil) { self }
+    }
 }
