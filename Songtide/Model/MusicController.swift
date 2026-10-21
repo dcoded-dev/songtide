@@ -195,7 +195,7 @@ final class MusicController: NSObject {
         NotificationCenter.default.addObserver(forName: NSColor.systemColorsDidChangeNotification, object: nil, queue: .main) { _ in
             MainActor.assumeIsolated { MusicController.shared.refreshTheme() }
         }
-        // A different accent colour picked in Settings (or the settings reset).
+        // A different accent color picked in Settings (or the settings reset).
         NotificationCenter.default.addObserver(forName: UserDefaults.didChangeNotification, object: nil, queue: .main) { _ in
             MainActor.assumeIsolated {
                 let music = MusicController.shared
@@ -206,9 +206,9 @@ final class MusicController: NSObject {
 
     // MARK: Commands
 
-    /// The accent colour the page was last given.
+    /// The accent color the page was last given.
     private var themedAccent = Accent.current
-    /// Gives the page the current colours (the accent colour, or the Mac's appearance, changed).
+    /// Gives the page the current colors (the accent color, or the Mac's appearance, changed).
     func refreshTheme() {
         themedAccent = Accent.current
         call("setTheme(\(WebTheme.json))")

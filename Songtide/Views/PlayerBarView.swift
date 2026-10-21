@@ -66,7 +66,7 @@ struct PlayerBarView: View {
 
                     HStack(spacing: 6) {
                         // Volume and the equalizer are settings, usable before anything plays; the
-                        // rest need a track. (dimmedWhenDisabled: these set their own colour, which
+                        // rest need a track. (dimmedWhenDisabled: these set their own color, which
                         // would otherwise hide the disabled look.)
                         VolumeControl()
                         if compact {
@@ -402,7 +402,7 @@ private struct DimmedWhenDisabled: ViewModifier {
 }
 
 extension View {
-    /// Fades a control that sets its own colour, so it still looks disabled when it is.
+    /// Fades a control that sets its own color, so it still looks disabled when it is.
     func dimmedWhenDisabled() -> some View { modifier(DimmedWhenDisabled()) }
 }
 

@@ -76,7 +76,7 @@ struct NowPlayingWidgetView: View {
         .foregroundStyle(.white)
     }
 
-    /// Square artwork, cropped to fill (video thumbnails are 16:9). Kept in full colour when the
+    /// Square artwork, cropped to fill (video thumbnails are 16:9). Kept in full color when the
     /// desktop shows widgets tinted, which would otherwise paint it a solid block.
     private func artwork(size: CGFloat) -> some View {
         Group {
