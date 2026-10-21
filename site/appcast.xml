@@ -3,6 +3,38 @@
     <channel>
         <title>Songtide</title>
         <item>
+            <title>1.2.0</title>
+            <pubDate>Tue, 20 Oct 2026 21:48:44 -0400</pubDate>
+            <link>https://songtide.dcoded.dev</link>
+            <sparkle:version>34</sparkle:version>
+            <sparkle:shortVersionString>1.2.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <description><![CDATA[<meta charset="utf-8">
+<style>
+  :root { color-scheme: light dark; }
+  body { font: 13px -apple-system, sans-serif; margin: 0 4px; color: CanvasText; background: transparent; }
+  h2 { font-size: 15px; margin: 6px 0 8px; }
+  ul { padding-left: 18px; margin: 0; }
+  li { margin-bottom: 6px; }
+</style>
+<h2>Songtide 1.2.0</h2>
+<ul>
+  <li>Accent color: give Songtide its own accent color in Settings › General, or keep your Mac's.</li>
+  <li>Songtide now speaks 36 languages, following your Mac's language, including right-to-left languages such as Hebrew and Arabic.</li>
+  <li>YouTube Music now appears in your Mac's language too. To keep your Google account's language instead, see Settings › General › YouTube Music language.</li>
+  <li>Share from the ⋯ menu in the player bar opens next to it, and Stats for nerds shows a checkmark while it's on.</li>
+</ul>
+]]></description>
+            <enclosure url="https://songtide.dcoded.dev/releases/Songtide-1.2.0.dmg" length="3782910" type="application/octet-stream" sparkle:edSignature="ncX/ozEhiqpcuFbO+7h56DhsNLjqcRFM/4hdCPCB7lIAWWY9sFSFfe3VLWLKDR3XYchNlLBdKre/e+o2X/0EDA=="/>
+            <sparkle:deltas>
+                <enclosure url="https://songtide.dcoded.dev/releases/Songtide34-33.delta" sparkle:deltaFrom="33" length="588878" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976464" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="m7PJ/MZ3esEg3CKdgk5XiMFYeymiFiFXOi1KUQHZH2GV79lM/+5Ba8LGZYlsGpgNQNpPTBmDsoC4KR4EyTlZAw=="/>
+                <enclosure url="https://songtide.dcoded.dev/releases/Songtide34-32.delta" sparkle:deltaFrom="32" length="632166" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976464" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="9yQNC2KkDG4V9Cgt4NiA77Ek7tencrKJLAYnMrC+aMfoTZB4cBp3fVZKYQEICjQfzYidJlSYfjCxzaolK+9ODQ=="/>
+                <enclosure url="https://songtide.dcoded.dev/releases/Songtide34-31.delta" sparkle:deltaFrom="31" length="632546" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976464" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="vORVrF3yNjz1R/123h5yX+QeuscUN8QQKnkOBKO8YCiyjLb1B4pZfk0TR6tRu0dt/a1P8Omojq/kLbip8i7TBg=="/>
+                <enclosure url="https://songtide.dcoded.dev/releases/Songtide34-30.delta" sparkle:deltaFrom="30" length="632766" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976464" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="3lxuW/0lQpWuNIjSgs0180uYWTQEMd1OlTwS+4QYYGYidxLZwj7nE42hCM5u6J/OGr9Fyx/iDMh7GoggJK1HDw=="/>
+                <enclosure url="https://songtide.dcoded.dev/releases/Songtide34-29.delta" sparkle:deltaFrom="29" length="634518" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976464" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="u6P7ZSqdwFCjHNiy+lc9KgG1Q1hlQcWHQjXkF7aXk/XKM+T48ax2TnR0fMIeZi5HGcZ4bFmiJCrv0fDyJfJuDQ=="/>
+            </sparkle:deltas>
+        </item>
+        <item>
             <title>1.1.21</title>
             <pubDate>Mon, 12 Oct 2026 14:36:42 -0400</pubDate>
             <link>https://songtide.dcoded.dev</link>
@@ -61,35 +93,6 @@
                 <enclosure url="https://songtide.dcoded.dev/releases/Songtide32-29.delta" sparkle:deltaFrom="29" length="142538" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976464" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="YEbdf5j922GaphKTJq5q9pwZC0o/NrwK9VOKvd4O6k9byTgeJeqhN4VWBtz6XZUI62xRdLWDCWzXccd32pfKCQ=="/>
                 <enclosure url="https://songtide.dcoded.dev/releases/Songtide32-28.delta" sparkle:deltaFrom="28" length="207554" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976464" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="PM7Odvz13251Mw+X7l9k9IYUyZLvN5PjslCmJ3RaRClyvP+9gkk6JHjLN/J7hH4P5nV2xr6Pe77DtQHKIoaAAA=="/>
                 <enclosure url="https://songtide.dcoded.dev/releases/Songtide32-27.delta" sparkle:deltaFrom="27" length="229306" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976464" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="SapTKI4a5Fi7LSzYdcHLfkCmV9ktJrZxYK7TtvJljiTV/81QdCg9m3KoGaIdHtjTzIXX2JVlF9lw5OG/JaVdCQ=="/>
-            </sparkle:deltas>
-        </item>
-        <item>
-            <title>1.1.19</title>
-            <pubDate>Fri, 09 Oct 2026 14:11:22 -0400</pubDate>
-            <link>https://songtide.dcoded.dev</link>
-            <sparkle:version>31</sparkle:version>
-            <sparkle:shortVersionString>1.1.19</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
-            <description><![CDATA[<meta charset="utf-8">
-<style>
-  :root { color-scheme: light dark; }
-  body { font: 13px -apple-system, sans-serif; margin: 0 4px; color: CanvasText; background: transparent; }
-  h2 { font-size: 15px; margin: 6px 0 8px; }
-  ul { padding-left: 18px; margin: 0; }
-  li { margin-bottom: 6px; }
-</style>
-<h2>Songtide 1.1.19</h2>
-<ul>
-  <li>The visualizer's lyrics button no longer looks switched off when a song has no lyrics; turning lyrics on shows the "No lyrics available" note again, even mid-song.</li>
-</ul>
-]]></description>
-            <enclosure url="https://songtide.dcoded.dev/releases/Songtide-1.1.19.dmg" length="3439933" type="application/octet-stream" sparkle:edSignature="yU5BTi2WvI1yfhcuhtnSb+wRGkzKPHDK3NmF/Cidh/Zkrd8jv0Yypr56jNMMnMSIDuyl/B2AwnPLBoF/WqUvCQ=="/>
-            <sparkle:deltas>
-                <enclosure url="https://songtide.dcoded.dev/releases/Songtide31-30.delta" sparkle:deltaFrom="30" length="133774" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976464" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="BaI7fQHDyUfqMzOINoSQVv9FB9AajyFSY/cd8CBPTeBep4WYsCRsSsIrSaUDRBVDopiOZKcmqNco9NVQcSahAw=="/>
-                <enclosure url="https://songtide.dcoded.dev/releases/Songtide31-29.delta" sparkle:deltaFrom="29" length="135170" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976464" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="MRb745iu+9eJSz1NvAW+qb1sOZZW+cWGsrpiM8cOxpsG04jPMbjSq1BRay/4ueIdjpRvE1zaAoNl9iHJDn9nCg=="/>
-                <enclosure url="https://songtide.dcoded.dev/releases/Songtide31-28.delta" sparkle:deltaFrom="28" length="208630" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976464" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="aFNEnkRo0cTZZ1BFTkUYvrh1svr0IBdTDRKgbNFeH5UUN1vlHpc2MfuigXsghpVjt2y8fsBO6xJHDWO/N4nyAA=="/>
-                <enclosure url="https://songtide.dcoded.dev/releases/Songtide31-27.delta" sparkle:deltaFrom="27" length="224802" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976464" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="u85NHsc9mbmG3D686VJQLQulNpZAvjj5gQjBtzDVTd0UobsN9oqVOdGoYkBf1RGpaG5ZozNTZtwzVLcUcS9gBg=="/>
-                <enclosure url="https://songtide.dcoded.dev/releases/Songtide31-26.delta" sparkle:deltaFrom="26" length="242582" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="976464" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="8HbkcDV4vOP7nYMdeWnAqem6461oZFHwANEsPxb+As/6Nh3GTLXTzTO9JzQwrM5p6noAOGZvvit4DpJUUN4fBA=="/>
             </sparkle:deltas>
         </item>
     </channel>
