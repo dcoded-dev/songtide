@@ -9,7 +9,7 @@ enum AppInfo {
         Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "?"
     }
 
-    /// Credits for the standard About panel: "Developed by DCODED" plus a dcoded.dev link.
+    /// Credits for the standard About panel: the website, and "Developed by DCODED" linking to dcoded.dev.
     static var aboutCredits: NSAttributedString {
         let centered = NSMutableParagraphStyle()
         centered.alignment = .center
@@ -18,10 +18,12 @@ enum AppInfo {
             .foregroundColor: NSColor.secondaryLabelColor,
             .paragraphStyle: centered,
         ]
-        let credits = NSMutableAttributedString(string: String(localized: "Developed by DCODED") + "\n", attributes: base)
-        var link = base
-        link[.link] = developerURL
-        credits.append(NSAttributedString(string: "dcoded.dev", attributes: link))
+        var website = base, developer = base
+        website[.link] = websiteURL
+        developer[.link] = developerURL
+        let credits = NSMutableAttributedString(string: "songtide.dcoded.dev", attributes: website)
+        credits.append(NSAttributedString(string: "\n", attributes: base))
+        credits.append(NSAttributedString(string: String(localized: "Developed by DCODED"), attributes: developer))
         return credits
     }
 }
@@ -196,9 +198,9 @@ struct SettingsView: View {
                         }
                     Spacer()
                     HStack(spacing: 4) {
-                        Text("Developed by DCODED")
+                        Link("songtide.dcoded.dev", destination: AppInfo.websiteURL)
                         Text("·")
-                        Link("dcoded.dev", destination: AppInfo.developerURL)
+                        Link("Developed by DCODED", destination: AppInfo.developerURL)
                     }
                     .foregroundStyle(.secondary)
                 }

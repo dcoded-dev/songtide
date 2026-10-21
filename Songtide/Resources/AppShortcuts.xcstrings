@@ -1,1766 +1,1824 @@
 {
-  "sourceLanguage": "en",
-  "strings": {
-    "Like this song in ${applicationName}": {
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "الإعجاب بهذه الأغنية في ${applicationName}"
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Like this song in ${applicationName}" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "الإعجاب بهذه الأغنية في ${applicationName}"
           }
         },
-        "ca": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Marca aquesta cançó amb M’agrada a ${applicationName}"
+        "ca" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Marca aquesta cançó amb M’agrada a ${applicationName}"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Označit tuto skladbu jako oblíbenou v ${applicationName}"
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Označit tuto skladbu jako oblíbenou v ${applicationName}"
           }
         },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Synes godt om denne sang i ${applicationName}"
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Synes godt om denne sang i ${applicationName}"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Diesen Song in ${applicationName} mit „Gefällt mir“ markieren"
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Diesen Song in ${applicationName} mit „Gefällt mir“ markieren"
           }
         },
-        "el": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Μου αρέσει αυτό το τραγούδι στο ${applicationName}"
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Μου αρέσει αυτό το τραγούδι στο ${applicationName}"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Marcar esta canción con Me gusta en ${applicationName}"
+        "en" : {
+          "stringSet" : {
+            "state" : "new",
+            "values" : [
+              "Like this song in ${applicationName}"
+            ]
           }
         },
-        "es-419": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Marcar esta canción con Me gusta en ${applicationName}"
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Marcar esta canción con Me gusta en ${applicationName}"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tykkää tästä kappaleesta apissa ${applicationName}"
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Marcar esta canción con Me gusta en ${applicationName}"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aimer ce titre dans ${applicationName}"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tykkää tästä kappaleesta apissa ${applicationName}"
           }
         },
-        "fr-CA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aimer ce titre dans ${applicationName}"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Aimer ce titre dans ${applicationName}"
           }
         },
-        "he": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "סימון השיר הזה באהבתי ב-${applicationName}"
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Aimer ce titre dans ${applicationName}"
           }
         },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName} में यह गाना पसंद करें"
+        "he" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "סימון השיר הזה באהבתי ב-${applicationName}"
           }
         },
-        "hr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Označi ovu pjesmu sa sviđa mi se u aplikaciji ${applicationName}"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName} में यह गाना पसंद करें"
           }
         },
-        "hu": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "A dal kedvelése a(z) ${applicationName} alkalmazásban"
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Označi ovu pjesmu sa sviđa mi se u aplikaciji ${applicationName}"
           }
         },
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sukai lagu ini di ${applicationName}"
+        "hu" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "A dal kedvelése a(z) ${applicationName} alkalmazásban"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Metti Mi piace a questo brano in ${applicationName}"
+        "id" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sukai lagu ini di ${applicationName}"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName}でこの曲を高く評価"
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Metti Mi piace a questo brano in ${applicationName}"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName}에서 이 노래에 좋아요 표시"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName}でこの曲を高く評価"
           }
         },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sukai lagu ini dalam ${applicationName}"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName}에서 이 노래에 좋아요 표시"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lik denne sangen i ${applicationName}"
+        "ms" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sukai lagu ini dalam ${applicationName}"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vind dit nummer leuk in ${applicationName}"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Lik denne sangen i ${applicationName}"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Polub ten utwór w ${applicationName}"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Vind dit nummer leuk in ${applicationName}"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Marcar esta música com gostei no ${applicationName}"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Polub ten utwór w ${applicationName}"
           }
         },
-        "pt-PT": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gostar desta música em ${applicationName}"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Marcar esta música com gostei no ${applicationName}"
           }
         },
-        "ro": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apreciază această melodie în ${applicationName}"
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Gostar desta música em ${applicationName}"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Отметить эту песню как понравившуюся в ${applicationName}"
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Apreciază această melodie în ${applicationName}"
           }
         },
-        "sk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Označiť túto skladbu ako obľúbenú v ${applicationName}"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Отметить эту песню как понравившуюся в ${applicationName}"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gilla den här låten i ${applicationName}"
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Označiť túto skladbu ako obľúbenú v ${applicationName}"
           }
         },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "กดชอบเพลงนี้ใน ${applicationName}"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Gilla den här låten i ${applicationName}"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName} içinde bu şarkıyı beğen"
+        "th" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "กดชอบเพลงนี้ใน ${applicationName}"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Уподобати цю пісню в ${applicationName}"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName} içinde bu şarkıyı beğen"
           }
         },
-        "vi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Thích bài hát này trong ${applicationName}"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Уподобати цю пісню в ${applicationName}"
           }
         },
-        "zh-HK": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "在${applicationName}中喜歡這首歌曲"
+        "vi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Thích bài hát này trong ${applicationName}"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "在${applicationName}中为这首歌点赞"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "在${applicationName}中为这首歌点赞"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "在${applicationName}中喜歡這首歌曲"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "在${applicationName}中喜歡這首歌曲"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "在${applicationName}中喜歡這首歌曲"
           }
         }
       }
     },
-    "Next song in ${applicationName}": {
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "الأغنية التالية في ${applicationName}"
+    "Next song in ${applicationName}" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "الأغنية التالية في ${applicationName}"
           }
         },
-        "ca": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Següent cançó a ${applicationName}"
+        "ca" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Següent cançó a ${applicationName}"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Další skladba v ${applicationName}"
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Další skladba v ${applicationName}"
           }
         },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Næste sang i ${applicationName}"
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Næste sang i ${applicationName}"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nächstes Lied in ${applicationName}"
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Nächstes Lied in ${applicationName}"
           }
         },
-        "el": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Επόμενο τραγούδι στο ${applicationName}"
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Επόμενο τραγούδι στο ${applicationName}"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Siguiente canción en ${applicationName}"
+        "en" : {
+          "stringSet" : {
+            "state" : "new",
+            "values" : [
+              "Next song in ${applicationName}",
+              "Skip this song in ${applicationName}"
+            ]
           }
         },
-        "es-419": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Siguiente canción en ${applicationName}"
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Siguiente canción en ${applicationName}"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Seuraava kappale ${applicationName}:ssa"
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Siguiente canción en ${applicationName}"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Chanson suivante dans ${applicationName}"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Seuraava kappale ${applicationName}:ssa"
           }
         },
-        "fr-CA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Chanson suivante dans ${applicationName}"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Chanson suivante dans ${applicationName}"
           }
         },
-        "he": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "השיר הבא ב-${applicationName}"
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Chanson suivante dans ${applicationName}"
           }
         },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName} में अगला गाना"
+        "he" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "השיר הבא ב-${applicationName}"
           }
         },
-        "hr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sljedeća pjesma u ${applicationName}"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName} में अगला गाना"
           }
         },
-        "hu": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Következő dal a ${applicationName}-ben"
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sljedeća pjesma u ${applicationName}"
           }
         },
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lagu berikutnya di ${applicationName}"
+        "hu" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Következő dal a ${applicationName}-ben"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Canzone successiva in ${applicationName}"
+        "id" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Lagu berikutnya di ${applicationName}"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName} の次の曲"
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Canzone successiva in ${applicationName}"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName}의 다음 노래"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName} の次の曲"
           }
         },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lagu seterusnya dalam ${applicationName}"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName}의 다음 노래"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Neste sang i ${applicationName}"
+        "ms" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Lagu seterusnya dalam ${applicationName}"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Volgend nummer in ${applicationName}"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Neste sang i ${applicationName}"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Następna piosenka w ${applicationName}"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Volgend nummer in ${applicationName}"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Próxima música em ${applicationName}"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Następna piosenka w ${applicationName}"
           }
         },
-        "pt-PT": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Próxima música em ${applicationName}"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Próxima música em ${applicationName}"
           }
         },
-        "ro": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Următoarea melodie în ${applicationName}"
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Próxima música em ${applicationName}"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Следующая песня в ${applicationName}"
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Următoarea melodie în ${applicationName}"
           }
         },
-        "sk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ďalšia skladba v ${applicationName}"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Следующая песня в ${applicationName}"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nästa låt i ${applicationName}"
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ďalšia skladba v ${applicationName}"
           }
         },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เพลงต่อไปใน ${applicationName}"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Nästa låt i ${applicationName}"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName}'deki sonraki şarkı"
+        "th" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "เพลงต่อไปใน ${applicationName}"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Наступна пісня в ${applicationName}"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName}'deki sonraki şarkı"
           }
         },
-        "vi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bài hát tiếp theo trong ${applicationName}"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Наступна пісня в ${applicationName}"
           }
         },
-        "zh-HK": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName} 中的下一首歌曲"
+        "vi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Bài hát tiếp theo trong ${applicationName}"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName} 中的下一首歌曲"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName} 中的下一首歌曲"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName} 中的下一首歌曲"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName} 中的下一首歌曲"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName} 中的下一首歌曲"
           }
         }
       }
     },
-    "Pause ${applicationName}": {
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "وقفة ${applicationName}"
+    "Pause ${applicationName}" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "وقفة ${applicationName}"
           }
         },
-        "ca": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pausa ${applicationName}"
+        "ca" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pausa ${applicationName}"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pauza ${applicationName}"
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pauza ${applicationName}"
           }
         },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sæt ${applicationName} på pause"
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Sæt ${applicationName} på pause"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pause ${applicationName}"
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pause ${applicationName}"
           }
         },
-        "el": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Παύση ${applicationName}"
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Παύση ${applicationName}"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pausa ${applicationName}"
+        "en" : {
+          "stringSet" : {
+            "state" : "new",
+            "values" : [
+              "Pause ${applicationName}",
+              "Play ${applicationName}"
+            ]
           }
         },
-        "es-419": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pausa ${applicationName}"
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pausa ${applicationName}"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Keskeytä ${applicationName}"
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pausa ${applicationName}"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pause ${applicationName}"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Keskeytä ${applicationName}"
           }
         },
-        "fr-CA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pause ${applicationName}"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pause ${applicationName}"
           }
         },
-        "he": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "השהה את ${applicationName}"
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pause ${applicationName}"
           }
         },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName} रोकें"
+        "he" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "השהה את ${applicationName}"
           }
         },
-        "hr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pauziraj ${applicationName}"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName} रोकें"
           }
         },
-        "hu": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Szünet ${applicationName}"
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pauziraj ${applicationName}"
           }
         },
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Jeda ${applicationName}"
+        "hu" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Szünet ${applicationName}"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pausa ${applicationName}"
+        "id" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Jeda ${applicationName}"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName}を一時停止"
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pausa ${applicationName}"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName} 일시 중지"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName}を一時停止"
           }
         },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Jeda ${applicationName}"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName} 일시 중지"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pause ${applicationName}"
+        "ms" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Jeda ${applicationName}"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pauzeer ${applicationName}"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pause ${applicationName}"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wstrzymaj ${applicationName}"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pauzeer ${applicationName}"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pausa ${applicationName}"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Wstrzymaj ${applicationName}"
           }
         },
-        "pt-PT": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pausa ${applicationName}"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pausa ${applicationName}"
           }
         },
-        "ro": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Întrerupeți ${applicationName}"
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pausa ${applicationName}"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Пауза ${applicationName}"
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Întrerupeți ${applicationName}"
           }
         },
-        "sk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pozastaviť ${applicationName}"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Пауза ${applicationName}"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pausa ${applicationName}"
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pozastaviť ${applicationName}"
           }
         },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "หยุด ${applicationName} ชั่วคราว"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pausa ${applicationName}"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName}'yi duraklat"
+        "th" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "หยุด ${applicationName} ชั่วคราว"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Пауза ${applicationName}"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName}'yi duraklat"
           }
         },
-        "vi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tạm dừng ${applicationName}"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Пауза ${applicationName}"
           }
         },
-        "zh-HK": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "暫停 ${applicationName}"
+        "vi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tạm dừng ${applicationName}"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "暂停 ${applicationName}"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "暂停 ${applicationName}"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "暫停 ${applicationName}"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "暫停 ${applicationName}"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "暫停 ${applicationName}"
           }
         }
       }
     },
-    "Play ${applicationName}": {
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "تشغيل الموسيقى في ${applicationName}"
+    "Play ${applicationName}" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تشغيل الموسيقى في ${applicationName}"
           }
         },
-        "ca": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reprodueix a ${applicationName}"
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reprodueix a ${applicationName}"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Přehrát v ${applicationName}"
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přehrát v ${applicationName}"
           }
         },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Afspil i ${applicationName}"
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afspil i ${applicationName}"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "In ${applicationName} wiedergeben"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In ${applicationName} wiedergeben"
           }
         },
-        "el": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Αναπαραγωγή στο ${applicationName}"
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Αναπαραγωγή στο ${applicationName}"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reproducir en ${applicationName}"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reproducir en ${applicationName}"
           }
         },
-        "es-419": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reproducir en ${applicationName}"
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reproducir en ${applicationName}"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Toista apissa ${applicationName}"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toista apissa ${applicationName}"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lire dans ${applicationName}"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lire dans ${applicationName}"
           }
         },
-        "fr-CA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lire dans ${applicationName}"
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lire dans ${applicationName}"
           }
         },
-        "he": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ניגון ב-${applicationName}"
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ניגון ב-${applicationName}"
           }
         },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName} में संगीत चलाएँ"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "${applicationName} में संगीत चलाएँ"
           }
         },
-        "hr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reproduciraj u aplikaciji ${applicationName}"
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reproduciraj u aplikaciji ${applicationName}"
           }
         },
-        "hu": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lejátszás a(z) ${applicationName} alkalmazásban"
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lejátszás a(z) ${applicationName} alkalmazásban"
           }
         },
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Putar musik di ${applicationName}"
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Putar musik di ${applicationName}"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Riproduci in ${applicationName}"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Riproduci in ${applicationName}"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName}で再生"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "${applicationName}で再生"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName}에서 재생"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "${applicationName}에서 재생"
           }
         },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mainkan muzik dalam ${applicationName}"
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mainkan muzik dalam ${applicationName}"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Spill av i ${applicationName}"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spill av i ${applicationName}"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Speel af in ${applicationName}"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Speel af in ${applicationName}"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Odtwórz w ${applicationName}"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Odtwórz w ${applicationName}"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reproduzir no ${applicationName}"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reproduzir no ${applicationName}"
           }
         },
-        "pt-PT": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reproduzir em ${applicationName}"
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reproduzir em ${applicationName}"
           }
         },
-        "ro": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Redă în ${applicationName}"
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Redă în ${applicationName}"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Воспроизвести в ${applicationName}"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Воспроизвести в ${applicationName}"
           }
         },
-        "sk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Prehrať v ${applicationName}"
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prehrať v ${applicationName}"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Spela i ${applicationName}"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spela i ${applicationName}"
           }
         },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เล่นเพลงใน ${applicationName}"
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "เล่นเพลงใน ${applicationName}"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName} içinde çal"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "${applicationName} içinde çal"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Відтворити в ${applicationName}"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відтворити в ${applicationName}"
           }
         },
-        "vi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Phát nhạc trong ${applicationName}"
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Phát nhạc trong ${applicationName}"
           }
         },
-        "zh-HK": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "在${applicationName}中播放"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在${applicationName}中播放"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "在${applicationName}中播放"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在${applicationName}中播放"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "在${applicationName}中播放"
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在${applicationName}中播放"
           }
         }
       }
     },
-    "Play my liked music in ${applicationName}": {
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "قم بتشغيل الموسيقى المفضلة لدي في ${applicationName}"
+    "Play my liked music in ${applicationName}" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "قم بتشغيل الموسيقى المفضلة لدي في ${applicationName}"
           }
         },
-        "ca": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reprodueix la meva música que m'agrada a ${applicationName}"
+        "ca" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Reprodueix la meva música que m'agrada a ${applicationName}"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Přehrávejte oblíbenou hudbu v ${applicationName}"
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Přehrávejte oblíbenou hudbu v ${applicationName}"
           }
         },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Afspil min musik i ${applicationName}"
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Afspil min musik i ${applicationName}"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Spielen Sie meine Lieblingsmusik im ${applicationName} ab"
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Spielen Sie meine Lieblingsmusik im ${applicationName} ab"
           }
         },
-        "el": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Παίξτε μουσική που μου άρεσε στο ${applicationName}"
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Παίξτε μουσική που μου άρεσε στο ${applicationName}"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reproducir la música que me gusta en ${applicationName}"
+        "en" : {
+          "stringSet" : {
+            "state" : "new",
+            "values" : [
+              "Play my liked music in ${applicationName}"
+            ]
           }
         },
-        "es-419": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Reproducir la música que me gusta en ${applicationName}"
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Reproducir la música que me gusta en ${applicationName}"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Toista suosikkimusiikkiani ${applicationName}:ssa"
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Reproducir la música que me gusta en ${applicationName}"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Jouer ma musique préférée dans ${applicationName}"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Toista suosikkimusiikkiani ${applicationName}:ssa"
           }
         },
-        "fr-CA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Jouer ma musique préférée dans ${applicationName}"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Jouer ma musique préférée dans ${applicationName}"
           }
         },
-        "he": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "השמע את המוזיקה שאהבתי ב-${applicationName}"
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Jouer ma musique préférée dans ${applicationName}"
           }
         },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName} में मेरा पसंदीदा संगीत चलाएँ"
+        "he" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "השמע את המוזיקה שאהבתי ב-${applicationName}"
           }
         },
-        "hr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pusti glazbu koja mi se sviđa u ${applicationName}"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName} में मेरा पसंदीदा संगीत चलाएँ"
           }
         },
-        "hu": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Játssza le kedvenc zenéimet a ${applicationName}-ben"
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Pusti glazbu koja mi se sviđa u ${applicationName}"
           }
         },
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Putar musik kesukaan saya di ${applicationName}"
+        "hu" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Játssza le kedvenc zenéimet a ${applicationName}-ben"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Riproduci la musica che mi piace in ${applicationName}"
+        "id" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Putar musik kesukaan saya di ${applicationName}"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName} で好きな音楽を再生する"
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Riproduci la musica che mi piace in ${applicationName}"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName}에서 내가 좋아하는 음악을 재생해 보세요"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName} で好きな音楽を再生する"
           }
         },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mainkan muzik kegemaran saya dalam ${applicationName}"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName}에서 내가 좋아하는 음악을 재생해 보세요"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Spill musikken jeg liker i ${applicationName}"
+        "ms" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Mainkan muzik kegemaran saya dalam ${applicationName}"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Speel mijn favoriete muziek af in ${applicationName}"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Spill musikken jeg liker i ${applicationName}"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Odtwarzaj moją ulubioną muzykę w ${applicationName}"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Speel mijn favoriete muziek af in ${applicationName}"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tocar minhas músicas favoritas em ${applicationName}"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Odtwarzaj moją ulubioną muzykę w ${applicationName}"
           }
         },
-        "pt-PT": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tocar as minhas músicas favoritas em ${applicationName}"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tocar minhas músicas favoritas em ${applicationName}"
           }
         },
-        "ro": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Redați muzica preferată în ${applicationName}"
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tocar as minhas músicas favoritas em ${applicationName}"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Включи мою любимую музыку в ${applicationName}"
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Redați muzica preferată în ${applicationName}"
           }
         },
-        "sk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Prehrávajte moju obľúbenú hudbu v ${applicationName}"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Включи мою любимую музыку в ${applicationName}"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Spela min gillade musik i ${applicationName}"
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Prehrávajte moju obľúbenú hudbu v ${applicationName}"
           }
         },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "เล่นเพลงที่ฉันชอบใน ${applicationName}"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Spela min gillade musik i ${applicationName}"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Beğendiğim müzikleri ${applicationName}'de çal"
+        "th" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "เล่นเพลงที่ฉันชอบใน ${applicationName}"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Слухайте музику, яка мені подобається, у ${applicationName}"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Beğendiğim müzikleri ${applicationName}'de çal"
           }
         },
-        "vi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Phát nhạc tôi thích trong ${applicationName}"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Слухайте музику, яка мені подобається, у ${applicationName}"
           }
         },
-        "zh-HK": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "在 ${applicationName} 中播放我喜歡的音樂"
+        "vi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Phát nhạc tôi thích trong ${applicationName}"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "在 ${applicationName} 中播放我喜欢的音乐"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "在 ${applicationName} 中播放我喜欢的音乐"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "在 ${applicationName} 中播放我喜歡的音樂"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "在 ${applicationName} 中播放我喜歡的音樂"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "在 ${applicationName} 中播放我喜歡的音樂"
           }
         }
       }
     },
-    "Set a sleep timer in ${applicationName}": {
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "اضبط مؤقت النوم في ${applicationName}"
+    "Set a sleep timer in ${applicationName}" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "اضبط مؤقت النوم في ${applicationName}"
           }
         },
-        "ca": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Estableix un temporitzador de son a ${applicationName}"
+        "ca" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Estableix un temporitzador de son a ${applicationName}"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nastavte časovač spánku v ${applicationName}"
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Nastavte časovač spánku v ${applicationName}"
           }
         },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Indstil en sleep-timer i ${applicationName}"
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Indstil en sleep-timer i ${applicationName}"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Stellen Sie in ${applicationName} einen Sleep-Timer ein"
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Stellen Sie in ${applicationName} einen Sleep-Timer ein"
           }
         },
-        "el": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ρυθμίστε ένα χρονόμετρο ύπνου στο ${applicationName}"
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ρυθμίστε ένα χρονόμετρο ύπνου στο ${applicationName}"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Configurar un temporizador de apagado en ${applicationName}"
+        "en" : {
+          "stringSet" : {
+            "state" : "new",
+            "values" : [
+              "Set a sleep timer in ${applicationName}"
+            ]
           }
         },
-        "es-419": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Configurar un temporizador de apagado en ${applicationName}"
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Configurar un temporizador de apagado en ${applicationName}"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aseta uniajastin kohdassa ${applicationName}"
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Configurar un temporizador de apagado en ${applicationName}"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Définir une minuterie de mise en veille dans ${applicationName}"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Aseta uniajastin kohdassa ${applicationName}"
           }
         },
-        "fr-CA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Définir une minuterie de mise en veille dans ${applicationName}"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Définir une minuterie de mise en veille dans ${applicationName}"
           }
         },
-        "he": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "הגדר טיימר שינה ב-${applicationName}"
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Définir une minuterie de mise en veille dans ${applicationName}"
           }
         },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName} में स्लीप टाइमर सेट करें"
+        "he" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "הגדר טיימר שינה ב-${applicationName}"
           }
         },
-        "hr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Postavite mjerač vremena za spavanje u ${applicationName}"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName} में स्लीप टाइमर सेट करें"
           }
         },
-        "hu": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Állítson be egy elalvási időzítőt a ${applicationName}-ben"
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Postavite mjerač vremena za spavanje u ${applicationName}"
           }
         },
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Setel pengatur waktu tidur di ${applicationName}"
+        "hu" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Állítson be egy elalvási időzítőt a ${applicationName}-ben"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Imposta un timer di spegnimento in ${applicationName}"
+        "id" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Setel pengatur waktu tidur di ${applicationName}"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName}でスリープタイマーを設定する"
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Imposta un timer di spegnimento in ${applicationName}"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName}에서 취침 타이머 설정"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName}でスリープタイマーを設定する"
           }
         },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tetapkan pemasa tidur dalam ${applicationName}"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName}에서 취침 타이머 설정"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Still inn en innsovningstimer i ${applicationName}"
+        "ms" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Tetapkan pemasa tidur dalam ${applicationName}"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Stel een slaaptimer in ${applicationName} in"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Still inn en innsovningstimer i ${applicationName}"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ustaw wyłącznik czasowy w ${applicationName}"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Stel een slaaptimer in ${applicationName} in"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Defina um temporizador em ${applicationName}"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ustaw wyłącznik czasowy w ${applicationName}"
           }
         },
-        "pt-PT": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Defina um temporizador para ${applicationName}"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Defina um temporizador em ${applicationName}"
           }
         },
-        "ro": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Setați un temporizator de repaus în ${applicationName}"
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Defina um temporizador para ${applicationName}"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Установите таймер сна в ${applicationName}."
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Setați un temporizator de repaus în ${applicationName}"
           }
         },
-        "sk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Nastavte časovač spánku v ${applicationName}"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Установите таймер сна в ${applicationName}."
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ställ in en insomningstimer i ${applicationName}"
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Nastavte časovač spánku v ${applicationName}"
           }
         },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ตั้งเวลาปิดเครื่องใน ${applicationName}"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ställ in en insomningstimer i ${applicationName}"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName}'de uyku zamanlayıcısını ayarlayın"
+        "th" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "ตั้งเวลาปิดเครื่องใน ${applicationName}"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Встановіть таймер сну в ${applicationName}"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName}'de uyku zamanlayıcısını ayarlayın"
           }
         },
-        "vi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Đặt hẹn giờ ngủ trong ${applicationName}"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Встановіть таймер сну в ${applicationName}"
           }
         },
-        "zh-HK": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "在${applicationName}中設定睡眠定時器"
+        "vi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Đặt hẹn giờ ngủ trong ${applicationName}"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "在${applicationName}中设置睡眠定时器"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "在${applicationName}中设置睡眠定时器"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "在${applicationName}中設定睡眠定時器"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "在${applicationName}中設定睡眠定時器"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "在${applicationName}中設定睡眠定時器"
           }
         }
       }
     },
-    "Skip this song in ${applicationName}": {
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "تخطي هذه الأغنية في ${applicationName}"
+    "Skip this song in ${applicationName}" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تخطي هذه الأغنية في ${applicationName}"
           }
         },
-        "ca": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Omet aquesta cançó a ${applicationName}"
+        "ca" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Omet aquesta cançó a ${applicationName}"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Přeskočte tuto skladbu v ${applicationName}"
+        "cs" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Přeskočte tuto skladbu v ${applicationName}"
           }
         },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Spring denne sang over i ${applicationName}"
+        "da" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Spring denne sang over i ${applicationName}"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Überspringen Sie dieses Lied in ${applicationName}"
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Überspringen Sie dieses Lied in ${applicationName}"
           }
         },
-        "el": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Παραλείψτε αυτό το τραγούδι στο ${applicationName}"
+        "el" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Παραλείψτε αυτό το τραγούδι στο ${applicationName}"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Saltar esta canción en ${applicationName}"
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saltar esta canción en ${applicationName}"
           }
         },
-        "es-419": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Saltar esta canción en ${applicationName}"
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Saltar esta canción en ${applicationName}"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ohita tämä kappale ${applicationName}:ssa"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ohita tämä kappale ${applicationName}:ssa"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ignorer cette chanson dans ${applicationName}"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignorer cette chanson dans ${applicationName}"
           }
         },
-        "fr-CA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ignorer cette chanson dans ${applicationName}"
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ignorer cette chanson dans ${applicationName}"
           }
         },
-        "he": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "דלג על השיר הזה ב-${applicationName}"
+        "he" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "דלג על השיר הזה ב-${applicationName}"
           }
         },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName} में इस गाने को छोड़ें"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "${applicationName} में इस गाने को छोड़ें"
           }
         },
-        "hr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Preskoči ovu pjesmu u ${applicationName}"
+        "hr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preskoči ovu pjesmu u ${applicationName}"
           }
         },
-        "hu": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kihagyja ezt a dalt a ${applicationName}-ben"
+        "hu" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kihagyja ezt a dalt a ${applicationName}-ben"
           }
         },
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lewati lagu ini di ${applicationName}"
+        "id" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lewati lagu ini di ${applicationName}"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Salta questo brano in ${applicationName}"
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salta questo brano in ${applicationName}"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName} でこの曲をスキップします"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "${applicationName} でこの曲をスキップします"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName}에서 이 노래 건너뛰기"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "${applicationName}에서 이 노래 건너뛰기"
           }
         },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Langkau lagu ini dalam ${applicationName}"
+        "ms" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Langkau lagu ini dalam ${applicationName}"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hopp over denne sangen i ${applicationName}"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hopp over denne sangen i ${applicationName}"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sla dit nummer over in ${applicationName}"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sla dit nummer over in ${applicationName}"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pomiń tę piosenkę w ${applicationName}"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pomiń tę piosenkę w ${applicationName}"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pule esta música em ${applicationName}"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pule esta música em ${applicationName}"
           }
         },
-        "pt-PT": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Salte esta música em ${applicationName}"
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salte esta música em ${applicationName}"
           }
         },
-        "ro": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Omite acest cântec în ${applicationName}"
+        "ro" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Omite acest cântec în ${applicationName}"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Пропустите эту песню в ${applicationName}."
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пропустите эту песню в ${applicationName}."
           }
         },
-        "sk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Preskočte túto skladbu v ${applicationName}"
+        "sk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Preskočte túto skladbu v ${applicationName}"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hoppa över den här låten i ${applicationName}"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hoppa över den här låten i ${applicationName}"
           }
         },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ข้ามเพลงนี้ใน ${applicationName}"
+        "th" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ข้ามเพลงนี้ใน ${applicationName}"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName}'deki bu şarkıyı atla"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "${applicationName}'deki bu şarkıyı atla"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Пропустіть цю пісню в ${applicationName}"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пропустіть цю пісню в ${applicationName}"
           }
         },
-        "vi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bỏ qua bài hát này trong ${applicationName}"
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bỏ qua bài hát này trong ${applicationName}"
           }
         },
-        "zh-HK": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "在${applicationName}中跳過這首歌"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在${applicationName}中跳过这首歌"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "在${applicationName}中跳过这首歌"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在${applicationName}中跳過這首歌"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "在${applicationName}中跳過這首歌"
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在${applicationName}中跳過這首歌"
           }
         }
       }
     },
-    "What's playing in ${applicationName}": {
-      "localizations": {
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ما الذي يتم تشغيله في ${applicationName}"
+    "What's playing in ${applicationName}" : {
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "ما الذي يتم تشغيله في ${applicationName}"
           }
         },
-        "ca": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Què es reprodueix a ${applicationName}"
+        "ca" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Què es reprodueix a ${applicationName}"
           }
         },
-        "cs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Co se hraje v ${applicationName}"
+        "cs" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Co se hraje v ${applicationName}"
           }
         },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hvad spiller der i ${applicationName}"
+        "da" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Hvad spiller der i ${applicationName}"
           }
         },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Was läuft in ${applicationName}"
+        "de" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Was läuft in ${applicationName}"
           }
         },
-        "el": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Τι παίζει στο ${applicationName}"
+        "el" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Τι παίζει στο ${applicationName}"
           }
         },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¿Qué está sonando en ${applicationName}?"
+        "en" : {
+          "stringSet" : {
+            "state" : "new",
+            "values" : [
+              "What's playing in ${applicationName}"
+            ]
           }
         },
-        "es-419": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "¿Qué está sonando en ${applicationName}?"
+        "es" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "¿Qué está sonando en ${applicationName}?"
           }
         },
-        "fi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mitä toistetaan pelissä ${applicationName}"
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "¿Qué está sonando en ${applicationName}?"
           }
         },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Qu'est-ce qui se joue dans ${applicationName}"
+        "fi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Mitä toistetaan pelissä ${applicationName}"
           }
         },
-        "fr-CA": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Qu'est-ce qui se joue dans ${applicationName}"
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Qu'est-ce qui se joue dans ${applicationName}"
           }
         },
-        "he": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "מה מתנגן ב-${applicationName}"
+        "fr-CA" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Qu'est-ce qui se joue dans ${applicationName}"
           }
         },
-        "hi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName} में क्या चल रहा है?"
+        "he" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "מה מתנגן ב-${applicationName}"
           }
         },
-        "hr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Što svira u ${applicationName}"
+        "hi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName} में क्या चल रहा है?"
           }
         },
-        "hu": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mit játszik le a ${applicationName}"
+        "hr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Što svira u ${applicationName}"
           }
         },
-        "id": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apa yang diputar di ${applicationName}"
+        "hu" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Mit játszik le a ${applicationName}"
           }
         },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cosa c'è in riproduzione in ${applicationName}"
+        "id" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Apa yang diputar di ${applicationName}"
           }
         },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName} で何が再生されますか"
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Cosa c'è in riproduzione in ${applicationName}"
           }
         },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName}에서 재생 중인 콘텐츠"
+        "ja" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName} で何が再生されますか"
           }
         },
-        "ms": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Apa yang dimainkan dalam ${applicationName}"
+        "ko" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName}에서 재생 중인 콘텐츠"
           }
         },
-        "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hva spiller i ${applicationName}"
+        "ms" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Apa yang dimainkan dalam ${applicationName}"
           }
         },
-        "nl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Wat wordt er afgespeeld in ${applicationName}"
+        "nb" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Hva spiller i ${applicationName}"
           }
         },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Co gra w ${applicationName}"
+        "nl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Wat wordt er afgespeeld in ${applicationName}"
           }
         },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O que está tocando em ${applicationName}"
+        "pl" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Co gra w ${applicationName}"
           }
         },
-        "pt-PT": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "O que está a tocar em ${applicationName}"
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "O que está tocando em ${applicationName}"
           }
         },
-        "ro": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ce se joacă în ${applicationName}"
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "O que está a tocar em ${applicationName}"
           }
         },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Что играет в ${applicationName}"
+        "ro" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Ce se joacă în ${applicationName}"
           }
         },
-        "sk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Čo sa hrá v ${applicationName}"
+        "ru" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Что играет в ${applicationName}"
           }
         },
-        "sv": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Vad som spelas i ${applicationName}"
+        "sk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Čo sa hrá v ${applicationName}"
           }
         },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "สิ่งที่เล่นอยู่ใน ${applicationName}"
+        "sv" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Vad som spelas i ${applicationName}"
           }
         },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName}'de ne oynuyor?"
+        "th" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "สิ่งที่เล่นอยู่ใน ${applicationName}"
           }
         },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Що грає в ${applicationName}"
+        "tr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName}'de ne oynuyor?"
           }
         },
-        "vi": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Đang chơi gì trong ${applicationName}"
+        "uk" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Що грає в ${applicationName}"
           }
         },
-        "zh-HK": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName} 在播放什麼"
+        "vi" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Đang chơi gì trong ${applicationName}"
           }
         },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName} 正在播放什么"
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName} 正在播放什么"
           }
         },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "${applicationName} 在播放什麼"
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName} 在播放什麼"
+          }
+        },
+        "zh-HK" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "${applicationName} 在播放什麼"
           }
         }
       }
     }
   },
-  "version": "1.0"
+  "version" : "1.0"
 }
