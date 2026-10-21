@@ -151,8 +151,12 @@ enum NativeMenu {
 @MainActor
 enum NativeShare {
     static func present(_ request: WebShareRequest, in view: NSView) {
-        guard let url = URL(string: request.url) else { return }
-        let point = NativeMenu.pagePoint(x: request.x, y: request.y, viewportHeight: request.viewportHeight, in: view)
+        present(request.url, at: NativeMenu.pagePoint(x: request.x, y: request.y, viewportHeight: request.viewportHeight, in: view), in: view)
+    }
+
+    /// The share menu at a point in `view` (it opens on whichever side has room).
+    static func present(_ link: String, at point: NSPoint, in view: NSView) {
+        guard let url = URL(string: link) else { return }
         let picker = NSSharingServicePicker(items: [url])
         picker.show(relativeTo: NSRect(origin: point, size: NSSize(width: 1, height: 1)), of: view, preferredEdge: .minY)
     }

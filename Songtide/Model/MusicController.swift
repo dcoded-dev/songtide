@@ -114,6 +114,9 @@ final class MusicController: NSObject {
     @ObservationIgnored private var observations: [NSKeyValueObservation] = []
     /// Screen point of a native button that asked the page for a menu; that menu opens there.
     @ObservationIgnored private var pendingMenuAnchor: (point: NSPoint, date: Date)?
+    /// Where the last menu opened from a native button (like the player bar's ⋯) was, on screen:
+    /// Share from that menu opens there too, not where the pointer last was on the page.
+    @ObservationIgnored private var lastNativeMenuPoint: (point: NSPoint, date: Date)?
 
     override private init() {
         let config = WKWebViewConfiguration()
@@ -449,12 +452,19 @@ final class MusicController: NSObject {
             if let pending = pendingMenuAnchor, Date().timeIntervalSince(pending.date) < 2, let window = webView.window {
                 anchor = webView.convert(window.convertPoint(fromScreen: pending.point), from: nil)
             }
+            lastNativeMenuPoint = anchor != nil ? pendingMenuAnchor.map { ($0.point, Date()) } : nil
             pendingMenuAnchor = nil
             NativeMenu.present(request, in: webView, anchor: anchor) { [weak self] index in
                 if let index { self?.call("menuSelect(\(index))") } else { self?.call("menuCancel()") }
             }
         case "share":
-            if let request = try? decoder.decode(WebShareRequest.self, from: data) { NativeShare.present(request, in: webView) }
+            guard let request = try? decoder.decode(WebShareRequest.self, from: data) else { return }
+            if let menu = lastNativeMenuPoint, Date().timeIntervalSince(menu.date) < 30, let content = webView.window?.contentView, let window = webView.window {
+                NativeShare.present(request.url, at: content.convert(window.convertPoint(fromScreen: menu.point), from: nil), in: content)
+            } else {
+                NativeShare.present(request, in: webView)
+            }
+            lastNativeMenuPoint = nil
         case "channels":
             if let new = try? decoder.decode([ChannelAccount].self, from: data), new != channels {
                 channels = new
