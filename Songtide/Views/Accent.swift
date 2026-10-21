@@ -4,7 +4,7 @@ import SwiftUI
 /// Songtide's accent colour: the Mac's own (the default), or one picked for Songtide alone.
 /// It tints the app's controls and replaces YouTube red on the page.
 enum Accent: String, CaseIterable, Identifiable {
-    case system, blue, purple, pink, red, orange, yellow, green, mint, teal
+    case system, blue, purple, pink, red, orange, yellow, green, graphite
 
     static let key = "accentColour"
 
@@ -23,8 +23,7 @@ enum Accent: String, CaseIterable, Identifiable {
         case .orange: .systemOrange
         case .yellow: .systemYellow
         case .green: .systemGreen
-        case .mint: .systemMint
-        case .teal: .systemTeal
+        case .graphite: .systemGray
         }
     }
 
