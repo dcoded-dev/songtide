@@ -18,7 +18,7 @@ enum AppInfo {
             .foregroundColor: NSColor.secondaryLabelColor,
             .paragraphStyle: centered,
         ]
-        let credits = NSMutableAttributedString(string: "Developed by DCODED\n", attributes: base)
+        let credits = NSMutableAttributedString(string: String(localized: "Developed by DCODED") + "\n", attributes: base)
         var link = base
         link[.link] = developerURL
         credits.append(NSAttributedString(string: "dcoded.dev", attributes: link))
@@ -226,16 +226,16 @@ struct SettingsView: View {
                             .frame(width: 34, height: 34)
                             .clipShape(Circle())
                             VStack(alignment: .leading, spacing: 1) {
-                                Text(music.account.name.isEmpty ? "Google Account" : music.account.name)
+                                Text(music.account.name.isEmpty ? String(localized: "Google Account") : music.account.name)
                                     .font(.headline)
-                                Text(music.account.handle.isEmpty ? "Signed in" : music.account.handle)
+                                Text(music.account.handle.isEmpty ? String(localized: "Signed in") : music.account.handle)
                                     .font(.caption)
                                     .foregroundStyle(.secondary)
                             }
                             .lineLimit(1)
                         }
                     } else {
-                        LabeledContent("Google account", value: "Not signed in")
+                        LabeledContent("Google account", value: String(localized: "Not signed in"))
                     }
                     HStack {
                         if music.account.signedIn {
@@ -274,7 +274,7 @@ struct SettingsView: View {
         }
     }
 
-    private var presenceDescription: String {
+    private var presenceDescription: LocalizedStringKey {
         switch Preferences.Presence(rawValue: presence) ?? .menuBarAndDockWhenOpen {
         case .menuBarAndDockWhenOpen: "Closing the window hides the Dock icon; Songtide keeps running in the menu bar."
         case .dockAndMenuBar: "Always in the Dock, with the mini player in the menu bar."
@@ -298,7 +298,7 @@ struct SettingsView: View {
             try LoginItem.setEnabled(enabled)
             loginItemError = nil
         } catch {
-            loginItemError = "Couldn't change the login item: \(error.localizedDescription)"
+            loginItemError = String(localized: "Couldn't change the login item: \(error.localizedDescription)")
         }
         refreshLoginItem()
     }

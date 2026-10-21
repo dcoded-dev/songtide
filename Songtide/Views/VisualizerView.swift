@@ -231,7 +231,7 @@ struct VisualizerView: View {
                         hostWindow?.toggleFullScreen(nil)
                     }
                 }
-                overlayButton(showsLyrics ? "Hide Lyrics" + lyricsNote : "Show Lyrics", showsLyrics ? "quote.bubble.fill" : "quote.bubble") {
+                overlayButton(showsLyrics ? hideLyricsTitle : "Show Lyrics", showsLyrics ? "quote.bubble.fill" : "quote.bubble") {
                     showsLyrics.toggle()
                 }
                 overlayButton("Close Visualizer", "xmark") { VisualizerPresenter.close(music, dismiss: dismissWindow) }
@@ -259,17 +259,17 @@ struct VisualizerView: View {
         }
     }
 
-    /// Why lyrics over the visualizer show nothing for this song, for the button's tooltip.
-    private var lyricsNote: String {
+    /// Says why lyrics over the visualizer show nothing for this song, for the button's tooltip.
+    private var hideLyricsTitle: LocalizedStringKey {
         switch Lyrics.shared.content {
-        case .notFound: " (none available for this song)"
-        case .plain(Lyrics.instrumental): " (instrumental)"
-        case .plain: " (not synced for this song)"
-        default: ""
+        case .notFound: "Hide Lyrics (none available for this song)"
+        case .plain(Lyrics.instrumental): "Hide Lyrics (instrumental)"
+        case .plain: "Hide Lyrics (not synced for this song)"
+        default: "Hide Lyrics"
         }
     }
 
-    private func overlayButton(_ title: String, _ symbol: String, action: @escaping () -> Void) -> some View {
+    private func overlayButton(_ title: LocalizedStringKey, _ symbol: String, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             Image(systemName: symbol)
                 .frame(width: 32, height: 32)
@@ -284,7 +284,11 @@ struct VisualizerView: View {
     private static let controlFill = Color.black.opacity(0.6)
     private static let controlStroke = Color.white.opacity(0.18)
 
-    private static let permissionPath = ["Privacy & Security", "Screen & System Audio Recording", "System Audio Recording Only"]
+    private static let permissionPath = [
+        String(localized: "Privacy & Security", comment: "System Settings pane, as macOS names it"),
+        String(localized: "Screen & System Audio Recording", comment: "System Settings section, as macOS names it"),
+        String(localized: "System Audio Recording Only", comment: "System Settings option, as macOS names it"),
+    ]
 
     /// Without permission to capture its audio the visuals can't react; says so front and centre.
     private var permissionBanner: some View {
@@ -386,10 +390,10 @@ final class VisualizerModel: NSObject, WKScriptMessageHandler {
 
     static func label(forAutoChange seconds: Int) -> String {
         switch seconds {
-        case 0: "Off"
-        case ..<60: "Every \(seconds) Seconds"
-        case 60: "Every Minute"
-        default: "Every \(seconds / 60) Minutes"
+        case 0: String(localized: "Off", comment: "Visualizer auto-shuffle is off")
+        case ..<60: String(localized: "Every \(seconds) Seconds")
+        case 60: String(localized: "Every Minute")
+        default: String(localized: "Every \(seconds / 60) Minutes")
         }
     }
 

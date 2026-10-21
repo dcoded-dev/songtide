@@ -13,7 +13,7 @@ struct NowPlayingEntry: TimelineEntry {
 
 struct NowPlayingProvider: TimelineProvider {
     func placeholder(in context: Context) -> NowPlayingEntry {
-        NowPlayingEntry(date: .now, snapshot: NowPlayingSnapshot(title: "Song Title", artist: "Artist", isPlaying: true), artwork: nil)
+        NowPlayingEntry(date: .now, snapshot: NowPlayingSnapshot(title: String(localized: "Song Title"), artist: String(localized: "Artist"), isPlaying: true), artwork: nil)
     }
 
     func getSnapshot(in context: Context, completion: @escaping (NowPlayingEntry) -> Void) { completion(current()) }

@@ -1,7 +1,36 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Artist" : {
 
+    },
+    "Next Song" : {
+
+    },
+    "Nothing playing" : {
+
+    },
+    "Now Playing" : {
+
+    },
+    "Play or Pause" : {
+
+    },
+    "Plays or pauses Songtide." : {
+
+    },
+    "Previous Song" : {
+
+    },
+    "Song Title" : {
+
+    },
+    "Songtide" : {
+
+    },
+    "What's playing in Songtide, with playback controls." : {
+
+    }
   },
   "version" : "1.0"
 }

@@ -216,7 +216,7 @@ private struct AccountView: View {
                         .frame(width: 28, height: 28)
                         .clipShape(Circle())
                         VStack(alignment: .leading, spacing: 0) {
-                            Text(music.account.name.isEmpty ? "Google Account" : music.account.name)
+                            Text(music.account.name.isEmpty ? String(localized: "Google Account") : music.account.name)
                                 .font(.headline)
                             if !music.account.handle.isEmpty {
                                 Text(music.account.handle)

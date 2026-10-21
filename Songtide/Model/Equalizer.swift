@@ -14,16 +14,16 @@ enum Equalizer {
     }
 
     static let presets: [Preset] = [
-        Preset(name: "Bass Boost", gains: [6, 5, 4, 2, 0, 0, 0, 0, 0, 0]),
-        Preset(name: "Bass Reducer", gains: [-6, -5, -4, -2, 0, 0, 0, 0, 0, 0]),
-        Preset(name: "Treble Boost", gains: [0, 0, 0, 0, 0, 1, 2, 4, 5, 6]),
-        Preset(name: "Vocal", gains: [-2, -2, -1, 1, 3, 3, 2, 1, 0, -1]),
-        Preset(name: "Acoustic", gains: [3, 3, 2, 1, 1, 1, 2, 2, 2, 1]),
-        Preset(name: "Electronic", gains: [4, 4, 2, 0, -2, 0, 1, 2, 4, 4]),
-        Preset(name: "Hip-Hop", gains: [5, 4, 2, 3, -1, -1, 1, 0, 2, 3]),
-        Preset(name: "Pop", gains: [-1, 0, 2, 3, 3, 2, 0, -1, -1, -1]),
-        Preset(name: "Rock", gains: [4, 3, 2, 0, -1, -1, 1, 2, 3, 4]),
-        Preset(name: "Late Night", gains: [3, 2, 1, 0, 0, 0, -1, -2, -3, -4]),
+        Preset(name: String(localized: "Bass Boost", comment: "Equalizer preset"), gains: [6, 5, 4, 2, 0, 0, 0, 0, 0, 0]),
+        Preset(name: String(localized: "Bass Reducer", comment: "Equalizer preset"), gains: [-6, -5, -4, -2, 0, 0, 0, 0, 0, 0]),
+        Preset(name: String(localized: "Treble Boost", comment: "Equalizer preset"), gains: [0, 0, 0, 0, 0, 1, 2, 4, 5, 6]),
+        Preset(name: String(localized: "Vocal", comment: "Equalizer preset"), gains: [-2, -2, -1, 1, 3, 3, 2, 1, 0, -1]),
+        Preset(name: String(localized: "Acoustic", comment: "Equalizer preset"), gains: [3, 3, 2, 1, 1, 1, 2, 2, 2, 1]),
+        Preset(name: String(localized: "Electronic", comment: "Equalizer preset"), gains: [4, 4, 2, 0, -2, 0, 1, 2, 4, 4]),
+        Preset(name: String(localized: "Hip-Hop", comment: "Equalizer preset"), gains: [5, 4, 2, 3, -1, -1, 1, 0, 2, 3]),
+        Preset(name: String(localized: "Pop", comment: "Equalizer preset"), gains: [-1, 0, 2, 3, 3, 2, 0, -1, -1, -1]),
+        Preset(name: String(localized: "Rock", comment: "Equalizer preset"), gains: [4, 3, 2, 0, -1, -1, 1, 2, 3, 4]),
+        Preset(name: String(localized: "Late Night", comment: "Equalizer preset"), gains: [3, 2, 1, 0, 0, 0, -1, -2, -3, -4]),
     ]
 
     static func label(for frequency: Double) -> String {

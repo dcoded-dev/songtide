@@ -136,7 +136,7 @@ final class Lyrics {
     }
 
     /// What an instrumental (no words to sing) shows as its lyrics.
-    static let instrumental = "♪ Instrumental"
+    static let instrumental = String(localized: "♪ Instrumental")
 
     private static func content(from result: [String: Any]) -> Content? {
         if result["instrumental"] as? Bool == true { return .plain(instrumental) }

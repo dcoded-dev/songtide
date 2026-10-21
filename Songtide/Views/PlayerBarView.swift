@@ -48,10 +48,10 @@ struct PlayerBarView: View {
             ZStack {
                 HStack(spacing: 0) {
                     HStack(spacing: 6) {
-                        iconButton("Previous", "backward.end.fill") { music.previous() }
-                        iconButton(state.isPlaying ? "Pause" : "Play", state.isPlaying ? "pause.fill" : "play.fill", minSize: 40) { music.playPause() }
+                        iconButton(String(localized: "Previous"), "backward.end.fill") { music.previous() }
+                        iconButton(state.isPlaying ? String(localized: "Pause") : String(localized: "Play"), state.isPlaying ? "pause.fill" : "play.fill", minSize: 40) { music.playPause() }
                             .font(.system(size: 30))
-                        iconButton("Next", "forward.end.fill") { music.next() }
+                        iconButton(String(localized: "Next"), "forward.end.fill") { music.next() }
                         // No time at all until something is loaded; "0:00 / 0:00" describes nothing.
                         if showsTime && state.hasTrack {
                             ElapsedTimeText()
@@ -75,16 +75,16 @@ struct PlayerBarView: View {
                             SleepTimerBadge()
                             OutputMenu()
                             Group {
-                                iconButton(state.repeat == .one ? "Repeat One" : "Repeat", state.repeat == .one ? "repeat.1" : "repeat") { music.toggleRepeat() }
+                                iconButton(state.repeat == .one ? String(localized: "Repeat One") : String(localized: "Repeat", comment: "Repeat button"), state.repeat == .one ? "repeat.1" : "repeat") { music.toggleRepeat() }
                                     .foregroundStyle(state.repeat == .off ? AnyShapeStyle(.secondary) : AnyShapeStyle(Color.songtide))
-                                iconButton("Shuffle", "shuffle") { music.shuffle() }
+                                iconButton(String(localized: "Shuffle"), "shuffle") { music.shuffle() }
                                     .foregroundStyle(state.shuffle ? AnyShapeStyle(Color.songtide) : AnyShapeStyle(.secondary))
                             }
                             .dimmedWhenDisabled() // before .disabled, so it sees the disabled state
                             .disabled(!state.hasTrack)
                         }
                         EqualizerMenu()
-                        iconButton(lyrics.isWindowOpen ? "Hide Lyrics" : "Show Lyrics", "quote.bubble") {
+                        iconButton(lyrics.isWindowOpen ? String(localized: "Hide Lyrics") : String(localized: "Show Lyrics"), "quote.bubble") {
                             if lyrics.isWindowOpen { dismissWindow(id: LyricsWindowView.windowID) } else { Lyrics.shared.isWindowOpen = true; openWindow(id: LyricsWindowView.windowID) }
                         }
                         .foregroundStyle(lyrics.isWindowOpen ? AnyShapeStyle(Color.songtide) : AnyShapeStyle(.primary))
@@ -109,7 +109,7 @@ struct PlayerBarView: View {
                         }
                         // Up Next / Now Playing, like Apple Music's "Playing Next" button; tinted
                         // while open. (Clicking the artwork opens it too.)
-                        iconButton(music.isNowPlayingVisible ? "Hide Up Next" : "Show Up Next", "list.bullet") { music.toggleNowPlaying() }
+                        iconButton(music.isNowPlayingVisible ? String(localized: "Hide Up Next") : String(localized: "Show Up Next"), "list.bullet") { music.toggleNowPlaying() }
                             .foregroundStyle(music.isNowPlayingVisible ? AnyShapeStyle(Color.songtide) : AnyShapeStyle(.primary))
                             .dimmedWhenDisabled()
                             .disabled(!state.hasTrack)
@@ -201,11 +201,11 @@ private struct EqualizerMenu: View {
     private var equalizer = SystemEqualizer.shared
 
     var body: some View {
-        iconButton("Equalizer", "slider.vertical.3") { showMenu() }
+        iconButton(String(localized: "Equalizer"), "slider.vertical.3") { showMenu() }
             .foregroundStyle(equalizer.isEnabled ? AnyShapeStyle(Color.songtide) : AnyShapeStyle(.primary))
             // On, but without permission to capture its audio it can't do anything: say so.
             .permissionBadge(needsPermission)
-            .accessibilityValue(equalizer.isEnabled ? (equalizer.preset?.name ?? "Custom") : "Off")
+            .accessibilityValue(equalizer.isEnabled ? (equalizer.preset?.name ?? String(localized: "Custom", comment: "Equalizer setting that matches no preset")) : String(localized: "Off", comment: "Equalizer is off"))
     }
 
     private var needsPermission: Bool {
@@ -217,15 +217,15 @@ private struct EqualizerMenu: View {
         let menu = NSMenu()
         if needsPermission {
             // Short lines, so the menu never has to truncate them.
-            menu.addItem(.sectionHeader(title: "Audio Access Needed"))
-            let allow = ClosureMenuItem(title: "Allow in Privacy Settings…", keyEquivalent: "") {
+            menu.addItem(.sectionHeader(title: String(localized: "Audio Access Needed")))
+            let allow = ClosureMenuItem(title: String(localized: "Allow in Privacy Settings…"), keyEquivalent: "") {
                 NSWorkspace.shared.open(SystemEqualizer.privacySettingsURL)
             }
             allow.image = NSImage(systemSymbolName: "exclamationmark.triangle", accessibilityDescription: nil)
             menu.addItem(allow)
             menu.addItem(.separator())
         }
-        let off = ClosureMenuItem(title: "Off", keyEquivalent: "") { equalizer.setEnabled(false) }
+        let off = ClosureMenuItem(title: String(localized: "Off", comment: "Equalizer is off"), keyEquivalent: "") { equalizer.setEnabled(false) }
         off.state = equalizer.isEnabled ? .off : .on
         menu.addItem(off)
         menu.addItem(.separator())
@@ -235,7 +235,7 @@ private struct EqualizerMenu: View {
             menu.addItem(item)
         }
         menu.addItem(.separator())
-        let custom = ClosureMenuItem(title: "Custom…", keyEquivalent: "") {
+        let custom = ClosureMenuItem(title: String(localized: "Custom…", comment: "Equalizer setting: set your own bands"), keyEquivalent: "") {
             if !equalizer.isEnabled { equalizer.setEnabled(true) }
             UserDefaults.standard.set(SettingsTab.playback.rawValue, forKey: SettingsTab.key)
             openSettings()
@@ -250,7 +250,7 @@ private struct EqualizerMenu: View {
 /// Where the sound goes: the Mac's outputs (speakers, AirPods, AirPlay…), current one checked.
 private struct OutputMenu: View {
     var body: some View {
-        iconButton("Output", "airplayaudio") { showMenu() }
+        iconButton(String(localized: "Output", comment: "Audio output device menu"), "airplayaudio") { showMenu() }
     }
 
     private func showMenu() { Self.menu().popUp(positioning: nil, at: NSEvent.mouseLocation, in: nil) }
@@ -265,7 +265,7 @@ private struct OutputMenu: View {
             menu.addItem(item)
         }
         menu.addItem(.separator())
-        menu.addItem(ClosureMenuItem(title: "Sound Settings…", keyEquivalent: "") {
+        menu.addItem(ClosureMenuItem(title: String(localized: "Sound Settings…"), keyEquivalent: "") {
             NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.Sound-Settings.extension")!)
         })
         return menu
@@ -294,15 +294,15 @@ private struct SleepTimerBadge: View {
             .buttonStyle(.plain)
             .help("Sleep timer: \(timer.label)")
         } else {
-            iconButton("Sleep Timer", "moon.zzz", action: showMenu)
+            iconButton(String(localized: "Sleep Timer"), "moon.zzz", action: showMenu)
         }
     }
 
     /// "23m", "0:45", or "end"
     private var shortLabel: String {
-        if case .endOfTrack = timer.mode { return "end" }
+        if case .endOfTrack = timer.mode { return String(localized: "end", comment: "Short sleep timer badge: stops at the end of the song") }
         let seconds = Int(timer.remaining.rounded(.up))
-        return seconds >= 60 ? "\(Int((timer.remaining / 60).rounded(.up)))m" : "0:\(String(format: "%02d", seconds))"
+        return seconds >= 60 ? String(localized: "\(Int((timer.remaining / 60).rounded(.up)))m", comment: "Short sleep timer badge: minutes left") : "0:\(String(format: "%02d", seconds))"
     }
 
     private func showMenu() { Self.menu(music: music).popUp(positioning: nil, at: NSEvent.mouseLocation, in: nil) }
@@ -311,13 +311,13 @@ private struct SleepTimerBadge: View {
         let timer = SleepTimer.shared
         let menu = NSMenu()
         if timer.isActive {
-            menu.addItem(ClosureMenuItem(title: "Turn Off Sleep Timer", keyEquivalent: "") { timer.cancel() })
+            menu.addItem(ClosureMenuItem(title: String(localized: "Turn Off Sleep Timer"), keyEquivalent: "") { timer.cancel() })
             menu.addItem(.separator())
         }
         for minutes in SleepTimer.choices {
             menu.addItem(ClosureMenuItem(title: SleepTimer.title(minutes: minutes), keyEquivalent: "") { timer.set(minutes: minutes) })
         }
-        let end = ClosureMenuItem(title: "End of Current Song", keyEquivalent: "") { timer.setEndOfTrack() }
+        let end = ClosureMenuItem(title: String(localized: "End of Current Song"), keyEquivalent: "") { timer.setEndOfTrack() }
         end.isEnabled = music.state.hasTrack
         menu.addItem(end)
         return menu
@@ -332,7 +332,7 @@ private struct MoreMenu: View {
 
     var body: some View {
         let state = music.state
-        iconButton("More Controls", "ellipsis.circle", action: showMenu)
+        iconButton(String(localized: "More Controls"), "ellipsis.circle", action: showMenu)
             .foregroundStyle(timer.isActive || state.shuffle || state.repeat != .off ? AnyShapeStyle(Color.songtide) : AnyShapeStyle(.primary))
     }
 
@@ -341,25 +341,25 @@ private struct MoreMenu: View {
         let menu = NSMenu()
         menu.autoenablesItems = false
 
-        let sleep = NSMenuItem(title: timer.isActive ? "Sleep Timer (\(timer.label))" : "Sleep Timer", action: nil, keyEquivalent: "")
+        let sleep = NSMenuItem(title: timer.isActive ? String(localized: "Sleep Timer (\(timer.label))") : String(localized: "Sleep Timer"), action: nil, keyEquivalent: "")
         sleep.image = NSImage(systemSymbolName: "moon.zzz", accessibilityDescription: nil)
         sleep.submenu = SleepTimerBadge.menu(music: music)
         menu.addItem(sleep)
 
-        let output = NSMenuItem(title: "Output", action: nil, keyEquivalent: "")
+        let output = NSMenuItem(title: String(localized: "Output", comment: "Audio output device menu"), action: nil, keyEquivalent: "")
         output.image = NSImage(systemSymbolName: "airplayaudio", accessibilityDescription: nil)
         output.submenu = OutputMenu.menu()
         menu.addItem(output)
         menu.addItem(.separator())
 
-        let repeatTitle = switch state.repeat { case .off: "Repeat"; case .all: "Repeat All"; case .one: "Repeat One" }
+        let repeatTitle = switch state.repeat { case .off: String(localized: "Repeat", comment: "Repeat button"); case .all: String(localized: "Repeat All"); case .one: String(localized: "Repeat One") }
         let repeatItem = ClosureMenuItem(title: repeatTitle, keyEquivalent: "") { music.toggleRepeat() }
         repeatItem.image = NSImage(systemSymbolName: state.repeat == .one ? "repeat.1" : "repeat", accessibilityDescription: nil)
         repeatItem.state = state.repeat == .off ? .off : .on
         repeatItem.isEnabled = state.hasTrack
         menu.addItem(repeatItem)
 
-        let shuffle = ClosureMenuItem(title: "Shuffle", keyEquivalent: "") { music.shuffle() }
+        let shuffle = ClosureMenuItem(title: String(localized: "Shuffle"), keyEquivalent: "") { music.shuffle() }
         shuffle.image = NSImage(systemSymbolName: "shuffle", accessibilityDescription: nil)
         shuffle.state = state.shuffle ? .on : .off
         shuffle.isEnabled = state.hasTrack
@@ -376,8 +376,8 @@ extension PlayerBarView {
     }
 
     fileprivate var visualizerTitle: String {
-        guard music.isShowingVisualizer else { return "Show Visualizer" }
-        return music.visualizerInWindow ? "Hide Visualizer (open in its own window)" : "Hide Visualizer"
+        guard music.isShowingVisualizer else { return String(localized: "Show Visualizer") }
+        return music.visualizerInWindow ? String(localized: "Hide Visualizer (open in its own window)") : String(localized: "Hide Visualizer")
     }
 }
 
@@ -508,17 +508,17 @@ private struct TrackInfoView: View {
                 .help("Open Player")
             // Fills the space between the artwork and the buttons; long titles scroll.
             VStack(alignment: .leading, spacing: 2) {
-                MarqueeText(text: state.hasTrack ? state.title : "Not Playing", font: .headline)
+                MarqueeText(text: state.hasTrack ? state.title : String(localized: "Not Playing"), font: .headline)
                 MarqueeText(text: state.subtitle, font: .subheadline)
                     .foregroundStyle(.secondary)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             HStack(spacing: 4) {
                 if showsRating {
-                    iconButton("Like", state.like == .like ? "hand.thumbsup.fill" : "hand.thumbsup") { music.like() }
-                    iconButton("Dislike", state.like == .dislike ? "hand.thumbsdown.fill" : "hand.thumbsdown") { music.dislike() }
+                    iconButton(String(localized: "Like"), state.like == .like ? "hand.thumbsup.fill" : "hand.thumbsup") { music.like() }
+                    iconButton(String(localized: "Dislike"), state.like == .dislike ? "hand.thumbsdown.fill" : "hand.thumbsdown") { music.dislike() }
                 }
-                iconButton("More", "ellipsis", rotation: .degrees(90)) { music.showTrackMenu() }
+                iconButton(String(localized: "More"), "ellipsis", rotation: .degrees(90)) { music.showTrackMenu() }
             }
             .fixedSize()
         }

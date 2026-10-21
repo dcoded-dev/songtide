@@ -7,7 +7,7 @@ struct ChannelMenuItems: View {
 
     var body: some View {
         if !music.channels.isEmpty {
-            Picker(music.channels.first?.email ?? "Channels", selection: Binding(
+            Picker(music.channels.first?.email ?? String(localized: "Channels"), selection: Binding(
                 get: { music.channels.first(where: \.selected)?.id ?? "" },
                 set: { id in
                     if let channel = music.channels.first(where: { $0.id == id }) { music.switchChannel(channel) }

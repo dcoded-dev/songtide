@@ -12,7 +12,7 @@ struct IntegrationsSettings: View {
                 HStack {
                     VStack(alignment: .leading, spacing: 2) {
                         Text("Last.fm")
-                        Text(lastFM.username.map { "Scrobbling as \($0)" } ?? "Keep a record of what you listen to.")
+                        Text(lastFM.username.map { String(localized: "Scrobbling as \($0)") } ?? String(localized: "Keep a record of what you listen to."))
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }

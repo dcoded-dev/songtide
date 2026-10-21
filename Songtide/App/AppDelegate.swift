@@ -144,11 +144,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             }
             menu.addItem(.separator())
         }
-        menu.addItem(item(state.isPlaying ? "Pause" : "Play", #selector(playPause)))
-        menu.addItem(item("Next", #selector(next)))
-        menu.addItem(item("Previous", #selector(previous)))
+        menu.addItem(item(state.isPlaying ? String(localized: "Pause") : String(localized: "Play"), #selector(playPause)))
+        menu.addItem(item(String(localized: "Next"), #selector(next)))
+        menu.addItem(item(String(localized: "Previous"), #selector(previous)))
         menu.addItem(.separator())
-        menu.addItem(item(state.like == .like ? "Liked" : "Like", #selector(like)))
+        menu.addItem(item(state.like == .like ? String(localized: "Liked") : String(localized: "Like"), #selector(like)))
         return menu
     }
 

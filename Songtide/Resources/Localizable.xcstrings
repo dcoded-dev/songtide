@@ -1,7 +1,795 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "·" : {
 
+    },
+    "%@" : {
+
+    },
+    "%@ (error %d)." : {
+      "comment" : "An equalizer error message, then its Core Audio error code",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ (error %2$d)."
+          }
+        }
+      }
+    },
+    "%@ / %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ / %2$@"
+          }
+        }
+      }
+    },
+    "%@ by %@" : {
+      "comment" : "Shared song: title by artist",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ by %2$@"
+          }
+        }
+      }
+    },
+    "%@ of %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ of %2$@"
+          }
+        }
+      }
+    },
+    "%lld" : {
+
+    },
+    "%lld decibels" : {
+
+    },
+    "%lld Hours" : {
+
+    },
+    "%lld min left" : {
+
+    },
+    "%lld Minutes" : {
+
+    },
+    "%lld percent" : {
+
+    },
+    "%lldm" : {
+      "comment" : "Short sleep timer badge: minutes left"
+    },
+    "+%lld" : {
+
+    },
+    "♪ Instrumental" : {
+
+    },
+    "0:%@ left" : {
+
+    },
+    "1 Hour" : {
+
+    },
+    "1½ Hours" : {
+
+    },
+    "A notification with the song and artwork, only while Songtide isn't in front." : {
+
+    },
+    "About Songtide" : {
+
+    },
+    "Accent color" : {
+
+    },
+    "Account" : {
+
+    },
+    "Acoustic" : {
+      "comment" : "Equalizer preset"
+    },
+    "Albums" : {
+
+    },
+    "Allow in Privacy Settings…" : {
+
+    },
+    "Allow Songtide in Login Items to finish turning this on." : {
+
+    },
+    "Always in the Dock, with the mini player in the menu bar." : {
+
+    },
+    "Approve Songtide on the Last.fm page that opened in your browser." : {
+
+    },
+    "Artists" : {
+
+    },
+    "As Listed" : {
+
+    },
+    "Audio Access Needed" : {
+
+    },
+    "Auto-Shuffle" : {
+
+    },
+    "Back" : {
+
+    },
+    "Bass Boost" : {
+      "comment" : "Equalizer preset"
+    },
+    "Bass Reducer" : {
+      "comment" : "Equalizer preset"
+    },
+    "Blue" : {
+
+    },
+    "Cancel" : {
+
+    },
+    "Channels" : {
+
+    },
+    "Check for Updates…" : {
+
+    },
+    "Check Now" : {
+
+    },
+    "Checking that Songtide can hear the music…" : {
+
+    },
+    "Choose a visualizer" : {
+
+    },
+    "Clicking the menu bar icon" : {
+
+    },
+    "Close Songtide" : {
+
+    },
+    "Close Visualizer" : {
+
+    },
+    "Closing the window hides the Dock icon; Songtide keeps running in the menu bar." : {
+
+    },
+    "Connect…" : {
+
+    },
+    "Controls" : {
+
+    },
+    "Copy Song Link" : {
+
+    },
+    "Couldn't capture Songtide's audio" : {
+
+    },
+    "Couldn't change the login item: %@" : {
+
+    },
+    "Couldn't create the equalizer's audio device" : {
+
+    },
+    "Couldn't start the equalizer" : {
+
+    },
+    "Current Song" : {
+
+    },
+    "Custom" : {
+      "comment" : "Equalizer setting that matches no preset"
+    },
+    "Custom…" : {
+      "comment" : "Equalizer setting: set your own bands"
+    },
+    "dcoded.dev" : {
+
+    },
+    "Decrease Volume" : {
+
+    },
+    "Developed by DCODED" : {
+
+    },
+    "Disconnect" : {
+
+    },
+    "Dislike" : {
+
+    },
+    "Dock and menu bar" : {
+
+    },
+    "Dock only" : {
+
+    },
+    "Done" : {
+
+    },
+    "Each track plays as what you picked: songs as audio, music videos as video. Switch any track on the player page." : {
+
+    },
+    "Edit" : {
+
+    },
+    "Electronic" : {
+      "comment" : "Equalizer preset"
+    },
+    "end" : {
+      "comment" : "Short sleep timer badge: stops at the end of the song"
+    },
+    "End of Current Song" : {
+
+    },
+    "End of song" : {
+      "comment" : "Sleep timer stops at the end of the current song"
+    },
+    "Equalizer" : {
+
+    },
+    "Every %lld Minutes" : {
+
+    },
+    "Every %lld Seconds" : {
+
+    },
+    "Every Minute" : {
+
+    },
+    "Exit Full Screen" : {
+
+    },
+    "Explore" : {
+
+    },
+    "Fill Window" : {
+
+    },
+    "Finding lyrics…" : {
+
+    },
+    "Forward" : {
+
+    },
+    "Full Screen" : {
+
+    },
+    "General" : {
+
+    },
+    "General, playback and sidebar settings go back to their defaults, and Open at Login turns off. You'll stay signed in." : {
+
+    },
+    "Get Current Song" : {
+
+    },
+    "Google account" : {
+
+    },
+    "Google Account" : {
+
+    },
+    "Graphite" : {
+
+    },
+    "Green" : {
+
+    },
+    "Hide Lyrics" : {
+
+    },
+    "Hide Lyrics (instrumental)" : {
+
+    },
+    "Hide Lyrics (none available for this song)" : {
+
+    },
+    "Hide Lyrics (not synced for this song)" : {
+
+    },
+    "Hide Menu Bar Icon" : {
+
+    },
+    "Hide Up Next" : {
+
+    },
+    "Hide Visualizer" : {
+
+    },
+    "Hide Visualizer (open in its own window)" : {
+
+    },
+    "Hip-Hop" : {
+      "comment" : "Equalizer preset"
+    },
+    "History" : {
+
+    },
+    "Home" : {
+
+    },
+    "Increase Volume" : {
+
+    },
+    "Install Update…" : {
+
+    },
+    "Installs the update and reopens Songtide. Otherwise it installs the next time you quit." : {
+
+    },
+    "Integrations" : {
+
+    },
+    "Keep a record of what you listen to." : {
+
+    },
+    "Keep lyrics on top of other windows" : {
+
+    },
+    "Keep playing when the window is closed" : {
+
+    },
+    "Last.fm" : {
+
+    },
+    "Late Night" : {
+      "comment" : "Equalizer preset"
+    },
+    "Library" : {
+
+    },
+    "Like" : {
+
+    },
+    "Like Current Song" : {
+
+    },
+    "Like Song" : {
+
+    },
+    "Liked" : {
+
+    },
+    "Liked %@." : {
+
+    },
+    "Liked Music" : {
+
+    },
+    "Likes the song that's playing in Songtide." : {
+
+    },
+    "Lyrics" : {
+
+    },
+    "Lyrics aren't synced for this song" : {
+
+    },
+    "Menu bar, plus Dock while open" : {
+
+    },
+    "Minutes" : {
+
+    },
+    "More" : {
+
+    },
+    "More Controls" : {
+
+    },
+    "Mute" : {
+
+    },
+    "New Playlist" : {
+
+    },
+    "New versions install when you quit Songtide. Version %@." : {
+
+    },
+    "Next" : {
+
+    },
+    "Next Preset" : {
+
+    },
+    "Next Song" : {
+
+    },
+    "No audio output device." : {
+
+    },
+    "No lyrics available" : {
+
+    },
+    "No menu bar icon; closing the window keeps Songtide in the Dock." : {
+
+    },
+    "Not Playing" : {
+
+    },
+    "Not signed in" : {
+
+    },
+    "Nothing's playing." : {
+
+    },
+    "Notify when a new song starts" : {
+
+    },
+    "Now Playing & Up Next" : {
+
+    },
+    "Off" : {
+      "comment" : "Equalizer is off\nSleep timer is off\nVisualizer auto-shuffle is off"
+    },
+    "Open at login" : {
+
+    },
+    "Open at Login" : {
+
+    },
+    "Open Copied Link" : {
+
+    },
+    "Open in Separate Window" : {
+
+    },
+    "Open Login Items" : {
+
+    },
+    "Open Player" : {
+
+    },
+    "Open Privacy Settings" : {
+
+    },
+    "Open Settings" : {
+
+    },
+    "Open Songtide" : {
+
+    },
+    "Opens Songtide" : {
+
+    },
+    "Orange" : {
+
+    },
+    "Output" : {
+      "comment" : "Audio output device menu"
+    },
+    "Pause" : {
+
+    },
+    "Pink" : {
+
+    },
+    "Pinned" : {
+
+    },
+    "Play" : {
+
+    },
+    "Play Liked Music" : {
+
+    },
+    "Play or Pause" : {
+
+    },
+    "Play something to see its lyrics" : {
+
+    },
+    "Playback" : {
+
+    },
+    "Playback position" : {
+
+    },
+    "Playlists" : {
+
+    },
+    "Plays or pauses Songtide." : {
+
+    },
+    "Plays your Liked Music playlist in Songtide." : {
+
+    },
+    "Podcasts" : {
+
+    },
+    "Pop" : {
+      "comment" : "Equalizer preset"
+    },
+    "Preferred playback" : {
+
+    },
+    "Previous" : {
+
+    },
+    "Previous Preset" : {
+
+    },
+    "Previous Song" : {
+
+    },
+    "Privacy & Security" : {
+      "comment" : "System Settings pane, as macOS names it"
+    },
+    "Profiles" : {
+
+    },
+    "Purple" : {
+
+    },
+    "Quit Songtide" : {
+
+    },
+    "Random Preset" : {
+
+    },
+    "Red" : {
+
+    },
+    "Reload" : {
+
+    },
+    "Repeat" : {
+      "comment" : "Repeat button"
+    },
+    "Repeat All" : {
+
+    },
+    "Repeat One" : {
+
+    },
+    "Reset All Settings" : {
+
+    },
+    "Reset all settings to their defaults?" : {
+
+    },
+    "Reset All Settings…" : {
+
+    },
+    "Restart" : {
+
+    },
+    "Restart to Update" : {
+
+    },
+    "Rock" : {
+      "comment" : "Equalizer preset"
+    },
+    "Say what to search for." : {
+
+    },
+    "Screen & System Audio Recording" : {
+      "comment" : "System Settings section, as macOS names it"
+    },
+    "Scrobbling as %@" : {
+
+    },
+    "Scroll long song titles" : {
+
+    },
+    "Search" : {
+
+    },
+    "Set Sleep Timer" : {
+
+    },
+    "Settings…" : {
+
+    },
+    "Share Song…" : {
+
+    },
+    "Show in Main Window" : {
+
+    },
+    "Show Lyrics" : {
+
+    },
+    "Show Mini Player" : {
+
+    },
+    "Show Page Beside Visualizer" : {
+
+    },
+    "Show Songtide in" : {
+
+    },
+    "Show Up Next" : {
+
+    },
+    "Show Visualizer" : {
+
+    },
+    "Show what I'm listening to on Discord" : {
+
+    },
+    "Shows the mini player" : {
+
+    },
+    "Shows the new version, to install it." : {
+
+    },
+    "Shuffle" : {
+
+    },
+    "Sign in with Google" : {
+
+    },
+    "Sign In…" : {
+
+    },
+    "Sign Out" : {
+
+    },
+    "Signed in" : {
+
+    },
+    "Sleep Timer" : {
+
+    },
+    "Sleep Timer (%@)" : {
+
+    },
+    "Sleep timer: %@" : {
+
+    },
+    "Song" : {
+
+    },
+    "Songs" : {
+
+    },
+    "Songs count once you've heard half (or four minutes), as Last.fm asks." : {
+
+    },
+    "Songs, albums, artists, podcasts" : {
+
+    },
+    "Songtide" : {
+
+    },
+    "Songtide doesn't know that command." : {
+
+    },
+    "Songtide equalizes its own playback. macOS asks once for permission to capture Songtide's audio; nothing is recorded or saved, and other apps aren't affected." : {
+
+    },
+    "Songtide needs permission to hear the music. Allow it in System Settings › Privacy & Security › Screen & System Audio Recording, under System Audio Recording Only." : {
+
+    },
+    "Songtide Support" : {
+
+    },
+    "Songtide, paused" : {
+
+    },
+    "Songtide, playing" : {
+
+    },
+    "Sound Settings…" : {
+
+    },
+    "Starts when music plays." : {
+
+    },
+    "Stop keeping lyrics on top" : {
+
+    },
+    "Stop playing after ${minutes} minutes" : {
+
+    },
+    "Stops Songtide after a number of minutes (0 turns the timer off)." : {
+
+    },
+    "Swap Sides" : {
+
+    },
+    "Swap Top and Bottom" : {
+
+    },
+    "Switch Channel" : {
+
+    },
+    "System" : {
+      "comment" : "Accent color: the Mac's own"
+    },
+    "System Audio Recording Only" : {
+      "comment" : "System Settings option, as macOS names it"
+    },
+    "That isn't a YouTube Music, YouTube or songtide:// link." : {
+
+    },
+    "The song playing in Songtide, as \"Title — Artist\"." : {
+
+    },
+    "The visualizer can't hear the music yet" : {
+
+    },
+    "Titles and artists too long for the player bar scroll to show the rest. Off: they're cut short." : {
+
+    },
+    "Tracks start as audio whenever there's a song version, even music videos. Switch any track to Video on the player page." : {
+
+    },
+    "Treble Boost" : {
+      "comment" : "Equalizer preset"
+    },
+    "Turn Off" : {
+
+    },
+    "Turn Off Sleep Timer" : {
+
+    },
+    "Turn on Songtide in System Settings:" : {
+
+    },
+    "Unmute" : {
+
+    },
+    "Update" : {
+
+    },
+    "Update automatically" : {
+
+    },
+    "Update available" : {
+
+    },
+    "Update Available: Install…" : {
+
+    },
+    "Update available. Install the update." : {
+
+    },
+    "Update ready" : {
+
+    },
+    "Update Ready: Restart to Update" : {
+
+    },
+    "Update ready. Restart to update." : {
+
+    },
+    "Visualizer" : {
+
+    },
+    "Vocal" : {
+      "comment" : "Equalizer preset"
+    },
+    "Volume" : {
+
+    },
+    "Yellow" : {
+
+    },
+    "Your Discord status shows the song, artist and artwork while music plays. Needs the Discord app open." : {
+
+    },
+    "Your Music" : {
+
+    }
   },
   "version" : "1.0"
 }

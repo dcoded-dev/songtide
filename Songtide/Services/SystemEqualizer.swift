@@ -27,9 +27,9 @@ final class SystemEqualizer {
         var message: String? {
             switch self {
             case .off, .running: nil
-            case .waitingForAudio: "Starts when music plays."
-            case .verifying: "Checking that Songtide can hear the music…"
-            case .needsPermission: "Songtide needs permission to hear the music. Allow it in System Settings › Privacy & Security › Screen & System Audio Recording, under System Audio Recording Only."
+            case .waitingForAudio: String(localized: "Starts when music plays.")
+            case .verifying: String(localized: "Checking that Songtide can hear the music…")
+            case .needsPermission: String(localized: "Songtide needs permission to hear the music. Allow it in System Settings › Privacy & Security › Screen & System Audio Recording, under System Audio Recording Only.")
             case .failed(let reason): reason
             }
         }
@@ -161,9 +161,9 @@ final class SystemEqualizer {
         description.name = "Songtide"
         description.isPrivate = true
         description.muteBehavior = replacesOriginal ? .mutedWhenTapped : .unmuted
-        try check(AudioHardwareCreateProcessTap(description, &tapID), "Couldn't capture Songtide's audio")
+        try check(AudioHardwareCreateProcessTap(description, &tapID), String(localized: "Couldn't capture Songtide's audio"))
 
-        guard let outputUID = defaultOutputDeviceUID() else { throw EqualizerError("No audio output device.") }
+        guard let outputUID = defaultOutputDeviceUID() else { throw EqualizerError(String(localized: "No audio output device.")) }
         let aggregate: [String: Any] = [
             kAudioAggregateDeviceNameKey: "Songtide Equalizer",
             kAudioAggregateDeviceUIDKey: UUID().uuidString,
@@ -177,7 +177,7 @@ final class SystemEqualizer {
                 kAudioSubTapUIDKey: description.uuid.uuidString,
             ]],
         ]
-        try check(AudioHardwareCreateAggregateDevice(aggregate as CFDictionary, &aggregateID), "Couldn't create the equalizer's audio device")
+        try check(AudioHardwareCreateAggregateDevice(aggregate as CFDictionary, &aggregateID), String(localized: "Couldn't create the equalizer's audio device"))
 
         let format = tapFormat(tapID)
         let render = EqualizerRenderState(replacesOriginal: replacesOriginal, tapChannels: Int(format?.mChannelsPerFrame ?? 2))
@@ -185,8 +185,8 @@ final class SystemEqualizer {
         tappedProcess = process
         silentChecks = 0
         pushEQ()
-        try check(AudioDeviceCreateIOProcIDWithBlock(&ioProcID, aggregateID, nil, Self.ioBlock(render)), "Couldn't start the equalizer")
-        try check(AudioDeviceStart(aggregateID, ioProcID), "Couldn't start the equalizer")
+        try check(AudioDeviceCreateIOProcIDWithBlock(&ioProcID, aggregateID, nil, Self.ioBlock(render)), String(localized: "Couldn't start the equalizer"))
+        try check(AudioDeviceStart(aggregateID, ioProcID), String(localized: "Couldn't start the equalizer"))
     }
 
     /// Built outside the main actor: Core Audio calls it on its real-time thread.
@@ -353,7 +353,7 @@ final class SystemEqualizer {
     }
 
     private func check(_ status: OSStatus, _ message: String) throws {
-        guard status == noErr else { throw EqualizerError("\(message) (error \(status)).") }
+        guard status == noErr else { throw EqualizerError(String(localized: "\(message) (error \(status)).", comment: "An equalizer error message, then its Core Audio error code")) }
     }
 }
 

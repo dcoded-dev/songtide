@@ -10,7 +10,19 @@ enum Accent: String, CaseIterable, Identifiable {
 
     var id: String { rawValue }
 
-    var name: String { rawValue.capitalized }
+    var name: String {
+        switch self {
+        case .system: String(localized: "System", comment: "Accent color: the Mac's own")
+        case .blue: String(localized: "Blue")
+        case .purple: String(localized: "Purple")
+        case .pink: String(localized: "Pink")
+        case .red: String(localized: "Red")
+        case .orange: String(localized: "Orange")
+        case .yellow: String(localized: "Yellow")
+        case .green: String(localized: "Green")
+        case .graphite: String(localized: "Graphite")
+        }
+    }
 
     /// The color: macOS's own accent colors (as System Settings › Appearance gives them, measured
     /// for the always-dark app), which aren't quite its named system colors.
