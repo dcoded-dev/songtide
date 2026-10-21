@@ -106,7 +106,10 @@ struct SettingsView: View {
     @AppStorage(Preferences.scrollLongTitles) private var scrollLongTitles = true
 
     var body: some View {
-        TabView(selection: $selectedTab) {
+        // Our own tab bar rather than the window toolbar's, so the chosen tab takes Songtide's accent
+        // color (the toolbar's always uses the Mac's).
+        VStack(spacing: 0) {
+            SettingsTabBar(selection: $selectedTab)
             Form {
                 Section {
                     Toggle("Open at login", isOn: Binding(get: { openAtLogin }, set: setOpenAtLogin))
@@ -181,8 +184,7 @@ struct SettingsView: View {
                 .listRowInsets(EdgeInsets())
             }
             .formStyle(.grouped)
-            .tabItem { Label("General", systemImage: "gearshape") }
-            .tag(SettingsTab.general.rawValue)
+            .settingsPage(.general, showing: selectedTab)
 
             Form {
                 Section {
@@ -208,8 +210,7 @@ struct SettingsView: View {
                     .id(equalizerResetID)
             }
             .formStyle(.grouped)
-            .tabItem { Label("Playback", systemImage: "play.circle") }
-            .tag(SettingsTab.playback.rawValue)
+            .settingsPage(.playback, showing: selectedTab)
 
             Form {
                 Section {
@@ -253,12 +254,10 @@ struct SettingsView: View {
                 }
             }
             .formStyle(.grouped)
-            .tabItem { Label("Account", systemImage: "person.crop.circle") }
-            .tag(SettingsTab.account.rawValue)
+            .settingsPage(.account, showing: selectedTab)
 
             IntegrationsSettings()
-                .tabItem { Label("Integrations", systemImage: "puzzlepiece.extension") }
-                .tag(SettingsTab.integrations.rawValue)
+                .settingsPage(.integrations, showing: selectedTab)
         }
         .onAppear(perform: refreshLoginItem)
         // Pick up changes made in System Settings while this window was open.
@@ -303,7 +302,65 @@ struct SettingsView: View {
 }
 
 /// Settings' tabs; stored so other parts of the app can open Settings on a particular one.
-enum SettingsTab: String {
+enum SettingsTab: String, CaseIterable {
     case general, playback, account, integrations
     static let key = "settingsTab"
+
+    var title: String {
+        switch self {
+        case .general: String(localized: "General")
+        case .playback: String(localized: "Playback")
+        case .account: String(localized: "Account")
+        case .integrations: String(localized: "Integrations")
+        }
+    }
+
+    var symbol: String {
+        switch self {
+        case .general: "gearshape"
+        case .playback: "play.circle"
+        case .account: "person.crop.circle"
+        case .integrations: "puzzlepiece.extension"
+        }
+    }
+}
+
+/// The row of tabs at the top of Settings, drawn like the window toolbar's own.
+private struct SettingsTabBar: View {
+    @Binding var selection: String
+
+    var body: some View {
+        HStack(spacing: 2) {
+            ForEach(SettingsTab.allCases, id: \.self) { tab in
+                let chosen = selection == tab.rawValue
+                Button { selection = tab.rawValue } label: {
+                    VStack(spacing: 3) {
+                        Image(systemName: tab.symbol)
+                            .font(.system(size: 20, weight: .regular))
+                            .frame(height: 24)
+                        Text(tab.title)
+                            .font(.system(size: 11))
+                    }
+                    .foregroundStyle(chosen ? AnyShapeStyle(.tint) : AnyShapeStyle(.secondary))
+                    .padding(.horizontal, 8)
+                    .frame(minWidth: 60)
+                    .padding(.vertical, 5)
+                    .background(RoundedRectangle(cornerRadius: 7, style: .continuous).fill(.primary.opacity(chosen ? 0.1 : 0)))
+                    .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityAddTraits(chosen ? .isSelected : [])
+            }
+        }
+        .padding(.top, 2)
+        .padding(.bottom, 8)
+        .navigationTitle((SettingsTab(rawValue: selection) ?? .general).title)
+    }
+}
+
+private extension View {
+    /// One of Settings' pages, shown only while its tab is chosen.
+    @ViewBuilder func settingsPage(_ tab: SettingsTab, showing selected: String) -> some View {
+        if selected == tab.rawValue || (tab == .general && SettingsTab(rawValue: selected) == nil) { self }
+    }
 }

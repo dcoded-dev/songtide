@@ -12,18 +12,22 @@ enum Accent: String, CaseIterable, Identifiable {
 
     var name: String { rawValue.capitalized }
 
-    /// The color, with the Mac's own resolved for the always-dark app.
+    /// The color: macOS's own accent colors (as System Settings › Appearance gives them, measured
+    /// for the always-dark app), which aren't quite its named system colors.
     var nsColor: NSColor {
-        switch self {
+        func rgb(_ hex: Int) -> NSColor {
+            NSColor(srgbRed: CGFloat(hex >> 16 & 0xff) / 255, green: CGFloat(hex >> 8 & 0xff) / 255, blue: CGFloat(hex & 0xff) / 255, alpha: 1)
+        }
+        return switch self {
         case .system: .controlAccentColor
-        case .blue: .systemBlue
-        case .purple: .systemPurple
-        case .pink: .systemPink
-        case .red: .systemRed
-        case .orange: .systemOrange
-        case .yellow: .systemYellow
-        case .green: .systemGreen
-        case .graphite: .systemGray
+        case .blue: rgb(0x007AFF)
+        case .purple: rgb(0xA550A7)
+        case .pink: rgb(0xF74F9E)
+        case .red: rgb(0xFF5257)
+        case .orange: rgb(0xF7821B)
+        case .yellow: rgb(0xFFC600)
+        case .green: rgb(0x62BA46)
+        case .graphite: rgb(0x989898)
         }
     }
 

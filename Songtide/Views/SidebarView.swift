@@ -15,7 +15,8 @@ struct SidebarView: View {
     private var hidden: Set<String> { Set(hiddenLibraryItems.split(separator: ",").map(String.init)) }
 
     var body: some View {
-        List(selection: $selection) {
+        // The selected row is drawn here, not by macOS, so it takes Songtide's accent color.
+        List {
             Section {
                 row(.home)
                 row(.explore)
@@ -60,8 +61,9 @@ struct SidebarView: View {
             if music.account.signedIn {
                 Section(isExpanded: $playlistsExpanded) {
                     ForEach(music.playlists) { playlist in
-                        PlaylistRow(playlist: playlist)
-                            .tag(SidebarItem.playlist(playlist))
+                        let item = SidebarItem.playlist(playlist)
+                        PlaylistRow(playlist: playlist, chosen: selection == item)
+                            .sidebarSelection(selection == item) { selection = item }
                     }
                     Button { music.newPlaylist() } label: {
                         HStack(spacing: 5) {
@@ -96,9 +98,15 @@ struct SidebarView: View {
     }
 
     private func row(_ item: SidebarItem) -> some View {
-        Label(item.title, systemImage: item.symbol)
-            .lineLimit(1)
-            .tag(item)
+        let chosen = selection == item
+        return Label {
+            Text(item.title)
+        } icon: {
+            Image(systemName: item.symbol)
+                .foregroundStyle(chosen ? AnyShapeStyle(.white) : AnyShapeStyle(.tint))
+        }
+        .lineLimit(1)
+        .sidebarSelection(chosen) { selection = item }
     }
 
     private func shownBinding(for item: SidebarItem) -> Binding<Bool> {
@@ -162,6 +170,7 @@ private struct UpdateReadyCard: View {
 /// Two-line playlist row like YouTube Music's guide: title, then a subtitle with a pin if pinned.
 private struct PlaylistRow: View {
     let playlist: PlaylistEntry
+    var chosen = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
@@ -176,7 +185,7 @@ private struct PlaylistRow: View {
                 Text(playlist.subtitle)
             }
             .font(.callout)
-            .foregroundStyle(.secondary)
+            .foregroundStyle(chosen ? AnyShapeStyle(.white.opacity(0.75)) : AnyShapeStyle(.secondary))
         }
         .lineLimit(1)
         .padding(.vertical, 3)
@@ -240,5 +249,24 @@ private struct AccountView: View {
         .padding(.bottom, PlayerBarMetrics.bottomPadding)
         .overlay(alignment: .top) { Divider() }
         .frame(height: PlayerBarMetrics.height)
+    }
+}
+
+private extension View {
+    /// A sidebar row that's chosen with a click, its selection drawn in the accent color the way
+    /// macOS draws its own.
+    func sidebarSelection(_ chosen: Bool, choose: @escaping () -> Void) -> some View {
+        self
+            .foregroundStyle(chosen ? AnyShapeStyle(.white) : AnyShapeStyle(.primary))
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .contentShape(Rectangle())
+            .onTapGesture(perform: choose)
+            .listRowBackground(
+                RoundedRectangle(cornerRadius: 6, style: .continuous)
+                    .fill(chosen ? AnyShapeStyle(.tint) : AnyShapeStyle(.clear))
+                    .padding(.horizontal, 10)
+            )
+            .accessibilityAddTraits(chosen ? [.isButton, .isSelected] : .isButton)
+            .accessibilityAction { choose() }
     }
 }
