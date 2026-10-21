@@ -14,8 +14,8 @@ packages:
 settings:
   base:
     SWIFT_VERSION: "6.0"
-    MARKETING_VERSION: "1.1.21"
-    CURRENT_PROJECT_VERSION: "33"
+    MARKETING_VERSION: "1.2.0"
+    CURRENT_PROJECT_VERSION: "34"
     # Signed with the team even for local builds, so the embedded Sparkle framework is re-signed to
     # match (an ad-hoc app can't load a framework signed by another team).
     DEVELOPMENT_TEAM: YQ9V6SFRL4
