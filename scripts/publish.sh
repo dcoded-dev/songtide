@@ -1,7 +1,8 @@
 #!/bin/zsh
 # Publishes the release that scripts/release-direct.sh built, once it's committed on main:
 # deploys the site (the download and the update feed), checks the live download is the built DMG,
-# then pushes main and the Homebrew cask and posts the release on GitHub.
+# then pushes main (to the private repo, and to the public one) and the Homebrew cask and posts the
+# release on GitHub.
 #
 #   scripts/publish.sh
 #
@@ -34,7 +35,9 @@ spctl --assess --type open --context context:primary-signature -vv "$LIVE" 2>&1 
 rm -rf "$(dirname "$LIVE")"
 
 echo "▸ Pushing main, the Homebrew cask and the GitHub release…"
+# Work lives in the private repo (origin); the public one (public) only moves at a release.
 git push -q origin main
+git push -q public main
 [[ -d $TAP/.git ]] && git -C "$TAP" push -q origin main
 # Release notes: the bullet points of the update window's notes, as Markdown.
 BODY=$(python3 - "$NOTES" <<'PY'
