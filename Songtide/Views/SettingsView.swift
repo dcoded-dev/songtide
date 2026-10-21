@@ -157,10 +157,17 @@ struct SettingsView: View {
                             Text("Same as Songtide (\(PageLanguage.songtideLanguageName))").tag("")
                             Text("My Google account's").tag("account")
                         }
+                        // Where the language comes from, and where to change it.
                         HStack(spacing: 4) {
-                            Text("Songtide uses your Mac's language.")
-                            Button("Change…") { NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.Localization-Settings.extension")!) }
-                                .buttonStyle(.link)
+                            if pageLanguage == "account" {
+                                Text("The page uses the language set in your Google account.")
+                                Button("Change…") { NSWorkspace.shared.open(URL(string: "https://myaccount.google.com/language")!) }
+                                    .buttonStyle(.link)
+                            } else {
+                                Text("The page matches Songtide, which uses your Mac's language.")
+                                Button("Change…") { NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.Localization-Settings.extension")!) }
+                                    .buttonStyle(.link)
+                            }
                         }
                         .font(.caption)
                         .foregroundStyle(.secondary)
