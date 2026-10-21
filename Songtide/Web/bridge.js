@@ -447,9 +447,15 @@
       const icon = (d.isToggled ? d.toggledIcon : (d.icon || d.defaultIcon))?.iconType || '';
       const title = runsText(d.isToggled ? d.toggledText : (d.text || d.defaultText))
         || el.textContent.replace(/\s+/g, ' ').trim();
-      return { el, icon, title };
+      return { el, icon, title, checked: isStatsItem(icon, title) && statsOpen() };
     })
     .filter((item) => item.title);
+  // "Stats for nerds" turns a panel on and off: its menu item gets a checkmark while it's showing.
+  const isStatsItem = (icon, title) => /^(INFO|STATS|BAR_CHART|ANALYTICS)/.test(icon) && /stat|nerd/i.test(title) || /stats for nerds/i.test(title);
+  const statsOpen = () => {
+    const panel = $('#movie_player .html5-video-info-panel');
+    return !!panel && getComputedStyle(panel).display !== 'none';
+  };
 
   const checkMenus = () => {
     const dropdown = [...document.querySelectorAll('ytmusic-popup-container tp-yt-iron-dropdown')]
@@ -459,7 +465,7 @@
     const items = menuItems(dropdown.querySelector('ytmusic-menu-popup-renderer'));
     if (!items.length) return; // not populated yet; the next mutation will retry
     menu = shown = { dropdown, items, interaction };
-    post('menu', { x: pointer.x, y: pointer.y, viewportHeight: window.innerHeight, items: items.map(({ title, icon }) => ({ title, icon })) });
+    post('menu', { x: pointer.x, y: pointer.y, viewportHeight: window.innerHeight, items: items.map(({ title, icon, checked }) => ({ title, icon, checked })) });
   };
   // Debounced so the reused popup has swapped in the new menu's items before they're read. Only the
   // popup container is watched: the rest of the page mutates constantly (e.g. the progress bar).

@@ -7,6 +7,7 @@ struct WebMenuRequest: Decodable {
     struct Item: Decodable {
         var title: String
         var icon: String
+        var checked: Bool? = nil
     }
     var x: Double
     var y: Double
@@ -67,6 +68,7 @@ enum NativeMenu {
             let menuItem = NSMenuItem(title: item.title, action: #selector(Handler.choose(_:)), keyEquivalent: "")
             menuItem.target = handler
             menuItem.tag = index
+            if item.checked == true { menuItem.state = .on }
             menuItem.image = symbol(for: item.icon).flatMap { NSImage(systemSymbolName: $0, accessibilityDescription: nil) }
             menu.addItem(menuItem)
         }
