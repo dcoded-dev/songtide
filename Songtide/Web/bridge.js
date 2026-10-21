@@ -452,10 +452,8 @@
     .filter((item) => item.title);
   // "Stats for nerds" turns a panel on and off: its menu item gets a checkmark while it's showing.
   const isStatsItem = (icon, title) => /^(INFO|STATS|BAR_CHART|ANALYTICS)/.test(icon) && /stat|nerd/i.test(title) || /stats for nerds/i.test(title);
-  const statsOpen = () => {
-    const panel = $('#movie_player .html5-video-info-panel');
-    return !!panel && getComputedStyle(panel).display !== 'none';
-  };
+  const statsOpen = () => [...document.querySelectorAll('ytmusic-nerd-stats, #movie_player .html5-video-info-panel')]
+    .some((panel) => panel.offsetWidth > 0 && getComputedStyle(panel).display !== 'none');
 
   const checkMenus = () => {
     const dropdown = [...document.querySelectorAll('ytmusic-popup-container tp-yt-iron-dropdown')]
