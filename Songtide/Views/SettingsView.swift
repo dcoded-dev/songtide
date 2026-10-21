@@ -154,7 +154,7 @@ struct SettingsView: View {
                 Section {
                     VStack(alignment: .leading, spacing: 2) {
                         Picker("YouTube Music language", selection: $pageLanguage) {
-                            Text("Same as Songtide (\(PageLanguage.songtideLanguageName))").tag("")
+                            Text("Same as Mac (\(PageLanguage.macLanguageName))").tag("")
                             Text("My Google account's").tag("account")
                         }
                         // Where the language comes from, and where to change it.
@@ -164,7 +164,7 @@ struct SettingsView: View {
                                 Button("Change…") { NSWorkspace.shared.open(URL(string: "https://myaccount.google.com/language")!) }
                                     .buttonStyle(.link)
                             } else {
-                                Text("The page matches Songtide, which uses your Mac's language.")
+                                Text("The page uses your Mac's language.")
                                 Button("Change…") { NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.Localization-Settings.extension")!) }
                                     .buttonStyle(.link)
                             }
