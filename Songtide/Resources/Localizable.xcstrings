@@ -8860,7 +8860,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Klicken Sie auf das Menüleistensymbol"
+            "value": "Klick auf das Menüleistensymbol"
           }
         },
         "el": {
@@ -9080,7 +9080,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Schließen Sie Songtide"
+            "value": "Songtide schließen"
           }
         },
         "el": {
@@ -36370,7 +36370,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Beenden Sie Songtide"
+            "value": "Songtide beenden"
           }
         },
         "el": {
@@ -36472,7 +36472,7 @@
         "nl": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sluit Songtide af"
+            "value": "Stop Songtide"
           }
         },
         "pl": {
@@ -39893,7 +39893,7 @@
         "de": {
           "stringUnit": {
             "state": "translated",
-            "value": "Scrollen Sie durch lange Songtitel"
+            "value": "Lange Songtitel scrollen"
           }
         },
         "el": {
