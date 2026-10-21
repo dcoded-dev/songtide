@@ -43,8 +43,11 @@ struct PlayerBarView: View {
         let showsTime = width >= 700
         let showsRating = centerWidth >= 300
         VStack(spacing: 0) {
+            // Playback runs left to right in every language (Apple's guidance for right-to-left
+            // layouts): the progress bar, time and previous/next don't mirror.
             SeekBar()
                 .disabled(!state.hasTrack)
+                .environment(\.layoutDirection, .leftToRight)
             ZStack {
                 HStack(spacing: 0) {
                     HStack(spacing: 6) {
@@ -59,6 +62,7 @@ struct PlayerBarView: View {
                     }
                     .font(.title3)
                     .fixedSize()
+                    .environment(\.layoutDirection, .leftToRight)
                     .disabled(!state.hasTrack)
                     .onGeometryChange(for: CGFloat.self) { $0.size.width } action: { leftWidth = $0 }
 
@@ -411,7 +415,8 @@ private struct ElapsedTimeText: View {
     @Environment(MusicController.self) private var music
 
     var body: some View {
-        Text("\(formatTime(music.position)) / \(formatTime(music.state.duration))")
+        // Isolated as left-to-right text, so it reads "0:21 / 2:51" in right-to-left languages too.
+        Text(verbatim: "\u{2066}\(formatTime(music.position)) / \(formatTime(music.state.duration))\u{2069}")
             .font(.caption.monospacedDigit())
             .foregroundStyle(.secondary)
             .fixedSize()
@@ -665,6 +670,7 @@ struct TransportControls: View {
         }
         .font(size == .regular ? .title3 : .body)
         .buttonStyle(.borderless)
+        .environment(\.layoutDirection, .leftToRight)
         .disabled(!state.hasTrack)
     }
 }

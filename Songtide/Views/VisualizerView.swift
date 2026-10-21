@@ -167,9 +167,12 @@ struct VisualizerView: View {
                     .overlay(Capsule().strokeBorder(Self.controlStroke))
             }
             HStack(spacing: 6) {
-                overlayButton("Previous Preset", "backward.fill") { model.call("previousPreset()") }
-                overlayButton("Random Preset", "shuffle") { model.call("randomPreset()") }
-                overlayButton("Next Preset", "forward.fill") { model.call("nextPreset()") }
+                HStack(spacing: 6) {
+                    overlayButton("Previous Preset", "backward.fill") { model.call("previousPreset()") }
+                    overlayButton("Random Preset", "shuffle") { model.call("randomPreset()") }
+                    overlayButton("Next Preset", "forward.fill") { model.call("nextPreset()") }
+                }
+                .environment(\.layoutDirection, .leftToRight)
                 // The preset name is a menu: choose a visualizer, and how often it changes itself.
                 Menu {
                     // Each automatic change picks a random preset, hence "shuffle".
