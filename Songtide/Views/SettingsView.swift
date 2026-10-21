@@ -109,7 +109,6 @@ struct SettingsView: View {
         // Our own tab bar rather than the window toolbar's, so the chosen tab takes Songtide's accent
         // color (the toolbar's always uses the Mac's).
         VStack(spacing: 0) {
-            SettingsTabBar(selection: $selectedTab)
             Form {
                 Section {
                     Toggle("Open at login", isOn: Binding(get: { openAtLogin }, set: setOpenAtLogin))
@@ -148,7 +147,7 @@ struct SettingsView: View {
                             .foregroundStyle(.secondary)
                     }
                 }
-                Section("Appearance") {
+                Section {
                     AccentPicker()
                 }
                 Section {
@@ -262,8 +261,17 @@ struct SettingsView: View {
         .onAppear(perform: refreshLoginItem)
         // Pick up changes made in System Settings while this window was open.
         .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in refreshLoginItem() }
-        .frame(width: 460)
+        .frame(width: 540)
         .fixedSize()
+        .toolbar {
+            // Without the glass capsule macOS 26 puts behind toolbar items: plain, like native tabs.
+            if #available(macOS 26, *) {
+                ToolbarItem(placement: .principal) { SettingsTabBar(selection: $selectedTab) }
+                    .sharedBackgroundVisibility(.hidden)
+            } else {
+                ToolbarItem(placement: .principal) { SettingsTabBar(selection: $selectedTab) }
+            }
+        }
     }
 
     private var presenceDescription: String {
@@ -349,11 +357,12 @@ private struct SettingsTabBar: View {
                     .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
+                .focusEffectDisabled()
+                .accessibilityLabel(tab.title)
                 .accessibilityAddTraits(chosen ? .isSelected : [])
             }
         }
-        .padding(.top, 2)
-        .padding(.bottom, 8)
+        .accessibilityElement(children: .contain)
         .navigationTitle((SettingsTab(rawValue: selection) ?? .general).title)
     }
 }

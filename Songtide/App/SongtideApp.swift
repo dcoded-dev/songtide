@@ -24,6 +24,8 @@ struct SongtideApp: App {
                 .environment(music)
                 .songtideAccent()
         }
+        // The title centered on its own row, as over the native Settings tabs.
+        .windowToolbarStyle(.expanded)
 
         // Floating lyrics for the song that's playing (Controls › Show Lyrics).
         Window("Lyrics", id: LyricsWindowView.windowID) {
