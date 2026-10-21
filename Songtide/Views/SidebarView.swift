@@ -142,8 +142,8 @@ private struct UpdateReadyCard: View {
                 }
                 .padding(.vertical, 9)
                 .padding(.horizontal, 10)
-                .background(Color.accentColor.opacity(hovering ? 0.26 : 0.16), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-                .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).strokeBorder(Color.accentColor.opacity(0.3)))
+                .background(.tint.opacity(hovering ? 0.26 : 0.16), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).strokeBorder(.tint.opacity(0.3)))
                 .contentShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
             }
             .buttonStyle(.plain)

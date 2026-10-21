@@ -9,6 +9,7 @@ struct SongtideApp: App {
         Window("Songtide", id: "main") {
             ContentView()
                 .environment(music)
+                .songtideAccent()
         }
         .windowToolbarStyle(.unified)
         .windowResizability(.contentMinSize)
@@ -21,12 +22,14 @@ struct SongtideApp: App {
         Settings {
             SettingsView()
                 .environment(music)
+                .songtideAccent()
         }
 
         // Floating lyrics for the song that's playing (Controls › Show Lyrics).
         Window("Lyrics", id: LyricsWindowView.windowID) {
             LyricsWindowView()
                 .environment(music)
+                .songtideAccent()
         }
         .windowStyle(.hiddenTitleBar)
         .defaultSize(width: 360, height: 460)
@@ -37,6 +40,7 @@ struct SongtideApp: App {
         Window("Visualizer", id: VisualizerView.windowID) {
             VisualizerView()
                 .environment(music)
+                .songtideAccent()
         }
         .windowStyle(.hiddenTitleBar)
         .defaultSize(width: 960, height: 600)

@@ -428,6 +428,8 @@ func formatTime(_ seconds: Double) -> String {
 /// YouTube Music-style progress line along the top edge: constant thickness, a knob while
 /// hovering or dragging, and a bubble showing the time under the pointer. Click or drag to seek.
 private struct SeekBar: View {
+    @AppStorage(Accent.key) private var accentChoice = Accent.system.rawValue
+    private var accent: Color { (Accent(rawValue: accentChoice) ?? .system).color }
     @Environment(MusicController.self) private var music
     @State private var hoverX: CGFloat?
     @State private var dragTime: Double?
@@ -447,11 +449,11 @@ private struct SeekBar: View {
                     .fill(.primary.opacity(0.18))
                     .frame(height: lineHeight)
                 Rectangle()
-                    .fill(LinearGradient(colors: [.accentColor, .accentColor.mix(with: .pink, by: 0.35)], startPoint: .leading, endPoint: .trailing))
+                    .fill(LinearGradient(colors: [accent, accent.mix(with: .pink, by: 0.35)], startPoint: .leading, endPoint: .trailing))
                     .frame(width: width * progress, height: lineHeight)
                 if hoverX != nil || dragTime != nil {
                     Circle()
-                        .fill(Color.accentColor)
+                        .fill(accent)
                         .frame(width: knobSize, height: knobSize)
                         .offset(x: width * progress - knobSize / 2, y: (lineHeight - knobSize) / 2)
                     // Bubble follows the pointer while hovering, the knob while dragging.

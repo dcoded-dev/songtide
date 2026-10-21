@@ -34,7 +34,7 @@ enum WebTheme {
         var accent = "#0a84ff", background = "#1e1e1e", raised = "#2d2d2d"
         // The app is always dark, so resolve dynamic colors against the dark appearance.
         NSAppearance(named: .darkAqua)?.performAsCurrentDrawingAppearance {
-            accent = hex(.controlAccentColor)
+            accent = hex(Accent.current.nsColor)
             background = hex(.windowBackgroundColor)
             raised = hex(.underPageBackgroundColor)
         }

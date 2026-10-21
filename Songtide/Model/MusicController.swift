@@ -193,11 +193,26 @@ final class MusicController: NSObject {
         #endif
 
         NotificationCenter.default.addObserver(forName: NSColor.systemColorsDidChangeNotification, object: nil, queue: .main) { _ in
-            MainActor.assumeIsolated { MusicController.shared.call("setTheme(\(WebTheme.json))") }
+            MainActor.assumeIsolated { MusicController.shared.refreshTheme() }
+        }
+        // A different accent colour picked in Settings (or the settings reset).
+        NotificationCenter.default.addObserver(forName: UserDefaults.didChangeNotification, object: nil, queue: .main) { _ in
+            MainActor.assumeIsolated {
+                let music = MusicController.shared
+                if Accent.current != music.themedAccent { music.refreshTheme() }
+            }
         }
     }
 
     // MARK: Commands
+
+    /// The accent colour the page was last given.
+    private var themedAccent = Accent.current
+    /// Gives the page the current colours (the accent colour, or the Mac's appearance, changed).
+    func refreshTheme() {
+        themedAccent = Accent.current
+        call("setTheme(\(WebTheme.json))")
+    }
 
     fileprivate func call(_ js: String) {
         if Self.debugLogging { FileHandle.standardError.write(Data("[call] \(js.prefix(120))\n".utf8)) }

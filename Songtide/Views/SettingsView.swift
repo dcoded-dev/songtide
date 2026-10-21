@@ -56,7 +56,7 @@ enum Preferences {
     /// Every setting's key (including the sidebar's), for Reset to Defaults. Account data isn't a
     /// setting and is left alone.
     private static let allKeys = [
-        appPresence, keepPlayingWhenClosed, preferSongOverVideo, statusItemClickAction, scrollLongTitles,
+        appPresence, keepPlayingWhenClosed, preferSongOverVideo, statusItemClickAction, scrollLongTitles, Accent.key,
         legacyShowMenuBarPlayer, legacyHideDockWhenClosed,
         "sidebarVisible", "sidebarPlaylistsExpanded", "sidebarHiddenLibraryItems", MusicController.lastPathKey,
         Equalizer.enabledKey, Equalizer.gainsKey, VisualizerModel.autoChangeKey, "visualizerInWindow", "visualizerFills",
@@ -138,6 +138,7 @@ struct SettingsView: View {
                     }
                     .disabled(presence == Preferences.Presence.dockOnly.rawValue)
                     Toggle("Keep playing when the window is closed", isOn: $keepPlayingWhenClosed)
+                    AccentPicker()
                     VStack(alignment: .leading, spacing: 2) {
                         Toggle("Scroll long song titles", isOn: $scrollLongTitles)
                         Text("Titles and artists too long for the player bar scroll to show the rest. Off: they're cut short.")
