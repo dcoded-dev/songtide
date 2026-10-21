@@ -349,7 +349,7 @@ private struct SettingsTabBar: View {
                         Text(tab.title)
                             .font(.system(size: 11))
                     }
-                    .foregroundStyle(chosen ? AnyShapeStyle(.tint) : AnyShapeStyle(.secondary))
+                    .foregroundStyle(chosen ? AnyShapeStyle(Color.songtide) : AnyShapeStyle(.secondary))
                     .padding(.horizontal, 8)
                     .frame(minWidth: 60)
                     .padding(.vertical, 5)

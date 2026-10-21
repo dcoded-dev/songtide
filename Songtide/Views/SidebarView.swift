@@ -103,7 +103,7 @@ struct SidebarView: View {
             Text(item.title)
         } icon: {
             Image(systemName: item.symbol)
-                .foregroundStyle(chosen ? AnyShapeStyle(.white) : AnyShapeStyle(.tint))
+                .foregroundStyle(chosen ? AnyShapeStyle(.white) : AnyShapeStyle(Color.songtide))
         }
         .lineLimit(1)
         .sidebarSelection(chosen) { selection = item }
@@ -136,7 +136,7 @@ private struct UpdateReadyCard: View {
                 HStack(spacing: 7) {
                     Image(systemName: "arrow.down.circle.fill")
                         .font(.body)
-                        .foregroundStyle(.tint)
+                        .foregroundStyle(Color.songtide)
                     Text(ready ? "Update ready" : "Update available")
                         .font(.subheadline.weight(.semibold))
                         .lineLimit(1)
@@ -145,13 +145,13 @@ private struct UpdateReadyCard: View {
                     Spacer(minLength: 2)
                     Text(ready ? "Restart" : "Update")
                         .font(.subheadline.weight(.semibold))
-                        .foregroundStyle(.tint)
+                        .foregroundStyle(Color.songtide)
                         .fixedSize()
                 }
                 .padding(.vertical, 9)
                 .padding(.horizontal, 10)
-                .background(.tint.opacity(hovering ? 0.26 : 0.16), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
-                .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).strokeBorder(.tint.opacity(0.3)))
+                .background(Color.songtide.opacity(hovering ? 0.26 : 0.16), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
+                .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).strokeBorder(Color.songtide.opacity(0.3)))
                 .contentShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
             }
             .buttonStyle(.plain)
@@ -263,7 +263,7 @@ private extension View {
             .onTapGesture(perform: choose)
             .listRowBackground(
                 RoundedRectangle(cornerRadius: 6, style: .continuous)
-                    .fill(chosen ? AnyShapeStyle(.tint) : AnyShapeStyle(.clear))
+                    .fill(chosen ? AnyShapeStyle(Color.songtide) : AnyShapeStyle(.clear))
                     .padding(.horizontal, 10)
             )
             .accessibilityAddTraits(chosen ? [.isButton, .isSelected] : .isButton)

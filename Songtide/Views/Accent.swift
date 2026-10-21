@@ -61,8 +61,15 @@ final class AccentStore {
     }
 }
 
+extension Color {
+    /// Songtide's accent color, for controls that are on and the current selection. Views that
+    /// use it redraw when it changes.
+    @MainActor static var songtide: Color { AccentStore.shared.accent.color }
+}
+
 extension View {
-    /// Tints the view with the chosen accent color, following changes to it.
+    /// Tints the view's controls (switches, pop-up menus) with the chosen accent color. Only for
+    /// Settings: anywhere with plain icon buttons it would color all of them, on or not.
     func songtideAccent() -> some View { modifier(AccentTint()) }
 }
 

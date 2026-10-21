@@ -76,9 +76,9 @@ struct PlayerBarView: View {
                             OutputMenu()
                             Group {
                                 iconButton(state.repeat == .one ? "Repeat One" : "Repeat", state.repeat == .one ? "repeat.1" : "repeat") { music.toggleRepeat() }
-                                    .foregroundStyle(state.repeat == .off ? AnyShapeStyle(.secondary) : AnyShapeStyle(.tint))
+                                    .foregroundStyle(state.repeat == .off ? AnyShapeStyle(.secondary) : AnyShapeStyle(Color.songtide))
                                 iconButton("Shuffle", "shuffle") { music.shuffle() }
-                                    .foregroundStyle(state.shuffle ? AnyShapeStyle(.tint) : AnyShapeStyle(.secondary))
+                                    .foregroundStyle(state.shuffle ? AnyShapeStyle(Color.songtide) : AnyShapeStyle(.secondary))
                             }
                             .dimmedWhenDisabled() // before .disabled, so it sees the disabled state
                             .disabled(!state.hasTrack)
@@ -87,14 +87,14 @@ struct PlayerBarView: View {
                         iconButton(lyrics.isWindowOpen ? "Hide Lyrics" : "Show Lyrics", "quote.bubble") {
                             if lyrics.isWindowOpen { dismissWindow(id: LyricsWindowView.windowID) } else { Lyrics.shared.isWindowOpen = true; openWindow(id: LyricsWindowView.windowID) }
                         }
-                        .foregroundStyle(lyrics.isWindowOpen ? AnyShapeStyle(.tint) : AnyShapeStyle(.primary))
+                        .foregroundStyle(lyrics.isWindowOpen ? AnyShapeStyle(Color.songtide) : AnyShapeStyle(.primary))
                             .dimmedWhenDisabled()
                             .disabled(!state.hasTrack)
                         // The visualizer works without a track (it idles until something plays).
                         iconButton(visualizerTitle, "waveform") {
                             VisualizerPresenter.toggle(music, open: openWindow, dismiss: dismissWindow)
                         }
-                        .foregroundStyle(music.isShowingVisualizer ? AnyShapeStyle(.tint) : AnyShapeStyle(.primary))
+                        .foregroundStyle(music.isShowingVisualizer ? AnyShapeStyle(Color.songtide) : AnyShapeStyle(.primary))
                         // A warning while it can't hear Songtide (in place of the pop-out arrow).
                         .permissionBadge(visualizerNeedsPermission)
                         // A small arrow while it's popped out into its own window.
@@ -102,7 +102,7 @@ struct PlayerBarView: View {
                             if music.isShowingVisualizer && music.visualizerInWindow && !visualizerNeedsPermission {
                                 Image(systemName: "arrow.up.forward")
                                     .font(.system(size: 7, weight: .heavy))
-                                    .foregroundStyle(.tint)
+                                    .foregroundStyle(Color.songtide)
                                     .offset(x: 0, y: 3)
                                     .allowsHitTesting(false)
                             }
@@ -110,7 +110,7 @@ struct PlayerBarView: View {
                         // Up Next / Now Playing, like Apple Music's "Playing Next" button; tinted
                         // while open. (Clicking the artwork opens it too.)
                         iconButton(music.isNowPlayingVisible ? "Hide Up Next" : "Show Up Next", "list.bullet") { music.toggleNowPlaying() }
-                            .foregroundStyle(music.isNowPlayingVisible ? AnyShapeStyle(.tint) : AnyShapeStyle(.primary))
+                            .foregroundStyle(music.isNowPlayingVisible ? AnyShapeStyle(Color.songtide) : AnyShapeStyle(.primary))
                             .dimmedWhenDisabled()
                             .disabled(!state.hasTrack)
                     }
@@ -202,7 +202,7 @@ private struct EqualizerMenu: View {
 
     var body: some View {
         iconButton("Equalizer", "slider.vertical.3") { showMenu() }
-            .foregroundStyle(equalizer.isEnabled ? AnyShapeStyle(.tint) : AnyShapeStyle(.primary))
+            .foregroundStyle(equalizer.isEnabled ? AnyShapeStyle(Color.songtide) : AnyShapeStyle(.primary))
             // On, but without permission to capture its audio it can't do anything: say so.
             .permissionBadge(needsPermission)
             .accessibilityValue(equalizer.isEnabled ? (equalizer.preset?.name ?? "Custom") : "Off")
@@ -286,7 +286,7 @@ private struct SleepTimerBadge: View {
                     Text(shortLabel).monospacedDigit()
                 }
                 .font(.caption)
-                .foregroundStyle(.tint)
+                .foregroundStyle(Color.songtide)
                 .padding(.horizontal, 6)
                 .frame(height: 24)
                 .contentShape(Rectangle())
@@ -333,7 +333,7 @@ private struct MoreMenu: View {
     var body: some View {
         let state = music.state
         iconButton("More Controls", "ellipsis.circle", action: showMenu)
-            .foregroundStyle(timer.isActive || state.shuffle || state.repeat != .off ? AnyShapeStyle(.tint) : AnyShapeStyle(.primary))
+            .foregroundStyle(timer.isActive || state.shuffle || state.repeat != .off ? AnyShapeStyle(Color.songtide) : AnyShapeStyle(.primary))
     }
 
     private func showMenu() {
@@ -658,7 +658,7 @@ struct TransportControls: View {
             if size == .regular {
                 Button { music.toggleRepeat() } label: {
                     Image(systemName: state.repeat == .one ? "repeat.1" : "repeat")
-                        .foregroundStyle(state.repeat == .off ? AnyShapeStyle(.secondary) : AnyShapeStyle(.tint))
+                        .foregroundStyle(state.repeat == .off ? AnyShapeStyle(.secondary) : AnyShapeStyle(Color.songtide))
                 }
                 .help("Repeat")
             }

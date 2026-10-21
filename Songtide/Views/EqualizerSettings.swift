@@ -87,7 +87,7 @@ private struct VerticalSlider: View {
             ZStack(alignment: .bottom) {
                 Capsule().fill(.primary.opacity(0.2)).frame(width: 3)
                 // The filled part runs from the 0 dB line to the knob.
-                Capsule().fill(.tint)
+                Capsule().fill(Color.songtide)
                     .frame(width: 3, height: abs(fraction - zero) * height)
                     .offset(y: -min(fraction, zero) * height)
                 Rectangle().fill(.primary.opacity(0.35)).frame(width: 9, height: 1)

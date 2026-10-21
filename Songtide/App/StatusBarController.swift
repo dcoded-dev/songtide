@@ -27,7 +27,6 @@ final class StatusBarController: NSObject {
         let hosting = NSHostingController(
             rootView: MiniPlayerView(onOpenApp: { [weak self] in self?.showApp() })
                 .environment(music)
-                .songtideAccent()
                 .preferredColorScheme(.dark)
         )
         // Without this the popover doesn't adopt the SwiftUI view's size and shows up empty.
