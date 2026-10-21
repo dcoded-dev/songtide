@@ -428,8 +428,8 @@ func formatTime(_ seconds: Double) -> String {
 /// YouTube Music-style progress line along the top edge: constant thickness, a knob while
 /// hovering or dragging, and a bubble showing the time under the pointer. Click or drag to seek.
 private struct SeekBar: View {
-    @AppStorage(Accent.key) private var accentChoice = Accent.system.rawValue
-    private var accent: Color { (Accent(rawValue: accentChoice) ?? .system).color }
+    private var accentStore = AccentStore.shared
+    private var accent: Color { accentStore.accent.color }
     @Environment(MusicController.self) private var music
     @State private var hoverX: CGFloat?
     @State private var dragTime: Double?

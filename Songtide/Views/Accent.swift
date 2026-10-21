@@ -34,29 +34,52 @@ enum Accent: String, CaseIterable, Identifiable {
     }
 }
 
+/// The chosen accent color, shared by every window, so all of them change the moment it's picked.
+@MainActor @Observable
+final class AccentStore {
+    static let shared = AccentStore()
+
+    var accent: Accent = .current {
+        didSet {
+            guard accent != oldValue else { return }
+            UserDefaults.standard.set(accent.rawValue, forKey: Accent.key)
+        }
+    }
+
+    private init() {
+        // Settings reset clears the key: back to System.
+        NotificationCenter.default.addObserver(forName: UserDefaults.didChangeNotification, object: nil, queue: .main) { _ in
+            MainActor.assumeIsolated {
+                let store = AccentStore.shared
+                if store.accent != .current { store.accent = .current }
+            }
+        }
+    }
+}
+
 extension View {
     /// Tints the view with the chosen accent color, following changes to it.
     func songtideAccent() -> some View { modifier(AccentTint()) }
 }
 
 private struct AccentTint: ViewModifier {
-    @AppStorage(Accent.key) private var accent = Accent.system.rawValue
+    private var store = AccentStore.shared
 
     func body(content: Content) -> some View {
-        content.tint((Accent(rawValue: accent) ?? .system).color)
+        content.tint(store.accent.color)
     }
 }
 
 /// The color swatches in Settings, as in System Settings › Appearance: the name of the chosen
 /// one underneath it. The choice is saved, and everything follows it, as soon as it's clicked.
 struct AccentPicker: View {
-    @AppStorage(Accent.key) private var accent = Accent.system.rawValue
+    private var store = AccentStore.shared
 
     var body: some View {
         LabeledContent("Accent color") {
             HStack(alignment: .top, spacing: 10) {
                 ForEach(Accent.allCases) { choice in
-                    Swatch(choice: choice, selected: accent == choice.rawValue) { accent = choice.rawValue }
+                    Swatch(choice: choice, selected: store.accent == choice) { store.accent = choice }
                 }
             }
             .padding(.vertical, 4)
