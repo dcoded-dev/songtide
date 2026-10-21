@@ -25,7 +25,11 @@ final class MusicController: NSObject {
     }()
     /// Bridge traffic logging, enabled with YTM_DEBUG=1 (read once rather than per message).
     private static let debugLogging = ProcessInfo.processInfo.environment["YTM_DEBUG"] != nil
-    static let signInURL = URL(string: "https://accounts.google.com/ServiceLogin?ltmpl=music&service=youtube&uilel=3&passive=true&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Den%26next%3Dhttps%253A%252F%252Fmusic.youtube.com%252F&hl=en")!
+    /// Google's sign-in, in Songtide's language.
+    @MainActor static var signInURL: URL {
+        let hl = PageLanguage.youTubeCode
+        return URL(string: "https://accounts.google.com/ServiceLogin?ltmpl=music&service=youtube&uilel=3&passive=true&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3D\(hl)%26next%3Dhttps%253A%252F%252Fmusic.youtube.com%252F&hl=\(hl)")!
+    }
     /// Google refuses sign-in from embedded browsers it doesn't recognize; present as Safari.
     static let applicationNameForUserAgent = "Version/26.0 Safari/605.1.15"
 
@@ -148,7 +152,11 @@ final class MusicController: NSObject {
             webView.observe(\.canGoForward) { [weak self] wv, _ in MainActor.assumeIsolated { self?.canGoForward = wv.canGoForward } },
             webView.observe(\.isLoading) { [weak self] wv, _ in MainActor.assumeIsolated { self?.isLoading = wv.isLoading } },
         ]
-        webView.load(URLRequest(url: URL(string: Self.launchPath, relativeTo: Self.homeURL) ?? Self.homeURL))
+        let launchURL = URL(string: Self.launchPath, relativeTo: Self.homeURL) ?? Self.homeURL
+        Task { @MainActor [webView] in
+            await PageLanguage.apply()
+            webView.load(URLRequest(url: launchURL))
+        }
 
         #if DEBUG
         // Development hook: evaluate JS in the page and print the result to stderr, e.g.
@@ -379,11 +387,22 @@ final class MusicController: NSObject {
     }
     func reload() { webView.reload() }
 
+    /// The page again, in the language the setting now asks for (the same page, or Home).
+    func reloadForPageLanguage() {
+        Task {
+            await PageLanguage.apply()
+            webView.reload()
+        }
+    }
+
     // MARK: Account
 
     func signInCompleted() {
         isShowingSignIn = false
-        webView.load(URLRequest(url: Self.homeURL))
+        Task {
+            await PageLanguage.apply()
+            webView.load(URLRequest(url: Self.homeURL))
+        }
     }
 
     func signOut() async {

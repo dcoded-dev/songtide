@@ -56,7 +56,7 @@ enum Preferences {
     /// Every setting's key (including the sidebar's), for Reset to Defaults. Account data isn't a
     /// setting and is left alone.
     private static let allKeys = [
-        appPresence, keepPlayingWhenClosed, preferSongOverVideo, statusItemClickAction, scrollLongTitles, Accent.key,
+        appPresence, keepPlayingWhenClosed, preferSongOverVideo, statusItemClickAction, scrollLongTitles, Accent.key, PageLanguage.key,
         legacyShowMenuBarPlayer, legacyHideDockWhenClosed,
         "sidebarVisible", "sidebarPlaylistsExpanded", "sidebarHiddenLibraryItems", MusicController.lastPathKey,
         Equalizer.enabledKey, Equalizer.gainsKey, VisualizerModel.autoChangeKey, "visualizerInWindow", "visualizerFills",
@@ -104,6 +104,7 @@ struct SettingsView: View {
     @AppStorage(Preferences.appPresence) private var presence = Preferences.presence.rawValue
     @AppStorage(Preferences.statusItemClickAction) private var statusItemClick = Preferences.StatusItemClick.miniPlayer.rawValue
     @AppStorage(Preferences.scrollLongTitles) private var scrollLongTitles = true
+    @AppStorage(PageLanguage.key) private var pageLanguage = ""
 
     var body: some View {
         // Our own tab bar rather than the window toolbar's, so the chosen tab takes Songtide's accent
@@ -149,6 +150,22 @@ struct SettingsView: View {
                 }
                 Section {
                     AccentPicker()
+                }
+                Section {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Picker("YouTube Music language", selection: $pageLanguage) {
+                            Text("Same as Songtide (\(PageLanguage.songtideLanguageName))").tag("")
+                            Text("My Google account's").tag("account")
+                        }
+                        HStack(spacing: 4) {
+                            Text("Songtide uses your Mac's language.")
+                            Button("Change…") { NSWorkspace.shared.open(URL(string: "x-apple.systempreferences:com.apple.Localization-Settings.extension")!) }
+                                .buttonStyle(.link)
+                        }
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    }
+                    .onChange(of: pageLanguage) { music.reloadForPageLanguage() }
                 }
                 Section {
                     HStack {
