@@ -1,6 +1,8 @@
 name: Songtide
 options:
   bundleIdPrefix: dev.dcoded
+  # English is the source language; translations live in each target's Localizable.xcstrings.
+  developmentLanguage: en
   deploymentTarget:
     macOS: "15.0"
   createIntermediateGroups: true
@@ -20,6 +22,9 @@ settings:
     CODE_SIGN_STYLE: Automatic
     CODE_SIGN_IDENTITY: "Apple Development"
     ENABLE_HARDENED_RUNTIME: YES
+    # Collect SwiftUI and String(localized:) text into the string catalogs at build time.
+    SWIFT_EMIT_LOC_STRINGS: YES
+    LOCALIZATION_PREFERS_STRING_CATALOGS: YES
 targets:
   Songtide:
     type: application
