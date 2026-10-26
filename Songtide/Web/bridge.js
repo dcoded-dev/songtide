@@ -169,11 +169,18 @@
     const title = md?.title || $('.title', b || document)?.textContent?.trim() || '';
     const duration = v && isFinite(v.duration) && v.duration > 0 ? v.duration : (p?.getDuration?.() || 0);
     const repeatLabel = label($('.repeat', b || document));
+    const barImage = $('img.image', b || document)?.getAttribute('src') || '';
+    const barArt = /^https?:\/\/.+\.(ggpht|googleusercontent|ytimg)\./.test(barImage) ? barImage : '';
+    // Going from an album track to an uploaded video, YouTube Music sometimes leaves the last
+    // track's album and cover in the Now Playing details. Its player bar shows the album under the
+    // song ("Artist • Album • Year"); an album missing there is a leftover, and so is the cover.
+    const byline = $('.byline', b || document)?.textContent || '';
+    const stale = !!md?.album && !!byline.trim() && !byline.includes(md.album);
     return {
       title,
       artist: md?.artist || '',
-      album: md?.album || '',
-      artwork: bestArtwork(md) || (/^https?:\/\/.+\.(ggpht|googleusercontent|ytimg)\./.test($('img.image', b || document)?.getAttribute('src') || '') ? $('img.image', b).getAttribute('src') : ''),
+      album: stale ? '' : md?.album || '',
+      artwork: (stale ? barArt : bestArtwork(md)) || barArt,
       videoId: p?.getVideoData?.()?.video_id || '',
       isPlaying: !!v && !v.paused && !v.ended,
       time: v?.currentTime || 0,
