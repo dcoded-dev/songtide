@@ -159,7 +159,7 @@ struct VisualizerView: View {
     private var controls: some View {
         VStack(alignment: .leading, spacing: 8) {
             Spacer()
-            if let message = tap.status.message, tap.status != .running, tap.status != .needsPermission {
+            if let message = tap.status.message, ![.running, .needsPermission, .waitingForAudio].contains(tap.status) {
                 Label(message, systemImage: "info.circle")
                     .font(.callout)
                     .padding(.horizontal, 12).padding(.vertical, 8)
