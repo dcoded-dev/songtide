@@ -283,10 +283,19 @@ struct ContentView: View {
 }
 
 /// One row in the search suggestions list: a query completion, or a direct result with artwork.
+/// Every row has the same set width: the list's window sizes itself to its rows, and a row whose
+/// width follows the window's (a long title cut short) could resize it back and forth until
+/// AppKit gave up and crashed the app.
 private struct SuggestionRow: View {
     let suggestion: SearchSuggestion
 
     var body: some View {
+        content
+            .lineLimit(1)
+            .frame(width: 300, alignment: .leading)
+    }
+
+    @ViewBuilder private var content: some View {
         switch suggestion.kind {
         case .text:
             Label(suggestion.title, systemImage: "magnifyingglass")
